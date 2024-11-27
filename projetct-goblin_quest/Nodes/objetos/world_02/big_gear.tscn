@@ -1,0 +1,391 @@
+[gd_scene load_steps=17 format=3 uid="uid://37vvb4ppwks4"]
+
+[ext_resource type="Texture2D" uid="uid://ckurj17sygsa1" path="res://Sprites/Objetos/world_02/Normal gear.png" id="1_i55d5"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/big_gear.gd" id="1_llqnk"]
+[ext_resource type="Texture2D" uid="uid://b0qp7vk4lllhd" path="res://Sprites/Objetos/world_02/plataform.png" id="2_ciy6j"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/gear_plataform.gd" id="3_3u58f"]
+[ext_resource type="PackedScene" uid="uid://8ylsd34tikxu" path="res://Nodes/objetos/world_02/big_plataform.tscn" id="3_vr3gh"]
+[ext_resource type="Texture2D" uid="uid://bmpgckylrc3qk" path="res://Sprites/Objetos/world_02/central_gear.png" id="4_c3h4h"]
+[ext_resource type="Texture2D" uid="uid://bmr23gq4mfrwm" path="res://Sprites/effects/1x16.png" id="5_7317d"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/central_gear.gd" id="6_55lee"]
+
+[sub_resource type="Animation" id="Animation_73oeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NormalGear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D2/PathFollow2D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Path2D3/PathFollow2D:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Path2D4/PathFollow2D:progress_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CentralGear:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_r417w"]
+resource_name = "Rotation_horario"
+length = 8.0
+loop_mode = 1
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NormalGear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159, 4.71239, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D2/PathFollow2D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Path2D3/PathFollow2D:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Path2D4/PathFollow2D:progress_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CentralGear:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4i741"]
+_data = {
+"RESET": SubResource("Animation_73oeu"),
+"Rotation_horario": SubResource("Animation_r417w")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_o1c1b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -546, 4, -506, 15, 506, -15, -6, -524, 0, 0, 0, 0, 520, 2, 563.364, -10.4882, -563.364, 10.4882, 0, 500, 0, 0, 0, 0, -546, 4)
+}
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_4c5np"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_vkpwl"]
+offsets = PackedFloat32Array(0, 0.177215, 0.586498, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.819806, 0.633736, 0.020404, 1, 0.945308, 0.270647, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o00ih"]
+size = Vector2(480, 160)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jhmbn"]
+radius = 591.574
+
+[node name="Big_gear" type="Node2D"]
+script = ExtResource("1_llqnk")
+
+[node name="NormalGear" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_i55d5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4i741")
+}
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_o1c1b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-546, 4)
+rotation = -0.774163
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../../R_plataform")
+update_rotation = false
+
+[node name="Path2D2" type="Path2D" parent="."]
+rotation = 1.5708
+curve = SubResource("Curve2D_o1c1b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(-546, 4)
+rotation = -0.774163
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D"]
+remote_path = NodePath("../../../n_plataform")
+update_rotation = false
+
+[node name="Path2D3" type="Path2D" parent="."]
+rotation = 3.14159
+curve = SubResource("Curve2D_o1c1b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(-546, 4)
+rotation = -0.774163
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D3/PathFollow2D"]
+remote_path = NodePath("../../../L_plataform")
+update_rotation = false
+
+[node name="Path2D4" type="Path2D" parent="."]
+rotation = 4.71239
+curve = SubResource("Curve2D_o1c1b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(-546, 4)
+rotation = -0.774163
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D4/PathFollow2D"]
+remote_path = NodePath("../../../d_plataform")
+update_rotation = false
+
+[node name="R_plataform" parent="." instance=ExtResource("3_vr3gh")]
+
+[node name="L_plataform" type="AnimatableBody2D" parent="."]
+position = Vector2(546, -4.00138)
+scale = Vector2(1, 1)
+script = ExtResource("3_3u58f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="L_plataform"]
+scale = Vector2(1, 1)
+emitting = false
+amount = 16
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+texture = ExtResource("5_7317d")
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 240.0
+initial_velocity_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_4c5np")
+color_ramp = SubResource("Gradient_vkpwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="L_plataform"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_ciy6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L_plataform"]
+shape = SubResource("RectangleShape2D_o00ih")
+
+[node name="Area2D" type="Area2D" parent="L_plataform"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="L_plataform/Area2D"]
+shape = SubResource("RectangleShape2D_o00ih")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="n_plataform" type="AnimatableBody2D" parent="."]
+position = Vector2(-3.99802, -546)
+script = ExtResource("3_3u58f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="n_plataform"]
+emitting = false
+amount = 16
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+texture = ExtResource("5_7317d")
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 240.0
+initial_velocity_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_4c5np")
+color_ramp = SubResource("Gradient_vkpwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="n_plataform"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_ciy6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="n_plataform"]
+shape = SubResource("RectangleShape2D_o00ih")
+
+[node name="Area2D" type="Area2D" parent="n_plataform"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="n_plataform/Area2D"]
+shape = SubResource("RectangleShape2D_o00ih")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="d_plataform" type="AnimatableBody2D" parent="."]
+position = Vector2(3.99947, 546)
+scale = Vector2(1, 1)
+script = ExtResource("3_3u58f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="d_plataform"]
+scale = Vector2(1, 1)
+emitting = false
+amount = 16
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+texture = ExtResource("5_7317d")
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 240.0
+initial_velocity_max = 720.0
+scale_amount_min = 2.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_4c5np")
+color_ramp = SubResource("Gradient_vkpwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="d_plataform"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_ciy6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="d_plataform"]
+shape = SubResource("RectangleShape2D_o00ih")
+
+[node name="Area2D" type="Area2D" parent="d_plataform"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="d_plataform/Area2D"]
+shape = SubResource("RectangleShape2D_o00ih")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="CentralGear" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -1.90735e-06)
+scale = Vector2(10, 10)
+texture = ExtResource("4_c3h4h")
+hframes = 2
+script = ExtResource("6_55lee")
+
+[node name="Area2D" type="Area2D" parent="CentralGear"]
+position = Vector2(0.399947, 54.6)
+scale = Vector2(0.1, 0.1)
+collision_layer = 0
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CentralGear/Area2D"]
+position = Vector2(-4.99947, -547)
+shape = SubResource("CircleShape2D_jhmbn")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[connection signal="area_entered" from="L_plataform/Area2D" to="L_plataform" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="n_plataform/Area2D" to="n_plataform" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="d_plataform/Area2D" to="d_plataform" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="CentralGear/Area2D" to="CentralGear" method="_on_area_2d_area_entered"]

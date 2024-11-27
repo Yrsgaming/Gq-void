@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ch2rua78pe170"]
+
+[ext_resource type="Shader" path="res://Nodes/objetos/dark_zone.gdshader" id="1_55eny"]
+[ext_resource type="Script" path="res://Nodes/objetos/dark_zone.gd" id="1_sbryi"]
+[ext_resource type="Texture2D" uid="uid://4gkf8xyocmuv" path="res://Sprites/Objetos/zona_escura_base.png" id="2_dvsmy"]
+[ext_resource type="Texture2D" uid="uid://c0pknvrltxecx" path="res://Sprites/Objetos/zona escura coberta.png" id="3_yajnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2pdm"]
+size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmnp3"]
+shader = ExtResource("1_55eny")
+shader_parameter/red_factor = 0.746
+shader_parameter/green_factor = 0.114
+shader_parameter/blue_factor = 1.524
+shader_parameter/saturation = 1.0
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 0.93
+shader_parameter/hue_shift = -0.141
+shader_parameter/gamma = 1.0
+
+[node name="Dark_zone" type="Area2D"]
+collision_layer = 0
+collision_mask = 8192
+script = ExtResource("1_sbryi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_m2pdm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.65, 0.65, 0.65, 0.713726)
+material = SubResource("ShaderMaterial_vmnp3")
+texture = ExtResource("2_dvsmy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.345098)
+scale = Vector2(1, 0.994048)
+texture = ExtResource("3_yajnj")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

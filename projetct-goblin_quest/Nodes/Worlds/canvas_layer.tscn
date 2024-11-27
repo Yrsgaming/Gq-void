@@ -1,0 +1,182 @@
+[gd_scene load_steps=17 format=3 uid="uid://bv6vy8xmyu12d"]
+
+[ext_resource type="SpriteFrames" uid="uid://b5b38sq5tlfm2" path="res://Nodes/Worlds/sprite-inout.tres" id="1_3j6nb"]
+[ext_resource type="Script" path="res://Nodes/Worlds/canvas_layer.gd" id="1_h7voj"]
+[ext_resource type="Texture2D" uid="uid://dykbre5brd8ev" path="res://Sprites/Goblin_bases/timer_yellow1.png" id="2_hto10"]
+[ext_resource type="Texture2D" uid="uid://c04ae8666gasx" path="res://Sprites/Goblin_bases/timer_red_ex1.png" id="3_gxb3x"]
+[ext_resource type="Texture2D" uid="uid://c7xqkl44tmkxp" path="res://Sprites/Goblin_bases/timer_yellow2.png" id="5_fjm07"]
+[ext_resource type="Texture2D" uid="uid://ba8eth3uqgu7h" path="res://Sprites/Goblin_bases/timer_yellow3.png" id="6_50e4s"]
+[ext_resource type="Texture2D" uid="uid://cb7i2kbfu73fn" path="res://Sprites/Goblin_bases/timer_yellow4.png" id="7_m0es3"]
+[ext_resource type="Texture2D" uid="uid://dx2mcrx0318fd" path="res://Sprites/Goblin_bases/timer_yellow5.png" id="8_dycjp"]
+[ext_resource type="Texture2D" uid="uid://b28qbvi6c36en" path="res://Sprites/Goblin_bases/timer_red_ex2.png" id="9_nh6pb"]
+[ext_resource type="Texture2D" uid="uid://1t5pd0t7ykqj" path="res://Sprites/Goblin_bases/timer_red_ex3.png" id="10_s4w4n"]
+[ext_resource type="Texture2D" uid="uid://w70p37hvhcew" path="res://Sprites/Goblin_bases/timer_red_ex4.png" id="11_n5jtj"]
+[ext_resource type="Texture2D" uid="uid://c4jfkwvdqwcol" path="res://Sprites/Goblin_bases/timer_red_ex5.png" id="12_xohw0"]
+
+[sub_resource type="Animation" id="Animation_mbnl6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hud/Yellow:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_hto10")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hud/Red:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_gxb3x")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hud/Yellow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hud/Red:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_80q3o"]
+resource_name = "Yellow_timer"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hud/Yellow:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_hto10"), ExtResource("5_fjm07"), ExtResource("6_50e4s"), ExtResource("7_m0es3"), ExtResource("8_dycjp")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hud/Yellow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_31osf"]
+resource_name = "Red_timer"
+length = 4.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hud/Red:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_gxb3x"), ExtResource("9_nh6pb"), ExtResource("10_s4w4n"), ExtResource("11_n5jtj"), ExtResource("12_xohw0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hud/Red:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aejjd"]
+_data = {
+"RESET": SubResource("Animation_mbnl6"),
+"Red_timer": SubResource("Animation_31osf"),
+"Yellow_timer": SubResource("Animation_80q3o")
+}
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_h7voj")
+
+[node name="Hud" type="Control" parent="."]
+layout_direction = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="Yellow" type="TextureRect" parent="Hud"]
+visible = false
+layout_mode = 1
+offset_left = 1108.0
+offset_right = 1148.0
+offset_bottom = 40.0
+rotation = -2.72089e-05
+scale = Vector2(5.70117, 5.70117)
+texture = ExtResource("2_hto10")
+
+[node name="Red" type="TextureRect" parent="Hud"]
+visible = false
+layout_mode = 1
+offset_left = 881.0
+offset_right = 921.0
+offset_bottom = 40.0
+rotation = -2.72089e-05
+scale = Vector2(5.70117, 5.70117)
+texture = ExtResource("3_gxb3x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576.25, 326.25)
+scale = Vector2(1.33083, 1.35938)
+sprite_frames = ExtResource("1_3j6nb")
+animation = &"death_anim(R)"
+frame = 39
+frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aejjd")
+}
+
+[connection signal="animation_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://by60d0wywcklf"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/metal_door.gd" id="1_k1yyt"]
+[ext_resource type="Texture2D" uid="uid://defie2gx3jae4" path="res://Sprites/Objetos/world_02/door.png" id="1_ym3wj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chpfd"]
+size = Vector2(8.2, 23.8)
+
+[sub_resource type="Animation" id="Animation_swuxv"]
+resource_name = "OPEN"
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.571429),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ixdkk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8xnb"]
+_data = {
+"OPEN": SubResource("Animation_swuxv"),
+"RESET": SubResource("Animation_ixdkk")
+}
+
+[node name="DOOR" type="StaticBody2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_k1yyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ym3wj")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.14441e-06, -0.1)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_chpfd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e8xnb")
+}

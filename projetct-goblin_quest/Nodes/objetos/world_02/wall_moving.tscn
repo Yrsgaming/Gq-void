@@ -1,0 +1,131 @@
+[gd_scene load_steps=12 format=3 uid="uid://cb5dkre3ek0m5"]
+
+[ext_resource type="Texture2D" uid="uid://bwg3owoj64ng6" path="res://Sprites/Objetos/world_02/wall_moving.png" id="1_k2m0b"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/wall_moving.gd" id="1_kd8mf"]
+[ext_resource type="Texture2D" uid="uid://bmpgckylrc3qk" path="res://Sprites/Objetos/world_02/central_gear.png" id="3_bh11b"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/central_gear.gd" id="4_j0jau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dulnl"]
+size = Vector2(39.5, 119.8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt4yg"]
+size = Vector2(40, 143.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e1n0"]
+size = Vector2(39.9, 318.2)
+
+[sub_resource type="Animation" id="Animation_dbqsx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CentralGear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CentralGear/Area2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xgcfw"]
+resource_name = "rot"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CentralGear:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CentralGear/Area2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.28319, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbbge"]
+_data = {
+"RESET": SubResource("Animation_dbqsx"),
+"rot": SubResource("Animation_xgcfw")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqgen"]
+size = Vector2(396, 3168)
+
+[node name="Wall_moving" type="Node2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_kd8mf")
+
+[node name="WallMoving" type="Sprite2D" parent="."]
+texture = ExtResource("1_k2m0b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.0500023, 100)
+shape = SubResource("RectangleShape2D_dulnl")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-1.71661e-06, -87.85)
+shape = SubResource("RectangleShape2D_yt4yg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 65536
+collision_mask = 65536
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.250002, -1.2207e-05)
+shape = SubResource("RectangleShape2D_7e1n0")
+debug_color = Color(0.6, 0.5334, 0.156, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xbbge")
+}
+
+[node name="CentralGear" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -1.90735e-06)
+texture = ExtResource("3_bh11b")
+hframes = 2
+script = ExtResource("4_j0jau")
+
+[node name="Area2D" type="Area2D" parent="CentralGear"]
+scale = Vector2(0.1, 0.1)
+collision_layer = 0
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CentralGear/Area2D"]
+position = Vector2(-3.99947, 4.00016)
+shape = SubResource("RectangleShape2D_fqgen")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="CentralGear/Area2D" to="CentralGear" method="_on_area_2d_area_entered"]

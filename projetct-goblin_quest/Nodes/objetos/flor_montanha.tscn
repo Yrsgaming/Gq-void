@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3akcuysy6muk"]
+
+[ext_resource type="Texture2D" uid="uid://cpatsgsciqn2y" path="res://Sprites/Objetos/flor_montanha.png" id="1_5ic1t"]
+[ext_resource type="Script" path="res://Nodes/objetos/flor_montanha.gd" id="1_p1p83"]
+
+[sub_resource type="Animation" id="Animation_74quw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_j1s2x"]
+resource_name = "desabrochar"
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/StaticBody2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d50y3"]
+_data = {
+"RESET": SubResource("Animation_74quw"),
+"desabrochar": SubResource("Animation_j1s2x")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcarf"]
+size = Vector2(15.9, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djsj0"]
+radius = 11.1288
+
+[node name="Flor_montanha" type="Node2D"]
+position = Vector2(0, -12)
+scale = Vector2(10, 10)
+script = ExtResource("1_p1p83")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d50y3")
+}
+
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pivot"]
+position = Vector2(0, 66)
+texture = ExtResource("1_5ic1t")
+hframes = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="pivot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/StaticBody2D"]
+position = Vector2(0.0499994, -9)
+shape = SubResource("RectangleShape2D_tcarf")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.4, -8.8)
+shape = SubResource("CircleShape2D_djsj0")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

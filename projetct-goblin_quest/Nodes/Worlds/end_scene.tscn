@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b86cic8c8muit"]
+
+[ext_resource type="Texture2D" uid="uid://351i7iiw3ofm" path="res://Sprites/paralax/end.png" id="1_s7a2h"]
+[ext_resource type="Script" path="res://Nodes/Worlds/end_scene.gd" id="1_w7ymn"]
+
+[node name="End_scene" type="Node2D"]
+script = ExtResource("1_w7ymn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.695, 323.5)
+scale = Vector2(1.34024, 1.35208)
+texture = ExtResource("1_s7a2h")

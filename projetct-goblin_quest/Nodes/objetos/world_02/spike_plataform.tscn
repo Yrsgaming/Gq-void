@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt00v514kg87j"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/spike_plataform.gd" id="1_emyhs"]
+[ext_resource type="Texture2D" uid="uid://b72ppay6cvbia" path="res://Sprites/Objetos/world_02/small_plataform_spike.png" id="2_ulx3p"]
+[ext_resource type="Texture2D" uid="uid://5gcgv5wvi5qw" path="res://Sprites/Objetos/spike.png" id="3_q8q8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5jkb"]
+size = Vector2(240, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejog3"]
+size = Vector2(242, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbaj7"]
+size = Vector2(243, 98)
+
+[node name="Spike_small_plataform" type="AnimatableBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_emyhs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_ulx3p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_p5jkb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3.05176e-05, 2.38419e-06)
+shape = SubResource("RectangleShape2D_ejog3")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="Spike" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Spike"]
+texture = ExtResource("3_q8q8v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(-0.5, 1.90735e-06)
+shape = SubResource("RectangleShape2D_kbaj7")
+debug_color = Color(0.968627, 0.176471, 0, 0.0980392)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

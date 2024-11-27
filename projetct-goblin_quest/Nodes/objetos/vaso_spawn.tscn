@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp7nnmc6alh0f"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/vaso_spawn.gd" id="1_cklq1"]
+[ext_resource type="Texture2D" uid="uid://bspvq4kaptmrp" path="res://Sprites/Objetos/vaso_spawner.png" id="1_jmym7"]
+
+[node name="vaso_spawn" type="Node2D"]
+script = ExtResource("1_cklq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jmym7")
+hframes = 8
+
+[node name="load" type="Timer" parent="."]
+one_shot = true
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="load" to="." method="_on_load_timeout"]
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

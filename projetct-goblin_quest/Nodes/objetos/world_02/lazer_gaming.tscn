@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6rhs38ot76r4"]
+
+[ext_resource type="Script" path="res://lazer_gaming.gd" id="1_sgpav"]
+[ext_resource type="Texture2D" uid="uid://bemjrue6va6ft" path="res://Sprites/Objetos/world_02/lazer_WORLD_02.png" id="2_0yoqo"]
+
+[sub_resource type="Curve" id="Curve_0l0g6"]
+_data = [Vector2(0.0433213, 0.124825), 0.0, 0.0, 0, 0, Vector2(0.555957, 1), 0.0, 0.0, 0, 0, Vector2(0.98917, 0.325386), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Lazer_gaming" type="Node2D"]
+script = ExtResource("1_sgpav")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 0, 0)
+width_curve = SubResource("Curve_0l0g6")
+default_color = Color(1, 0, 0, 1)
+
+[node name="LazerWorld02" type="Sprite2D" parent="."]
+texture = ExtResource("2_0yoqo")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 2000)
+collision_mask = 3
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

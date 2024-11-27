@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://i1csmdvwp5a2"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/wall_cart_break.gd" id="1_24eri"]
+[ext_resource type="Texture2D" uid="uid://bmy0i2uuhwq7h" path="res://Sprites/Objetos/cart_obs.png" id="1_do1qk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gt0x1"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k6236"]
+size = Vector2(18, 18)
+
+[node name="wall_cart_break" type="Node2D"]
+script = ExtResource("1_24eri")
+
+[node name="CartObs" type="Sprite2D" parent="."]
+texture = ExtResource("1_do1qk")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_gt0x1")
+
+[node name="Cart_area" type="Area2D" parent="."]
+collision_layer = 1048576
+collision_mask = 1048576
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cart_area"]
+shape = SubResource("RectangleShape2D_k6236")
+debug_color = Color(0, 0.595, 0.7, 0.027451)
+
+[connection signal="area_entered" from="Cart_area" to="." method="_on_cart_area_area_entered"]

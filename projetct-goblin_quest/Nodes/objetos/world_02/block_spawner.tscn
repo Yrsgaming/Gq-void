@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://csabh26ex6ikc"]
+
+[ext_resource type="Texture2D" uid="uid://dxlcbfwlgqrp6" path="res://Sprites/Objetos/world_02/spawner.png" id="1_g0a1h"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/block_spawner.gd" id="1_ju2ln"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ja3sy"]
+size = Vector2(24, 24)
+
+[sub_resource type="Animation" id="Animation_1puvf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spawner:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_ydgoe"]
+resource_name = "close"
+length = 0.5
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spawner:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_y1su2"]
+resource_name = "off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spawner:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_761uy"]
+resource_name = "on"
+length = 0.5
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spawner:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5tuyf"]
+_data = {
+"RESET": SubResource("Animation_1puvf"),
+"close": SubResource("Animation_ydgoe"),
+"off": SubResource("Animation_y1su2"),
+"on": SubResource("Animation_761uy")
+}
+
+[node name="block_spawner" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_ju2ln")
+
+[node name="Spawner" type="Sprite2D" parent="."]
+z_index = 4
+texture = ExtResource("1_g0a1h")
+hframes = 4
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ja3sy")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5tuyf")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-5, 5)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

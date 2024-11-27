@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmp72c8hk88go"]
+
+[ext_resource type="Texture2D" uid="uid://8njlcevqkmgu" path="res://Sprites/Enemys/dark_enemy.png" id="1_3occc"]
+[ext_resource type="Script" path="res://Nodes/enemys/dark_enemy.gd" id="1_fmcm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulcjo"]
+atlas = ExtResource("1_3occc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usp3w"]
+atlas = ExtResource("1_3occc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvnya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulcjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usp3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u6v17"]
+radius = 7.75004
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b8nv"]
+radius = 141.598
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ocigb"]
+radius = 11.6004
+
+[node name="Dark_enemy" type="CharacterBody2D"]
+scale = Vector2(10, 10)
+collision_layer = 16385
+collision_mask = 16385
+motion_mode = 1
+safe_margin = 28.962
+script = ExtResource("1_fmcm6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_mvnya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, 0.0250004)
+shape = SubResource("CircleShape2D_u6v17")
+
+[node name="Locate_enemy" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Locate_enemy"]
+shape = SubResource("CircleShape2D_4b8nv")
+debug_color = Color(0.516934, 0.419874, 1, 0)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_ocigb")
+debug_color = Color(0.969, 0.176, 0, 0)
+
+[connection signal="area_entered" from="Locate_enemy" to="." method="_on_locate_enemy_area_entered"]
+[connection signal="area_exited" from="Locate_enemy" to="." method="_on_locate_enemy_area_exited"]

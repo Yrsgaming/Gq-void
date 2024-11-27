@@ -1,0 +1,497 @@
+[gd_scene load_steps=14 format=3 uid="uid://dbjl5v57ascyl"]
+
+[ext_resource type="Script" path="res://start_scene.gd" id="1_xjic3"]
+[ext_resource type="Texture2D" uid="uid://byp7celb7v4jx" path="res://Sprites/menu_bk.png" id="2_s6arh"]
+[ext_resource type="Script" path="res://Nodes/camera_2d.gd" id="2_uul6r"]
+[ext_resource type="Texture2D" uid="uid://c04ae8666gasx" path="res://Sprites/Goblin_bases/timer_red_ex1.png" id="3_41krc"]
+[ext_resource type="Texture2D" uid="uid://cfiec5ts8m3bi" path="res://Sprites/Goblin_bases/Goblin_guerreiro.png" id="3_68xqy"]
+[ext_resource type="Texture2D" uid="uid://dykbre5brd8ev" path="res://Sprites/Goblin_bases/timer_yellow1.png" id="4_5rabl"]
+[ext_resource type="Texture2D" uid="uid://dgp6q2pgv8mv0" path="res://Sprites/Goblin_bases/goblin_jump.png" id="4_kkvu8"]
+[ext_resource type="Texture2D" uid="uid://dmk1ptdlyrxgb" path="res://Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="6_05ngs"]
+[ext_resource type="Texture2D" uid="uid://1ml436l312ty" path="res://Sprites/MENU_start.png" id="6_u6q44"]
+[ext_resource type="Texture2D" uid="uid://dk7n3y17xgapg" path="res://Sprites/start_off.png" id="7_4w7yf"]
+
+[sub_resource type="Animation" id="Animation_cy2qj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(712, 388)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D3:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_kkb4i"]
+resource_name = "ready"
+length = 8.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(712, 388), Vector2(624, 449), Vector2(799, 474)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.03333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 2.0, 1.0, 1.51266, 2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D2:energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.96667, 4, 6.03333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 2.0, 0.5, 2.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D3:energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.03333, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.5, 1.0, 0.5, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ndqru"]
+_data = {
+"RESET": SubResource("Animation_cy2qj"),
+"ready": SubResource("Animation_kkb4i")
+}
+
+[node name="Start_scene" type="Node2D"]
+script = ExtResource("1_xjic3")
+
+[node name="MenuBk" type="Sprite2D" parent="."]
+position = Vector2(1288, 720)
+scale = Vector2(3, 3)
+texture = ExtResource("2_s6arh")
+
+[node name="MenuP1" type="Sprite2D" parent="."]
+position = Vector2(2166, 287)
+scale = Vector2(-60, 60)
+texture = ExtResource("3_68xqy")
+
+[node name="MenuP2" type="Sprite2D" parent="."]
+position = Vector2(138, 366)
+scale = Vector2(60, 60)
+texture = ExtResource("4_kkvu8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 322)
+script = ExtResource("2_uul6r")
+
+[node name="button_sutff" type="Node2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(214, 377)
+
+[node name="Start" type="TextureButton" parent="button_sutff"]
+offset_left = 159.0
+offset_top = -46.0
+offset_right = 223.0
+offset_bottom = -6.0
+scale = Vector2(6.84563, 1.84675)
+toggle_mode = true
+texture_normal = ExtResource("6_u6q44")
+texture_pressed = ExtResource("7_4w7yf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="P1 CONFIG" type="Button" parent="button_sutff"]
+offset_left = 1030.0
+offset_top = -312.0
+offset_right = 1217.0
+offset_bottom = -281.0
+text = "CONFIGURAR INPUT P1
+"
+
+[node name="up" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 217.0
+offset_right = 39.0
+offset_bottom = 240.0
+text = "UP
+"
+
+[node name="left" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 250.0
+offset_right = 39.0
+offset_bottom = 273.0
+text = "Left
+"
+
+[node name="right" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 287.0
+offset_right = 39.0
+offset_bottom = 310.0
+text = "right
+"
+
+[node name="grab" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 320.0
+offset_right = 39.0
+offset_bottom = 343.0
+text = "grab
+"
+
+[node name="Throw" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_top = 354.0
+offset_right = 47.0
+offset_bottom = 377.0
+text = "throw
+"
+
+[node name="Camera_change" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = 383.0
+offset_right = 53.0
+offset_bottom = 406.0
+text = "camera change
+"
+
+[node name="teleport" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = -10.0
+offset_top = 412.0
+offset_right = 53.0
+offset_bottom = 435.0
+text = "teleport"
+
+[node name="Label_up" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 218.0
+offset_right = 141.0
+offset_bottom = 241.0
+text = "arrow_up
+"
+
+[node name="Label_left" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 252.0
+offset_right = 141.0
+offset_bottom = 275.0
+text = "arrow_left
+"
+
+[node name="Label_right" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 288.0
+offset_right = 146.0
+offset_bottom = 311.0
+text = "arrow_right
+"
+
+[node name="Label_grab" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 322.0
+offset_right = 146.0
+offset_bottom = 345.0
+text = "SPACEBAR
+"
+
+[node name="Label_throw" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 355.0
+offset_right = 146.0
+offset_bottom = 378.0
+text = "M
+"
+
+[node name="Label_camera" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 384.0
+offset_right = 146.0
+offset_bottom = 407.0
+text = "N
+"
+
+[node name="Label_teleport" type="Label" parent="button_sutff/P1 CONFIG"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 414.0
+offset_right = 146.0
+offset_bottom = 437.0
+text = ".
+"
+
+[node name="Input_delay" type="Timer" parent="button_sutff/P1 CONFIG"]
+wait_time = 0.2
+one_shot = true
+
+[node name="TimerRedEx1" type="Sprite2D" parent="button_sutff/P1 CONFIG"]
+position = Vector2(95, 118)
+scale = Vector2(10, 10)
+texture = ExtResource("3_41krc")
+
+[node name="p2_CONFIG" type="Button" parent="button_sutff"]
+offset_left = 1608.0
+offset_top = -305.0
+offset_right = 1795.0
+offset_bottom = -274.0
+text = "CONFIGURAR INPUT P2
+"
+metadata/_edit_group_ = true
+
+[node name="up" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 208.0
+offset_right = 53.0
+offset_bottom = 231.0
+text = "UP
+"
+
+[node name="left" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 241.0
+offset_right = 53.0
+offset_bottom = 264.0
+text = "Left
+"
+
+[node name="right" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 278.0
+offset_right = 53.0
+offset_bottom = 301.0
+text = "right
+"
+
+[node name="grab" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 311.0
+offset_right = 53.0
+offset_bottom = 334.0
+text = "grab
+"
+
+[node name="Throw" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 345.0
+offset_right = 61.0
+offset_bottom = 368.0
+text = "throw
+"
+
+[node name="Label_up" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 209.0
+offset_right = 155.0
+offset_bottom = 232.0
+text = "w
+
+"
+
+[node name="Label_left" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 243.0
+offset_right = 160.0
+offset_bottom = 266.0
+text = "A"
+
+[node name="Label_right" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 279.0
+offset_right = 171.0
+offset_bottom = 302.0
+text = "D"
+
+[node name="Label_grab" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 313.0
+offset_right = 161.0
+offset_bottom = 336.0
+text = "G"
+
+[node name="Label_throw" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 346.0
+offset_right = 160.0
+offset_bottom = 369.0
+text = "F"
+
+[node name="TimerYellow1" type="Sprite2D" parent="button_sutff/p2_CONFIG"]
+position = Vector2(88.0001, 115)
+scale = Vector2(10, 10)
+texture = ExtResource("4_5rabl")
+
+[node name="Camera_change" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 375.0
+offset_right = 64.0
+offset_bottom = 398.0
+text = "camera change
+"
+
+[node name="teleport" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 404.0
+offset_right = 64.0
+offset_bottom = 427.0
+text = "teleport"
+
+[node name="Label_camera" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 373.0
+offset_right = 159.0
+offset_bottom = 396.0
+text = "T
+"
+
+[node name="Label_teleport" type="Label" parent="button_sutff/p2_CONFIG"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 402.0
+offset_right = 159.0
+offset_bottom = 425.0
+text = "E
+"
+
+[node name="GO_INPUT" type="Button" parent="button_sutff"]
+offset_left = 317.0
+offset_top = 41.0
+offset_right = 446.0
+offset_bottom = 72.0
+text = "CHANGE_INPUT"
+
+[node name="Baack" type="Button" parent="button_sutff"]
+offset_left = 947.0
+offset_top = -374.0
+offset_right = 1025.0
+offset_bottom = -343.0
+text = "GO BACK
+"
+
+[node name="P1_CONFIG" type="TextureButton" parent="button_sutff"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(712, 388)
+texture = ExtResource("6_05ngs")
+texture_scale = 3.89
+height = 6.0
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(165, 501)
+energy = 0.59
+texture = ExtResource("6_05ngs")
+texture_scale = 2.59
+height = 6.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1344, 255)
+texture = ExtResource("6_05ngs")
+texture_scale = 3.89
+height = 6.0
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(1913, 251)
+texture = ExtResource("6_05ngs")
+texture_scale = 3.89
+height = 6.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ndqru")
+}
+
+[connection signal="pressed" from="button_sutff/Start" to="." method="_on_start_pressed"]
+[connection signal="button_down" from="button_sutff/P1 CONFIG" to="." method="_on_p_1_config_button_down"]
+[connection signal="timeout" from="button_sutff/P1 CONFIG/Input_delay" to="." method="_on_input_delay_timeout"]
+[connection signal="pressed" from="button_sutff/p2_CONFIG" to="." method="_on_p_2_config_pressed"]
+[connection signal="pressed" from="button_sutff/GO_INPUT" to="." method="_on_go_input_pressed"]
+[connection signal="pressed" from="button_sutff/Baack" to="." method="_on_baack_pressed"]

@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4peho1mv1wim"]
+
+[ext_resource type="Script" path="res://belt_right.gd" id="1_01ljm"]
+[ext_resource type="Texture2D" uid="uid://d355fk8k2hch7" path="res://Sprites/Objetos/world_02/belt.png" id="2_v24ex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhbvb"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86uo7"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5wvo"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh8p6"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(80, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fwa1"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(104, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hga6k"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(128, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3pb0"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(152, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wols"]
+atlas = ExtResource("2_v24ex")
+region = Rect2(176, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uii2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhbvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86uo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5wvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh8p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fwa1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hga6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3pb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wols")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd3d1"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxsec"]
+size = Vector2(8, 1.4)
+
+[node name="belt_right" type="StaticBody2D"]
+script = ExtResource("1_01ljm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uii2l")
+frame_progress = 0.641265
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90735e-07, 1.90735e-07)
+shape = SubResource("RectangleShape2D_hd3d1")
+
+[node name="moving" type="Area2D" parent="."]
+collision_layer = 262144
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving"]
+position = Vector2(0, -4.7)
+shape = SubResource("RectangleShape2D_jxsec")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

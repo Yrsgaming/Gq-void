@@ -1,0 +1,301 @@
+[gd_scene load_steps=19 format=3 uid="uid://cxda3vblb6hl"]
+
+[ext_resource type="Texture2D" uid="uid://cih7p0gf0eaib" path="res://Sprites/Objetos/cart_back.png" id="1_irq1g"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/cart.gd" id="1_opa3j"]
+[ext_resource type="Texture2D" uid="uid://csvo41y0locbc" path="res://Sprites/Objetos/front_cart.png" id="2_fnjh1"]
+[ext_resource type="Texture2D" uid="uid://dy5b7ur3twdit" path="res://Sprites/Objetos/rodacarro.png" id="3_c2xro"]
+[ext_resource type="Texture2D" uid="uid://mr08go1dwbeo" path="res://Sprites/Objetos/cart_plataform.png" id="5_utiwv"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6nvfg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a1lcn"]
+size = Vector2(13, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i6g3"]
+size = Vector2(12, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yahwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7cew"]
+size = Vector2(54, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tj7qe"]
+size = Vector2(54, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqg1n"]
+size = Vector2(520, 320)
+
+[sub_resource type="Animation" id="Animation_s8iat"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D3/CartBack:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D3/FrontCart:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot_rodas/Rodacarro:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot_rodas/Rodacarro2:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v24xo"]
+resource_name = "down_right"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D3/CartBack:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.174533]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionPolygon2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D3/FrontCart:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.174533]
+}
+
+[sub_resource type="Animation" id="Animation_2i5kr"]
+resource_name = "rodar"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot_rodas/Rodacarro:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot_rodas/Rodacarro2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y3r62"]
+_data = {
+"RESET": SubResource("Animation_s8iat"),
+"down_right": SubResource("Animation_v24xo"),
+"rodar": SubResource("Animation_2i5kr")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55h8k"]
+size = Vector2(56, 2.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ud33y"]
+size = Vector2(67, 39)
+
+[node name="cart" type="CharacterBody2D"]
+script = ExtResource("1_opa3j")
+
+[node name="Node2D3" type="Node2D" parent="."]
+
+[node name="CartBack" type="Sprite2D" parent="Node2D3"]
+texture = ExtResource("1_irq1g")
+
+[node name="FrontCart" type="Sprite2D" parent="Node2D3"]
+texture = ExtResource("2_fnjh1")
+
+[node name="Node2D4" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Node2D4"]
+position = Vector2(12, 6)
+
+[node name="Plataform_R" type="StaticBody2D" parent="Node2D4/Node2D"]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_6nvfg")
+
+[node name="CartPlataform" type="Sprite2D" parent="Node2D4/Node2D/Plataform_R"]
+texture = ExtResource("5_utiwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D4/Node2D/Plataform_R"]
+shape = SubResource("RectangleShape2D_a1lcn")
+
+[node name="R" type="Area2D" parent="Node2D4/Node2D/Plataform_R"]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D4/Node2D/Plataform_R/R"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_2i6g3")
+
+[node name="Node2D2" type="Node2D" parent="Node2D4"]
+position = Vector2(-11, 6)
+
+[node name="Plataform_L" type="StaticBody2D" parent="Node2D4/Node2D2"]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_yahwc")
+
+[node name="CartPlataform" type="Sprite2D" parent="Node2D4/Node2D2/Plataform_L"]
+texture = ExtResource("5_utiwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D4/Node2D2/Plataform_L"]
+shape = SubResource("RectangleShape2D_a1lcn")
+
+[node name="L" type="Area2D" parent="Node2D4/Node2D2/Plataform_L"]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D4/Node2D2/Plataform_L/L"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_2i6g3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-22, -8, -23, -10, -27, -10, -27, 15, -27, 26, 27, 26, 27, 15, 27, -10, 22, -8, 22, 14, -22, 14)
+
+[node name="Pivot_rodas" type="Node2D" parent="."]
+
+[node name="Rodacarro" type="Sprite2D" parent="Pivot_rodas"]
+position = Vector2(-15, 18)
+texture = ExtResource("3_c2xro")
+
+[node name="Rodacarro2" type="Sprite2D" parent="Pivot_rodas"]
+position = Vector2(14, 18)
+texture = ExtResource("3_c2xro")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_w7cew")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="player_grab" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8192
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_grab"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_tj7qe")
+debug_color = Color(0.96, 0.208, 0, 0)
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(0.399947, 54.6)
+scale = Vector2(0.1, 0.1)
+collision_layer = 0
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-3.99945, -506)
+shape = SubResource("RectangleShape2D_hqg1n")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y3r62")
+}
+
+[node name="Spike" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(0, 23)
+shape = SubResource("RectangleShape2D_55h8k")
+debug_color = Color(0.968627, 0.176471, 0, 0.0980392)
+
+[node name="Coli_area" type="Area2D" parent="."]
+collision_layer = 1048576
+collision_mask = 1048576
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coli_area"]
+position = Vector2(0.5, 4.5)
+shape = SubResource("RectangleShape2D_ud33y")
+debug_color = Color(1.78084e-06, 0.812428, 0.155204, 0)
+
+[connection signal="area_entered" from="Node2D4/Node2D/Plataform_R/R" to="." method="_on_r_area_entered"]
+[connection signal="area_exited" from="Node2D4/Node2D/Plataform_R/R" to="." method="_on_r_area_exited"]
+[connection signal="area_entered" from="Node2D4/Node2D2/Plataform_L/L" to="." method="_on_l_area_entered"]
+[connection signal="area_exited" from="Node2D4/Node2D2/Plataform_L/L" to="." method="_on_l_area_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="player_grab" to="." method="_on_player_grab_area_entered"]
+[connection signal="area_exited" from="player_grab" to="." method="_on_player_grab_area_exited"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

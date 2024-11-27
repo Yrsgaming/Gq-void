@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://f3f7evb8rk22"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/switch_red_reverse.gd" id="1_7ynhs"]
+[ext_resource type="Texture2D" uid="uid://ctv1sgkp5j5sf" path="res://Sprites/Objetos/switch_block_red.png" id="2_mpupn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkrch"]
+size = Vector2(8, 8)
+
+[node name="switch_red_reverse" type="Node2D"]
+script = ExtResource("1_7ynhs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mpupn")
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_jkrch")

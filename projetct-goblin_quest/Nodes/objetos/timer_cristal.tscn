@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=3 uid="uid://m6oos8gs68te"]
+
+[ext_resource type="Texture2D" uid="uid://bcrfj5qpfotwd" path="res://Sprites/Objetos/Y_cristal.png" id="1_io8ho"]
+[ext_resource type="Script" path="res://Nodes/objetos/timer_cristal.gd" id="1_tvcsh"]
+
+[sub_resource type="Gradient" id="Gradient_dx7bb"]
+offsets = PackedFloat32Array(0, 0.442197, 0.861272)
+colors = PackedColorArray(1, 1, 1, 1, 0.800578, 0.800578, 0.800578, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qt1tk"]
+gradient = SubResource("Gradient_dx7bb")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.495726, 0.487179)
+fill_to = Vector2(0.82906, 0.252137)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mmvqp"]
+radius = 0.01
+
+[sub_resource type="Animation" id="Animation_8eil1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D2:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+
+[sub_resource type="Animation" id="Animation_3ldku"]
+resource_name = "on_off"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 1.96667, 3, 4.03333, 5.06667, 6, 6.26667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.01, 15.0, 14.0, 15.0, 14.0, 15.0, 0.01]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionShape2D2:shape:radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667, 1.96667, 6, 7.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.01, 736.359, 736.359, 0.01]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fqkc7"]
+_data = {
+"RESET": SubResource("Animation_8eil1"),
+"on_off": SubResource("Animation_3ldku")
+}
+
+[node name="Timer_cristal" type="Node2D"]
+script = ExtResource("1_tvcsh")
+wait_time = 1.0
+
+[node name="YCristal" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_io8ho")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.473, 1, 0.882, 0.443)
+texture = SubResource("GradientTexture2D_qt1tk")
+texture_scale = 0.01
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_mmvqp")
+debug_color = Color(0, 0.595, 0.7, 0.490196)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fqkc7")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

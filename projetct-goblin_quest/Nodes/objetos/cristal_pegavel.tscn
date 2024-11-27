@@ -1,0 +1,268 @@
+[gd_scene load_steps=17 format=3 uid="uid://br3fcuv6pa01"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/cristal_pegavel.gd" id="1_5hhal"]
+[ext_resource type="Script" path="res://Nodes/objetos/vaso_obj.gd" id="2_uwuqa"]
+[ext_resource type="Texture2D" uid="uid://clcveafnml3nh" path="res://Sprites/Objetos/cristal_brilhar.png" id="3_8srb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xruth"]
+size = Vector2(7.9, 7.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx0f7"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0rah"]
+size = Vector2(12.7, 11.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md2cg"]
+size = Vector2(15, 13)
+
+[sub_resource type="Gradient" id="Gradient_leuqq"]
+offsets = PackedFloat32Array(0, 0.442197, 0.861272)
+colors = PackedColorArray(1, 1, 1, 1, 0.800578, 0.800578, 0.800578, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m0n07"]
+gradient = SubResource("Gradient_leuqq")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.495726, 0.487179)
+fill_to = Vector2(0.82906, 0.252137)
+
+[sub_resource type="Animation" id="Animation_bdikm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticBody2D/CollisionShape2D2:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [40.0]
+}
+
+[sub_resource type="Animation" id="Animation_ngjhu"]
+resource_name = "desativar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.2, 0.01]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionShape2D2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticBody2D/CollisionShape2D2:shape:radius")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [40.0, 2.0]
+}
+
+[sub_resource type="Animation" id="Animation_uy8kn"]
+resource_name = "estavel"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.2, 0.25, 0.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e2fyo"]
+_data = {
+"RESET": SubResource("Animation_bdikm"),
+"desativar": SubResource("Animation_ngjhu"),
+"estavel": SubResource("Animation_uy8kn")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ya3s7"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k1iig"]
+radius = 17.6479
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tubn"]
+radius = 35.85
+
+[node name="Cristal_light" type="Node2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_5hhal")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 6
+collision_mask = 21
+slide_on_ceiling = false
+script = ExtResource("2_uwuqa")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_8srb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -0.2)
+shape = SubResource("RectangleShape2D_xruth")
+
+[node name="Pick_up_zone" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 1028
+collision_mask = 1028
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Pick_up_zone"]
+shape = SubResource("RectangleShape2D_hx0f7")
+debug_color = Color(0, 0.643137, 0.333333, 0)
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 80
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
+position = Vector2(-0.25, -0.4)
+shape = SubResource("RectangleShape2D_c0rah")
+disabled = true
+debug_color = Color(0.862745, 0.380392, 0.0901961, 0.0745098)
+
+[node name="hurt_box" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 88
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hurt_box"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_md2cg")
+debug_color = Color(0.85098, 0.372549, 0, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D"]
+position = Vector2(0, -2)
+target_position = Vector2(0, -11)
+collision_mask = 1024
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="PointLight2D" type="PointLight2D" parent="CharacterBody2D"]
+scale = Vector2(4.96159, 4.96159)
+color = Color(0, 0.766115, 0.966558, 0.622)
+texture = SubResource("GradientTexture2D_m0n07")
+texture_scale = 0.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_e2fyo")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="CharacterBody2D"]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D/StaticBody2D"]
+shape = SubResource("CircleShape2D_ya3s7")
+debug_color = Color(0, 0.595, 0.7, 0.278431)
+
+[node name="lazer_area" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/lazer_area"]
+shape = SubResource("CircleShape2D_k1iig")
+
+[node name="dark_afastar" type="Area2D" parent="CharacterBody2D"]
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/dark_afastar"]
+shape = SubResource("CircleShape2D_2tubn")
+debug_color = Color(0.905, 0.306, 0, 0.492)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="area_entered" from="CharacterBody2D/hurt_box" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="CharacterBody2D/lazer_area" to="." method="_on_lazer_area_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

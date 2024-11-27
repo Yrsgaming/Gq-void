@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=3 uid="uid://bg04odvxkw1iq"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/gear_plataform.gd" id="1_0rrxy"]
+[ext_resource type="Texture2D" uid="uid://diytix1hx6id5" path="res://Sprites/Objetos/world_02/QUADRADOPLATAFORMA.png" id="2_50juy"]
+[ext_resource type="Texture2D" uid="uid://bmr23gq4mfrwm" path="res://Sprites/effects/1x16.png" id="2_nl7mw"]
+[ext_resource type="PackedScene" uid="uid://d8pnx21i04qs" path="res://Nodes/objetos/spike.tscn" id="3_qatal"]
+
+[sub_resource type="Curve" id="Curve_a1dbv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_3ku2l"]
+offsets = PackedFloat32Array(0, 0.177215, 0.586498, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.819806, 0.633736, 0.020404, 1, 0.945308, 0.270647, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6lgi"]
+size = Vector2(469.5, 477.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qgdnr"]
+size = Vector2(470, 479)
+
+[node name="R_plataform" type="AnimatableBody2D"]
+position = Vector2(-2, 4)
+script = ExtResource("1_0rrxy")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+texture = ExtResource("2_nl7mw")
+particle_flag_align_y = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 480.0
+initial_velocity_max = 1440.0
+scale_amount_min = 4.0
+scale_amount_max = 16.0
+scale_amount_curve = SubResource("Curve_a1dbv")
+color_ramp = SubResource("Gradient_3ku2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_50juy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.25, -2.25)
+shape = SubResource("RectangleShape2D_a6lgi")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, -1.5)
+shape = SubResource("RectangleShape2D_qgdnr")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="Spike" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(-280, -160)
+rotation = -1.5708
+scale = Vector2(10, 10)
+
+[node name="Spike2" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(-280, -81)
+rotation = -1.5708
+scale = Vector2(10, 10)
+
+[node name="Spike3" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(-280, -3.00001)
+rotation = -1.5708
+scale = Vector2(10, 10)
+
+[node name="Spike4" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(-280, 73)
+rotation = -1.5708
+scale = Vector2(10, 10)
+
+[node name="Spike5" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(-280, 152)
+rotation = -1.5708
+scale = Vector2(10, 10)
+
+[node name="Spike6" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(280, -160)
+rotation = 1.5708
+scale = Vector2(10, 10)
+
+[node name="Spike7" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(280, -81)
+rotation = 1.5708
+scale = Vector2(-10, 10)
+
+[node name="Spike8" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(280, -3.00001)
+rotation = 1.5708
+scale = Vector2(-10, 10)
+
+[node name="Spike9" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(280, 73)
+rotation = 1.5708
+scale = Vector2(-10, 10)
+
+[node name="Spike10" parent="." instance=ExtResource("3_qatal")]
+position = Vector2(280, 152)
+rotation = 1.5708
+scale = Vector2(-10, 10)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

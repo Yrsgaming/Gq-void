@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://n26kofw0dwe6"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/switch_red.gd" id="1_6gv54"]
+[ext_resource type="Texture2D" uid="uid://c34bmpx2w2531" path="res://Sprites/Objetos/switch_block_red_true-export.png" id="2_mcv2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qxqg"]
+size = Vector2(8, 8)
+
+[node name="Switch_red" type="Node2D"]
+script = ExtResource("1_6gv54")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mcv2v")
+hframes = 2
+frame = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_8qxqg")

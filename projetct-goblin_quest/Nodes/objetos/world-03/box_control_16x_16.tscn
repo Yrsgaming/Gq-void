@@ -1,0 +1,163 @@
+[gd_scene load_steps=13 format=3 uid="uid://soc4qnjkcl1f"]
+
+[ext_resource type="Texture2D" uid="uid://r4n2gqp24man" path="res://Sprites/Objetos/purple_box_control.png" id="1_igx8d"]
+[ext_resource type="Script" path="res://Nodes/objetos/world-03/box_control_16x_16.gd" id="1_q4wq5"]
+[ext_resource type="Shader" path="res://Nodes/objetos/dark_zone_2.gdshader" id="3_nhvdt"]
+[ext_resource type="Texture2D" uid="uid://4gkf8xyocmuv" path="res://Sprites/Objetos/zona_escura_base.png" id="4_6ekio"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fuqw1"]
+shader = ExtResource("3_nhvdt")
+shader_parameter/outline_width = null
+shader_parameter/lower_limit = null
+shader_parameter/upper_limit = null
+shader_parameter/color = null
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_quygr"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gehaj"]
+size = Vector2(164, 166)
+
+[sub_resource type="Animation" id="Animation_brhpv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PurpleBoxControl:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2n0bp"]
+resource_name = "off"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PurpleBoxControl:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qfdo1"]
+resource_name = "on"
+length = 2.0
+loop_mode = 2
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PurpleBoxControl:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ccpdd"]
+_data = {
+"RESET": SubResource("Animation_brhpv"),
+"off": SubResource("Animation_2n0bp"),
+"on": SubResource("Animation_qfdo1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b54rn"]
+size = Vector2(100, 100)
+
+[node name="BOX_CONTROL_16X16" type="RigidBody2D"]
+collision_layer = 3
+collision_priority = 0.0
+lock_rotation = true
+script = ExtResource("1_q4wq5")
+
+[node name="PurpleBoxControl" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_igx8d")
+hframes = 2
+frame = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+material = SubResource("ShaderMaterial_fuqw1")
+position = Vector2(0, 1)
+color = Color(1, 0.8, 0, 1)
+energy = 0.0
+texture = ExtResource("4_6ekio")
+texture_scale = 7.19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_quygr")
+
+[node name="Control_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control_area"]
+z_index = -2
+shape = SubResource("RectangleShape2D_gehaj")
+debug_color = Color(0.67, 0.5025, 0, 0.145098)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ccpdd")
+}
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_b54rn")
+debug_color = Color(0.639337, 0.525614, 0, 0)
+
+[connection signal="area_entered" from="Control_area" to="." method="_on_control_area_area_entered"]

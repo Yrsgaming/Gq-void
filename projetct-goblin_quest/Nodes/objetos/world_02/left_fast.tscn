@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://dod85lr5cgcyo"]
+
+[ext_resource type="Script" path="res://left_fast.gd" id="1_3thln"]
+[ext_resource type="Texture2D" uid="uid://bb6tkpbgmcij6" path="res://Sprites/Objetos/world_02/belt_FAST.png" id="2_qsb3u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcq3a"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2hm4"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf5yg"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51a4t"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(80, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f4jy"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(104, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmdar"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(128, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvhqq"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(152, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u4ji"]
+atlas = ExtResource("2_qsb3u")
+region = Rect2(176, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dicv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcq3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2hm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf5yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51a4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f4jy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmdar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvhqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8u4ji")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hd3d1"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxsec"]
+size = Vector2(8, 1.4)
+
+[node name="left_fast" type="StaticBody2D"]
+script = ExtResource("1_3thln")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3dicv")
+frame_progress = 0.174994
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90735e-07, 1.90735e-07)
+shape = SubResource("RectangleShape2D_hd3d1")
+
+[node name="moving" type="Area2D" parent="."]
+collision_layer = 262144
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving"]
+position = Vector2(0, -4.7)
+shape = SubResource("RectangleShape2D_jxsec")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

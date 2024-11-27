@@ -1,0 +1,101 @@
+[gd_scene load_steps=14 format=3 uid="uid://dijfu3p48aorx"]
+
+[ext_resource type="Script" path="res://block_deletar.gd" id="1_iklra"]
+[ext_resource type="Texture2D" uid="uid://c044ywkr86viv" path="res://Sprites/Objetos/world_02/despawner.png" id="2_q1aya"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbroe"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yy2mt"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqb2k"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5rmd"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q76dd"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jkfk"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6vgo"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikfj7"]
+atlas = ExtResource("2_q1aya")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ph30e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbroe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yy2mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqb2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5rmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q76dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jkfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6vgo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikfj7")
+}],
+"loop": false,
+"name": &"nhac",
+"speed": 8.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjo28"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8627c"]
+size = Vector2(3, 33)
+
+[node name="Block_deletar" type="StaticBody2D"]
+script = ExtResource("1_iklra")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ph30e")
+animation = &"nhac"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pjo28")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2097152
+collision_mask = 2097152
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13.5, -5.5)
+shape = SubResource("RectangleShape2D_8627c")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

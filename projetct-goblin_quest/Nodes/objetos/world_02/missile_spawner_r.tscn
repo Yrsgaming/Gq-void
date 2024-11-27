@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=3 uid="uid://cybo4m63ixses"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/missile_spawner.gd" id="1_ifbeh"]
+[ext_resource type="Texture2D" uid="uid://c47si0s4pip2u" path="res://Sprites/projetil/MISSLE.png" id="2_vgoif"]
+[ext_resource type="Texture2D" uid="uid://bdtwgwcuw67om" path="res://Sprites/Objetos/world_02/missile_spawner.png" id="3_toqsq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enmae"]
+size = Vector2(15.9, 16)
+
+[sub_resource type="Animation" id="Animation_rxxyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Missle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8.2, -0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Missle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2cd5l"]
+resource_name = "missile"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Missle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8.2, 0), Vector2(18.1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5hqgd"]
+resource_name = "missile_ready"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Missle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Missle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 5.96046e-08), Vector2(8.5, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7hpx"]
+_data = {
+"RESET": SubResource("Animation_rxxyd"),
+"missile": SubResource("Animation_2cd5l"),
+"missile_ready": SubResource("Animation_5hqgd")
+}
+
+[node name="missile_spawner_R" type="StaticBody2D"]
+position = Vector2(-4, 4)
+scale = Vector2(-1, -1)
+script = ExtResource("1_ifbeh")
+
+[node name="Missle" type="Sprite2D" parent="."]
+position = Vector2(8.2, -0.2)
+texture = ExtResource("2_vgoif")
+
+[node name="MissileSpawner" type="Sprite2D" parent="."]
+texture = ExtResource("3_toqsq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_enmae")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h7hpx")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(18.3, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(118.4, -0.2)
+collision_mask = 8192
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+target_position = Vector2(118.2, 62.9)
+collision_mask = 8192
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+target_position = Vector2(111.9, -58.4)
+collision_mask = 8192
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

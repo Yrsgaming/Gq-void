@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://0xm0pdrplq0p"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/alvo_red.gd" id="1_nfpxr"]
+[ext_resource type="Texture2D" uid="uid://1nrqev88nmle" path="res://Sprites/Objetos/alvo_vermelho.png" id="1_wvcvi"]
+[ext_resource type="Texture2D" uid="uid://4rgepm60oiv5" path="res://Sprites/Objetos/timer_.png" id="3_t1fv3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um7fy"]
+size = Vector2(10, 10)
+
+[sub_resource type="Animation" id="Animation_2cbyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Timer:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_br1tt"]
+resource_name = "start"
+length = 4.2
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Timer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Timer:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t2jsm"]
+_data = {
+"RESET": SubResource("Animation_2cbyn"),
+"start": SubResource("Animation_br1tt")
+}
+
+[node name="alvo_red" type="Node2D"]
+script = ExtResource("1_nfpxr")
+
+[node name="AlvoVermelho" type="Sprite2D" parent="."]
+texture = ExtResource("1_wvcvi")
+
+[node name="tiro_zone" type="Area2D" parent="."]
+collision_layer = 576
+collision_mask = 576
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tiro_zone"]
+shape = SubResource("RectangleShape2D_um7fy")
+debug_color = Color(0, 0.643983, 0.289788, 0.42)
+
+[node name="Timer" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, -14)
+texture = ExtResource("3_t1fv3")
+hframes = 9
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t2jsm")
+}
+
+[connection signal="area_entered" from="tiro_zone" to="." method="_on_tiro_zone_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

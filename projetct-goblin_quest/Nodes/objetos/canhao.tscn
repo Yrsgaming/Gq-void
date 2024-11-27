@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce1eiwhml8tbt"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/canhao.gd" id="1_576gw"]
+[ext_resource type="Texture2D" uid="uid://bux470chs4vh3" path="res://Sprites/Objetos/canhao_base.png" id="1_vsgu6"]
+[ext_resource type="Texture2D" uid="uid://cp4w5spkvm3b5" path="res://Sprites/Objetos/canhaotiro.png" id="2_km716"]
+[ext_resource type="Texture2D" uid="uid://bmj1bw768dgk1" path="res://Sprites/effects/letras_porta.png" id="4_cbqhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqkrg"]
+size = Vector2(18.8, 18.5)
+
+[node name="canhao" type="Node2D"]
+script = ExtResource("1_576gw")
+SPEED_X = -2000
+SPEED_Y = -2000
+
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(10, 10)
+
+[node name="Canhaotiro" type="Sprite2D" parent="Node2D"]
+position = Vector2(0.1, -4.2)
+texture = ExtResource("2_km716")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -17)
+scale = Vector2(10, 10)
+texture = ExtResource("1_vsgu6")
+
+[node name="canhao" type="Area2D" parent="."]
+scale = Vector2(10, 10)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="canhao"]
+position = Vector2(3.8147e-07, -3.05)
+shape = SubResource("RectangleShape2D_jqkrg")
+debug_color = Color(0, 0.647059, 0.235294, 0.0509804)
+
+[node name="p1_input" type="Sprite2D" parent="."]
+position = Vector2(-67, -169)
+scale = Vector2(8, 8)
+texture = ExtResource("4_cbqhf")
+hframes = 2
+
+[node name="p2_input" type="Sprite2D" parent="."]
+position = Vector2(87, -169)
+scale = Vector2(8, 8)
+texture = ExtResource("4_cbqhf")
+hframes = 2
+frame = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="area_entered" from="canhao" to="." method="_on_canhao_area_entered"]
+[connection signal="area_exited" from="canhao" to="." method="_on_canhao_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

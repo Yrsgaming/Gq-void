@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2clwee61xrsh"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/wall_breaking.gd" id="1_7mb5y"]
+[ext_resource type="Texture2D" uid="uid://dv632x6a3ouvw" path="res://Sprites/Objetos/breakeble_wall.png" id="1_k46u8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn83i"]
+size = Vector2(5, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykuio"]
+size = Vector2(5, 8)
+
+[node name="wall_breaking" type="Node2D"]
+script = ExtResource("1_7mb5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k46u8")
+
+[node name="breakzone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="breakzone"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qn83i")
+debug_color = Color(0.683218, 0.499609, 0.0494487, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ykuio")
+
+[connection signal="area_entered" from="breakzone" to="." method="_on_breakzone_area_entered"]

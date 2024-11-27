@@ -1,0 +1,354 @@
+[gd_scene load_steps=14 format=3 uid="uid://bc0jpyci5btqd"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/G_gear.gd" id="1_ddbuj"]
+[ext_resource type="Texture2D" uid="uid://csn6k8j6r5wse" path="res://Sprites/Objetos/world_02/geneva_part1.png" id="1_p64gk"]
+[ext_resource type="Texture2D" uid="uid://sd3nok0ng0y1" path="res://Sprites/Objetos/world_02/geneva_part2.png" id="2_nm5t3"]
+[ext_resource type="Texture2D" uid="uid://bmpgckylrc3qk" path="res://Sprites/Objetos/world_02/central_gear.png" id="3_vvlvu"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/central_gear.gd" id="4_86he7"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/gear_plataform.gd" id="6_h15bx"]
+[ext_resource type="Texture2D" uid="uid://b0qp7vk4lllhd" path="res://Sprites/Objetos/world_02/plataform.png" id="7_0qecy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p7hcm"]
+radius = 434.195
+
+[sub_resource type="Animation" id="Animation_lml8m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GenevaPart1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GenevaPart2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.826331]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Path2D2/PathFollow2D:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Path2D3/PathFollow2D:progress_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Path2D4/PathFollow2D:progress_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_snknc"]
+resource_name = "Rotation_horario"
+length = 16.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GenevaPart1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8, 12, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 12.5664, 18.8496, 25.1327]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GenevaPart2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.9, 4.33333, 5.6, 5.63333, 8, 8.46667, 9.53333, 12.3667, 13.5, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.999915, -0.999915, -2.59783, -2.59783, -4.02327, -4.10041, -4.10041, -4.10041, -5.64698, -5.64698, -7.27077, -7.27077]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.9, 4.33333, 5.6, 8.46667, 9.53333, 12.3667, 13.5, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.2514, 0.2514, 0.4761, 0.4761, 0.7406, 0.7406, 1.0, 1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Path2D2/PathFollow2D:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.9, 4.36667, 5.63333, 8.46667, 9.53333, 12.3667, 13.4667, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.25, 0.25, 0.5, 0.5, 0.75, 0.75, 1.0, 1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Path2D3/PathFollow2D:progress_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.9, 4.36667, 5.6, 8.5, 9.53333, 12.4, 13.5, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.25, 0.25, 0.5, 0.5, 0.75, 0.75, 1.0, 1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Path2D4/PathFollow2D:progress_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667, 1.9, 4.33333, 5.6, 8.5, 9.56667, 12.3667, 13.4667, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.25, 0.25, 0.5, 0.5, 0.75, 0.75, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v848n"]
+_data = {
+"RESET": SubResource("Animation_lml8m"),
+"Rotation_horario": SubResource("Animation_snknc")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_3afjp"]
+_data = {
+"points": PackedVector2Array(-299.872, -137.814, 299.872, 137.814, -236, -80, -22.2236, 6.3496, 22.2236, -6.3496, 395, -193, 298.471, 156.825, -298.471, -156.825, 246, -828, 0, 0, 0, 0, -380, -702, -265.488, -174.616, 265.488, 174.616, -236, -80)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl373"]
+size = Vector2(480, 160)
+
+[node name="G_gear" type="Node2D"]
+script = ExtResource("1_ddbuj")
+
+[node name="GenevaPart1" type="Sprite2D" parent="."]
+position = Vector2(25, 104)
+scale = Vector2(10, 10)
+texture = ExtResource("1_p64gk")
+
+[node name="CentralGear" type="Sprite2D" parent="GenevaPart1"]
+position = Vector2(-27.2423, -0.821814)
+texture = ExtResource("3_vvlvu")
+hframes = 2
+script = ExtResource("4_86he7")
+
+[node name="Area2D" type="Area2D" parent="GenevaPart1/CentralGear"]
+position = Vector2(0.399947, 54.6)
+scale = Vector2(0.1, 0.1)
+collision_layer = 0
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GenevaPart1/CentralGear/Area2D"]
+position = Vector2(-4.99947, -547)
+shape = SubResource("CircleShape2D_p7hcm")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="GenevaPart2" type="Sprite2D" parent="."]
+position = Vector2(8.99998, -444)
+rotation = -0.826331
+scale = Vector2(8, 8)
+texture = ExtResource("2_nm5t3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v848n")
+}
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_3afjp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-236, -80)
+rotation = 0.430789
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+remote_path = NodePath("../../../R_plataform")
+update_rotation = false
+update_scale = false
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2(459, -428)
+rotation = -1.54105
+curve = SubResource("Curve2D_3afjp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2(-236, -80)
+rotation = 0.430789
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D"]
+remote_path = NodePath("../../../L_plataform")
+update_rotation = false
+update_scale = false
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2(13, -907)
+rotation = -3.1808
+curve = SubResource("Curve2D_3afjp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2(-236, -80)
+rotation = 0.430789
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D3/PathFollow2D"]
+remote_path = NodePath("../../../N_plataform2")
+update_rotation = false
+update_scale = false
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2(-454, -468)
+rotation = -4.69077
+curve = SubResource("Curve2D_3afjp")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2(-236, -80)
+rotation = 0.430789
+loop = false
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D4/PathFollow2D"]
+remote_path = NodePath("../../../S_plataform3")
+update_rotation = false
+update_scale = false
+
+[node name="R_plataform" type="AnimatableBody2D" parent="."]
+position = Vector2(-236, -80)
+script = ExtResource("6_h15bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="R_plataform"]
+scale = Vector2(10, 10)
+texture = ExtResource("7_0qecy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="R_plataform"]
+shape = SubResource("RectangleShape2D_tl373")
+
+[node name="Area2D" type="Area2D" parent="R_plataform"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="R_plataform/Area2D"]
+shape = SubResource("RectangleShape2D_tl373")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="L_plataform" type="AnimatableBody2D" parent="."]
+position = Vector2(372.016, -194.484)
+script = ExtResource("6_h15bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="L_plataform"]
+scale = Vector2(10, 10)
+texture = ExtResource("7_0qecy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="L_plataform"]
+shape = SubResource("RectangleShape2D_tl373")
+
+[node name="Area2D" type="Area2D" parent="L_plataform"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="L_plataform/Area2D"]
+shape = SubResource("RectangleShape2D_tl373")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="N_plataform2" type="AnimatableBody2D" parent="."]
+position = Vector2(251.954, -836.312)
+script = ExtResource("6_h15bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="N_plataform2"]
+scale = Vector2(10, 10)
+texture = ExtResource("7_0qecy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="N_plataform2"]
+shape = SubResource("RectangleShape2D_tl373")
+
+[node name="Area2D" type="Area2D" parent="N_plataform2"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="N_plataform2/Area2D"]
+shape = SubResource("RectangleShape2D_tl373")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="S_plataform3" type="AnimatableBody2D" parent="."]
+position = Vector2(-368.917, -702.215)
+script = ExtResource("6_h15bx")
+
+[node name="Sprite2D" type="Sprite2D" parent="S_plataform3"]
+scale = Vector2(10, 10)
+texture = ExtResource("7_0qecy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="S_plataform3"]
+shape = SubResource("RectangleShape2D_tl373")
+
+[node name="Area2D" type="Area2D" parent="S_plataform3"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="S_plataform3/Area2D"]
+shape = SubResource("RectangleShape2D_tl373")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[connection signal="area_entered" from="GenevaPart1/CentralGear/Area2D" to="GenevaPart1/CentralGear" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="R_plataform/Area2D" to="R_plataform" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="L_plataform/Area2D" to="L_plataform" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="N_plataform2/Area2D" to="N_plataform2" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="S_plataform3/Area2D" to="S_plataform3" method="_on_area_2d_area_entered"]
