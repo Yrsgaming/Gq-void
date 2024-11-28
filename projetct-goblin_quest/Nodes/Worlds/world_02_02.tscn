@@ -15,10 +15,8 @@
 [node name="World_02_02" type="Node2D"]
 position = Vector2(5, -5)
 script = ExtResource("1_g2tcy")
-limit_left = 0
 limit_right = 14050
 limit_up = -1750
-limit_down = 0
 next_level = "res://Nodes/Worlds/world_02_03.tscn"
 metadata/_edit_group_ = true
 

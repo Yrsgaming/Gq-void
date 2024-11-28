@@ -17,10 +17,8 @@ point_count = 17
 
 [node name="world_02_07" type="Node2D"]
 script = ExtResource("1_yblu5")
-limit_left = 0
 limit_right = 15600
 limit_up = -1440
-limit_down = 0
 
 [node name="Spike" parent="." instance=ExtResource("2_wrov8")]
 position = Vector2(4289, 211)

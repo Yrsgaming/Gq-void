@@ -203,8 +203,8 @@ scale = Vector2(10, 10)
 curve = SubResource("Curve2D_dv8si")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-26.9344, 15.8039)
-rotation = -2.05955
+position = Vector2(-26.9341, 15.8043)
+rotation = -2.05956
 progress = 175.595
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
@@ -219,8 +219,8 @@ scale = Vector2(10, 10)
 curve = SubResource("Curve2D_dv8si")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
-position = Vector2(-26.9344, 15.8039)
-rotation = -2.05955
+position = Vector2(-26.9341, 15.8043)
+rotation = -2.05956
 progress = 175.595
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D2/PathFollow2D"]
@@ -235,8 +235,8 @@ scale = Vector2(10, 10)
 curve = SubResource("Curve2D_dv8si")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
-position = Vector2(-26.9344, 15.8039)
-rotation = -2.05955
+position = Vector2(-26.9341, 15.8043)
+rotation = -2.05956
 progress = 175.595
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D3/PathFollow2D"]
@@ -251,8 +251,8 @@ scale = Vector2(10, 10)
 curve = SubResource("Curve2D_dv8si")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
-position = Vector2(-26.9344, 15.8039)
-rotation = -2.05955
+position = Vector2(-26.9341, 15.8043)
+rotation = -2.05956
 progress = 175.595
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D4/PathFollow2D"]
@@ -261,11 +261,10 @@ update_rotation = false
 update_scale = false
 
 [node name="R_plataform" type="AnimatableBody2D" parent="."]
-position = Vector2(-262.344, 160.039)
+position = Vector2(-262.341, 160.043)
 script = ExtResource("3_4f0yt")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="R_plataform"]
-scale = Vector2(1, 1)
 emitting = false
 amount = 16
 lifetime = 0.6
@@ -302,7 +301,7 @@ shape = SubResource("RectangleShape2D_6cfj4")
 debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="N_plataform" type="AnimatableBody2D" parent="."]
-position = Vector2(-151.038, -267.344)
+position = Vector2(-151.042, -267.342)
 script = ExtResource("3_4f0yt")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="N_plataform"]
@@ -342,7 +341,7 @@ shape = SubResource("RectangleShape2D_6cfj4")
 debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="L_plataform" type="AnimatableBody2D" parent="."]
-position = Vector2(276.343, -156.04)
+position = Vector2(276.341, -156.044)
 script = ExtResource("3_4f0yt")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="L_plataform"]
@@ -382,7 +381,7 @@ shape = SubResource("RectangleShape2D_6cfj4")
 debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="S_plataform" type="AnimatableBody2D" parent="."]
-position = Vector2(165.039, 271.344)
+position = Vector2(165.043, 271.342)
 script = ExtResource("3_4f0yt")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="S_plataform"]

@@ -34,11 +34,12 @@ func burn():
 		$AnimationPlayer.play("Burn")
 		is_burn = true
 func _physics_process(delta: float) -> void:
-	if world.belt_sempre_on == false:
-		if on == true and start == true:
+	if start == true:
+		if world.belt_sempre_on == false:
+			if on == true and start == true:
+				linear_velocity.x = speed * dir * speed_multi * delta
+		else:
 			linear_velocity.x = speed * dir * speed_multi * delta
-	else:
-		linear_velocity.x = speed * dir * speed_multi * delta
 
 func _on_timer_timeout() -> void:
 	if on == true:

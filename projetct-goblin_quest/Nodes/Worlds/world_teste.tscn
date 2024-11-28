@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dyt52q21u83t"]
+[gd_scene load_steps=30 format=4 uid="uid://dyt52q21u83t"]
 
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="1_5w26b"]
 [ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_o2gas"]
@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://djpc7mnl2o7hd" path="res://Nodes/enemys/slime_control.tscn" id="17_sy2vs"]
 [ext_resource type="PackedScene" uid="uid://bldq6o05yltit" path="res://Nodes/objetos/secret_door.tscn" id="19_3ydtf"]
 [ext_resource type="PackedScene" uid="uid://b0iyjux3w35wf" path="res://Nodes/objetos/world_02/shapes/l_shape_block.tscn" id="22_t4h8q"]
+[ext_resource type="PackedScene" uid="uid://wfj4uuccevqg" path="res://Nodes/objetos/world_02/red_gear.tscn" id="25_5kkjs"]
+[ext_resource type="PackedScene" uid="uid://utgcqw3u0wlk" path="res://Nodes/objetos/world_02/pendulo.tscn" id="26_xm1yc"]
 
 [sub_resource type="Gradient" id="Gradient_18ub7"]
 offsets = PackedFloat32Array(0, 0.103734, 0.282158, 1)
@@ -67,6 +69,12 @@ rotation = -1.57079
 scale = Vector2(200, 200)
 texture = ExtResource("2_amfj1")
 
+[node name="RED_GEAR" parent="." instance=ExtResource("25_5kkjs")]
+position = Vector2(-864, -141)
+
+[node name="Pendulo" parent="." instance=ExtResource("26_xm1yc")]
+position = Vector2(-1679, -1334)
+
 [node name="Missile" parent="." instance=ExtResource("13_evx0n")]
 z_index = 1
 position = Vector2(-6312, -1120)
@@ -81,12 +89,12 @@ position = Vector2(60, -263)
 
 [node name="Player" parent="." instance=ExtResource("1_5w26b")]
 position = Vector2(-1054, -172)
-power = 3
+power = 2
 
 [node name="Player2" parent="." instance=ExtResource("1_5w26b")]
 position = Vector2(-682, -178)
 player = 2
-power = 3
+power = 2
 
 [node name="Camera_debug" parent="." instance=ExtResource("4_5riab")]
 
@@ -130,7 +138,7 @@ speed = 1.0
 speed_scale = 0.5
 
 [node name="BOX_CONTROL_16X16" parent="." instance=ExtResource("16_xlil1")]
-position = Vector2(-860, -348)
+position = Vector2(-356, -828)
 
 [node name="Slime_control" parent="." instance=ExtResource("17_sy2vs")]
 position = Vector2(-408, 33)

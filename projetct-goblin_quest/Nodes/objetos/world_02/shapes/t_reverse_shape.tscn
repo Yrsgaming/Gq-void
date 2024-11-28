@@ -80,7 +80,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -27)]
+"values": [Vector2(-53, -27)]
 }
 
 [sub_resource type="Animation" id="Animation_gglct"]
@@ -133,7 +133,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4, 1)]
+"values": [Vector2(3, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -145,7 +145,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 14)]
+"values": [Vector2(-51, 14)]
 }
 
 [sub_resource type="Animation" id="Animation_wilwo"]
@@ -195,10 +195,10 @@ tracks/3/path = NodePath("Hurtbox/CollisionPolygon2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.14),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(4, 1)]
+"values": [Vector2(3, 1), Vector2(3, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -207,10 +207,10 @@ tracks/4/path = NodePath("Hurtbox/CollisionPolygon2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.14),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 14)]
+"values": [Vector2(-50, 14), Vector2(-52, 14)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6u6b"]
@@ -228,7 +228,7 @@ mass = 120.0
 script = ExtResource("1_d56gl")
 
 [node name="LPiece" type="Sprite2D" parent="."]
-position = Vector2(51, -81)
+position = Vector2(-0.999992, -81)
 scale = Vector2(10, 10)
 texture = ExtResource("2_fgv4p")
 hframes = 11
@@ -259,7 +259,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
-position = Vector2(0, -27)
+position = Vector2(-53, -27)
 scale = Vector2(4, 4)
 polygon = PackedVector2Array(-24.75, 0.5, -6.5, 1, -5.5, -18.75, 5.5, -19.5, 7, 1.75, 24.5, 1, 25.5, 14, -25, 12.75)
 

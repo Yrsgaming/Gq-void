@@ -1,0 +1,109 @@
+[gd_scene load_steps=11 format=3 uid="uid://utgcqw3u0wlk"]
+
+[ext_resource type="Texture2D" uid="uid://er8wkf47v7ti" path="res://Sprites/Objetos/world_02/Pendulo.png" id="1_doclh"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/pendulo.gd" id="1_em5l8"]
+[ext_resource type="Texture2D" uid="uid://bmpgckylrc3qk" path="res://Sprites/Objetos/world_02/central_gear.png" id="2_d5dhl"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/pendulo_plataform.gd" id="2_sffla"]
+[ext_resource type="Script" path="res://Nodes/objetos/world_02/central_gear.gd" id="3_0e3pu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etpul"]
+size = Vector2(242, 82)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hs1pn"]
+radius = 592.16
+
+[sub_resource type="Animation" id="Animation_b1y43"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_av2bv"]
+resource_name = "Start"
+length = 6.0
+loop_mode = 2
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.610865, -0.610865, 0.610865]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvvxx"]
+_data = {
+"RESET": SubResource("Animation_b1y43"),
+"Start": SubResource("Animation_av2bv")
+}
+
+[node name="Pendulo" type="Node2D"]
+script = ExtResource("1_em5l8")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Pivot"]
+points = PackedVector2Array(0, 0, 0, 900)
+default_color = Color(0.360784, 0.219608, 0.254902, 1)
+
+[node name="pendulo_plataform" type="AnimatableBody2D" parent="Pivot"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("2_sffla")
+
+[node name="Pendulo" type="Sprite2D" parent="Pivot/pendulo_plataform"]
+position = Vector2(0, 908)
+scale = Vector2(10, 10)
+texture = ExtResource("1_doclh")
+
+[node name="Area2D" type="Area2D" parent="Pivot/pendulo_plataform"]
+collision_layer = 0
+collision_mask = 65536
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pivot/pendulo_plataform/Area2D"]
+position = Vector2(-3.05176e-05, 2.38419e-06)
+shape = SubResource("RectangleShape2D_etpul")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pivot/pendulo_plataform"]
+polygon = PackedVector2Array(-320, 908, -200, 908, -200, 748, 200, 748, 200, 908, 320, 908, 320, 1068, -320, 1068)
+
+[node name="CentralGear" type="Sprite2D" parent="Pivot"]
+position = Vector2(2.38419e-07, 1)
+scale = Vector2(5, 5)
+texture = ExtResource("2_d5dhl")
+hframes = 2
+script = ExtResource("3_0e3pu")
+
+[node name="Area2D" type="Area2D" parent="Pivot/CentralGear"]
+position = Vector2(0.399947, 54.6)
+scale = Vector2(0.1, 0.1)
+collision_layer = 0
+collision_mask = 131072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/CentralGear/Area2D"]
+position = Vector2(-4.99947, 1190)
+shape = SubResource("CircleShape2D_hs1pn")
+debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wvvxx")
+}
+
+[connection signal="area_entered" from="Pivot/pendulo_plataform/Area2D" to="Pivot/pendulo_plataform" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Pivot/CentralGear/Area2D" to="Pivot/CentralGear" method="_on_area_2d_area_entered"]

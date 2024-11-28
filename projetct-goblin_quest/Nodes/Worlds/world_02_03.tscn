@@ -13,7 +13,6 @@
 script = ExtResource("1_nv6uy")
 limit_right = 5000
 limit_up = -1750
-limit_down = 0
 next_level = "res://Nodes/Worlds/world_02_04.tscn"
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
