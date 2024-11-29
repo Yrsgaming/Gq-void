@@ -13,10 +13,8 @@
 [node name="world_06" type="Node2D"]
 position = Vector2(1, -1)
 script = ExtResource("1_r1uyi")
-limit_left = 0
 limit_right = 3360
 limit_up = -1840
-limit_down = 0
 next_level = "res://Nodes/Worlds/world_07.tscn"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]

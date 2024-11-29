@@ -170,6 +170,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func fire_on():
+	$Pivot/Hit_magic_fire/CollisionShape2D.disabled = false
+	if dir == 1:
+		$Particles/Right.emitting = true
+		$Particles/Left.emitting = false
+	elif dir == -1:
+		$Particles/Left.emitting = true
+		$Particles/Right.emitting = false
+
+func fire_off():
+	$Pivot/Hit_magic_fire/CollisionShape2D.disabled = true
+	$Particles/Right.emitting = false
+	$Particles/Left.emitting = false
 
 func check_vector_belt():
 	var target = $belt.get_collider().get_parent()
@@ -219,6 +232,12 @@ func attack():
 		if player == 2 and Input.is_action_just_pressed("p2_throw") and only_one_bullet == false:
 			attacking = true
 			$AnimationPlayer.play("attack_anim_p2_power_3")
+	elif power == 4:
+		if player == 2:
+			if Input.is_action_pressed("p2_throw"):
+				fire_on()
+			else:
+				fire_off()
 
 func throw() -> void:
 	if player == 1:

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5k1cgd08adif"]
+
+[ext_resource type="Script" path="res://plataform_vapor.gd" id="1_62epq"]
+[ext_resource type="Texture2D" uid="uid://bta2wi0q4v7kw" path="res://Sprites/Objetos/world_03/vapor_origem.png" id="2_1rgdq"]
+[ext_resource type="Texture2D" uid="uid://ddj06hpb7d758" path="res://Sprites/effects/ball.png" id="3_rj3dv"]
+[ext_resource type="Texture2D" uid="uid://jlmypanhw2i8" path="res://Sprites/Objetos/world_03/vapor_plataform.png" id="4_w4op3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pebq"]
+size = Vector2(16, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dsfiv"]
+size = Vector2(16, 16)
+
+[node name="plataform_vapor" type="Node2D"]
+script = ExtResource("1_62epq")
+
+[node name="VaporOrigem" type="Sprite2D" parent="."]
+texture = ExtResource("2_1rgdq")
+
+[node name="Ball" type="Sprite2D" parent="."]
+modulate = Color(0.254203, 0.246324, 1, 1)
+texture = ExtResource("3_rj3dv")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+
+[node name="VaporPlataform" type="Sprite2D" parent="AnimatableBody2D"]
+position = Vector2(0, -5)
+texture = ExtResource("4_w4op3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_5pebq")
+
+[node name="Temp_up" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Temp_up"]
+shape = SubResource("RectangleShape2D_dsfiv")
+
+[node name="Temp_down" type="Area2D" parent="."]

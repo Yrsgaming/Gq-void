@@ -11,7 +11,6 @@
 
 [node name="World_04" type="Node2D"]
 script = ExtResource("1_rd8nw")
-limit_left = 0
 limit_right = 4100
 limit_up = -900
 limit_down = 957

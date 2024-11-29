@@ -130,6 +130,8 @@ p2_teleport={
 2d_physics/layer_20="Controle"
 2d_physics/layer_21="cart"
 2d_physics/layer_22="block_"
+2d_physics/layer_23="Fire_CAMADA"
+2d_physics/layer_24="Ice_camada"
 
 [physics]
 

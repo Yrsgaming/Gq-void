@@ -15,10 +15,8 @@
 [node name="World_08" type="Node2D"]
 position = Vector2(-122, 0)
 script = ExtResource("1_wmpts")
-limit_left = 0
 limit_right = 3501
 limit_up = -10000000000
-limit_down = 0
 red_speed_scale = 0.2
 next_level = "res://Nodes/Worlds/world_02_01.tscn"
 
