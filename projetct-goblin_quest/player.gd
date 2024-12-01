@@ -97,6 +97,25 @@ func try_teleport():
 				trying_teleport = false
 				$TeleTimer.stop()
 
+
+
+
+func fire_breath():
+	if Input.is_action_pressed("p2_throw"):
+		$AnimationPlayer.play("attack_anim_p2_power_4" 	)
+		attacking = true
+		$Pivot/Hit_magic_fire/CollisionShape2D.disabled = false
+		if dir == 1:
+			$Particles/Right.emitting = true
+			$Particles/Left.emitting = false
+		elif dir == -1:
+			$Particles/Right.emitting = false
+			$Particles/Left.emitting = true
+	else:
+		$Pivot/Hit_magic_fire/CollisionShape2D.disabled = true
+		$Particles/Right.emitting = false
+		$Particles/Left.emitting = false
+		attacking = false
 func show_flag(show):
 	if show == true:
 		$Pivot/Flag.visible = true
@@ -156,6 +175,8 @@ func _physics_process(delta: float) -> void:
 		jump(delta)
 		anim()
 		force_jump()
+		if power == 4 and player == 2:
+			fire_breath()
 		if friend_dead == true:
 			show_spawn_location()
 		else:
@@ -170,19 +191,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func fire_on():
-	$Pivot/Hit_magic_fire/CollisionShape2D.disabled = false
-	if dir == 1:
-		$Particles/Right.emitting = true
-		$Particles/Left.emitting = false
-	elif dir == -1:
-		$Particles/Left.emitting = true
-		$Particles/Right.emitting = false
-
-func fire_off():
-	$Pivot/Hit_magic_fire/CollisionShape2D.disabled = true
-	$Particles/Right.emitting = false
-	$Particles/Left.emitting = false
 
 func check_vector_belt():
 	var target = $belt.get_collider().get_parent()
@@ -213,7 +221,6 @@ func force_jump():
 func attack():
 	if power == 1:
 		if player == 1 and Input.is_action_just_pressed("p1_throw"):
-			reverse_gravity()
 			attacking = true
 			$AnimationPlayer.play("attack_anim_p1")
 		if player == 2 and Input.is_action_just_pressed("p2_throw"):
@@ -233,11 +240,9 @@ func attack():
 			attacking = true
 			$AnimationPlayer.play("attack_anim_p2_power_3")
 	elif power == 4:
-		if player == 2:
-			if Input.is_action_pressed("p2_throw"):
-				fire_on()
-			else:
-				fire_off()
+		if player == 1 and Input.is_action_just_pressed("p1_throw"):
+			attacking = true
+			$AnimationPlayer.play("attack_anim_p1_power_4")
 
 func throw() -> void:
 	if player == 1:
@@ -316,6 +321,8 @@ func anim() -> void:
 				$AnimationPlayer.play("walking_anim_p1")
 			elif power == 2:
 				$AnimationPlayer.play("walking_anim_p1_power_2")
+			elif power == 4:
+				$AnimationPlayer.play("walking_anim_p1_power_4")
 		elif player == 2:
 			if power == 1:
 				$AnimationPlayer.play("walking_anim_p2")
@@ -323,6 +330,8 @@ func anim() -> void:
 				$AnimationPlayer.play("walking_anim_p2_power_2") 
 			elif power == 3:
 				$AnimationPlayer.play("walking_anim_p2_power_3")
+			elif power == 4:
+				$AnimationPlayer.play("walking_anim_p2_power_4")
 	if Input_move_vector > 0:
 		$Pivot.scale.x = 1
 		dir = 1
@@ -335,6 +344,8 @@ func anim() -> void:
 				$AnimationPlayer.play("jump_anim_p1")
 			elif power == 2:
 				$AnimationPlayer.play("jump_anim_p1_power_2")
+			elif power == 4:
+				$AnimationPlayer.play("jump_anim_p1_power_4")
 		elif player == 2:
 			if power == 1:
 				$AnimationPlayer.play("jump_anim_p2")
@@ -342,12 +353,16 @@ func anim() -> void:
 				$AnimationPlayer.play("jump_anim_p2_power_2")
 			elif power == 3:
 				$AnimationPlayer.play("jump_anim_p2_power_3")
+			elif power == 4:
+				$AnimationPlayer.play("jump_anim_p2_power_4")
 	elif Input_move_vector == 0 and attacking == false:
 		if player == 1:
 			if power == 1:
 				$AnimationPlayer.play("Indie_anim_p1")
 			elif power == 2:
 				$AnimationPlayer.play("Indie_anim_p1_power_2")
+			elif power == 4:
+				$AnimationPlayer.play("Indie_anim_p1_power_4")
 		elif player == 2:
 			if power == 1:
 				$AnimationPlayer.play("Indie_anim_p2")
@@ -355,6 +370,8 @@ func anim() -> void:
 				$AnimationPlayer.play("Indie_anim_p2_power_2")
 			elif power == 3:
 				$AnimationPlayer.play("Indie_anim_p2_power_3")
+			elif power == 4:
+				$AnimationPlayer.play("Indie_anim_p2_power_4")
 	if power == 3 and player == 1:
 		if Input_move_vector == 0 and attacking == false:
 			if is_on_floor() or is_on_ceiling():
@@ -544,6 +561,8 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "attack_anim_p2_power_2":
 		attacking = false
 	elif anim_name == "attack_anim_p1_power_2":
+		attacking = false
+	elif anim_name == "attack_anim_p1_power_4":
 		attacking = false
 
 

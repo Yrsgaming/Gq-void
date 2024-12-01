@@ -11,10 +11,8 @@
 
 [node name="world_1_02_ex" type="Node2D"]
 script = ExtResource("1_vmeia")
-limit_left = 0
 limit_right = 2880
 limit_up = -1625
-limit_down = 0
 red_speed_scale = 0.01
 next_level = "res://Nodes/Worlds/world_01_extra/world_1_01_ex.tscn"
 

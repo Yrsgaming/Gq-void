@@ -185,7 +185,6 @@ radius = 591.574
 
 [node name="world_02_04" type="Node2D"]
 script = ExtResource("1_de6h6")
-limit_left = 0
 limit_right = 12500
 limit_up = -2500
 limit_down = 8800

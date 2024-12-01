@@ -132,6 +132,7 @@ p2_teleport={
 2d_physics/layer_22="block_"
 2d_physics/layer_23="Fire_CAMADA"
 2d_physics/layer_24="Ice_camada"
+2d_physics/layer_25="vase]"
 
 [physics]
 

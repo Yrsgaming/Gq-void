@@ -1228,7 +1228,6 @@ radius = 591.574
 [node name="world_02_05" type="Node2D"]
 position = Vector2(-2, -201)
 script = ExtResource("1_vx51f")
-limit_left = 0
 limit_right = 16750
 limit_up = -8250
 limit_down = -150

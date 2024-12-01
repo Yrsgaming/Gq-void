@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsd8xkfnbtmfc"]
+[gd_scene load_steps=7 format=3 uid="uid://bsd8xkfnbtmfc"]
 
 [ext_resource type="Script" path="res://Nodes/objetos/vaso_new.gd" id="1_jywy2"]
 [ext_resource type="Texture2D" uid="uid://d38qd18v13njg" path="res://Sprites/Objetos/vaso_static.png" id="2_ye4wa"]
@@ -8,9 +8,6 @@ size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfam3"]
 size = Vector2(8, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyi7w"]
-size = Vector2(74, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88j55"]
 size = Vector2(12.7, 11.6)
@@ -42,14 +39,6 @@ collision_mask = 1028
 shape = SubResource("RectangleShape2D_sfam3")
 debug_color = Color(0, 0.643137, 0.333333, 0)
 
-[node name="player_grab" type="Area2D" parent="."]
-collision_layer = 8192
-collision_mask = 8192
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_grab"]
-position = Vector2(0, -40)
-shape = SubResource("RectangleShape2D_wyi7w")
-
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(10, 10)
 collision_layer = 80
@@ -73,7 +62,5 @@ position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_5gdxh")
 debug_color = Color(0.85098, 0.372549, 0, 0)
 
-[connection signal="area_entered" from="player_grab" to="." method="_on_player_grab_area_entered"]
-[connection signal="area_exited" from="player_grab" to="." method="_on_player_grab_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]

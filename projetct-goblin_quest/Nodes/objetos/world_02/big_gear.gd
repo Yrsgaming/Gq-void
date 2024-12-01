@@ -19,7 +19,7 @@ func get_plataform(child):
 
 func spark():
 	for i in plataforms.size():
-		plataforms[i].sparks()
+		pass
 
 
 

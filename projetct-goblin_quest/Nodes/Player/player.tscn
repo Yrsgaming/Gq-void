@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://ckkqe2psjets7"]
+[gd_scene load_steps=65 format=3 uid="uid://ckkqe2psjets7"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_uwpvx"]
 [ext_resource type="Texture2D" uid="uid://gj2n4ssik3li" path="res://Sprites/Goblin_bases/magic_simbol.png" id="2_3obb5"]
@@ -88,6 +88,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [25]
+}
+
+[sub_resource type="Animation" id="Animation_txpkk"]
+resource_name = "Indie_anim_p1_power_4"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30]
 }
 
 [sub_resource type="Animation" id="Animation_6as3s"]
@@ -252,6 +268,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pivot/Hit_power_3/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_51q23"]
 resource_name = "attack_anim_p1"
@@ -320,6 +348,35 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_rp6gj"]
+resource_name = "attack_anim_p1_power_4"
+length = 0.65
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 32, 33, 34]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Hit_power_3/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.15, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_gvgcw"]
@@ -468,6 +525,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [29]
+}
+
+[sub_resource type="Animation" id="Animation_lhj0g"]
+resource_name = "jump_anim_p1_power_4"
+length = 0.15
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [35]
 }
 
 [sub_resource type="Animation" id="Animation_rmr0v"]
@@ -655,37 +729,132 @@ tracks/0/keys = {
 "values": [26, 27, 28, 29]
 }
 
+[sub_resource type="Animation" id="Animation_qhff8"]
+resource_name = "walking_anim_p1_power_4"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_r7aec"]
+resource_name = "attack_anim_p2_power_4"
+length = 0.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [44]
+}
+
+[sub_resource type="Animation" id="Animation_rg52v"]
+resource_name = "Indie_anim_p2_power_4"
+length = 0.2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [39]
+}
+
+[sub_resource type="Animation" id="Animation_05ufn"]
+resource_name = "walking_anim_p2_power_4"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [39, 40, 41, 42]
+}
+
+[sub_resource type="Animation" id="Animation_l6y4f"]
+resource_name = "jump_anim_p2_power_4"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2euan"]
 _data = {
 "Indie_anim_p1": SubResource("Animation_0rn07"),
 "Indie_anim_p1_power_2": SubResource("Animation_dmy4y"),
 "Indie_anim_p1_power_3_desligado": SubResource("Animation_gseeq"),
 "Indie_anim_p1_power_3_ligado": SubResource("Animation_kk0rb"),
+"Indie_anim_p1_power_4": SubResource("Animation_txpkk"),
 "Indie_anim_p2": SubResource("Animation_6as3s"),
 "Indie_anim_p2_power_2": SubResource("Animation_76xsy"),
 "Indie_anim_p2_power_3": SubResource("Animation_x3e4c"),
+"Indie_anim_p2_power_4": SubResource("Animation_rg52v"),
 "Magic_invocation": SubResource("Animation_vsmn7"),
 "RESET": SubResource("Animation_nwtcq"),
 "attack_anim_p1": SubResource("Animation_51q23"),
 "attack_anim_p1_power_2": SubResource("Animation_oxo2p"),
+"attack_anim_p1_power_4": SubResource("Animation_rp6gj"),
 "attack_anim_p2": SubResource("Animation_gvgcw"),
 "attack_anim_p2_power_2": SubResource("Animation_wlcxt"),
 "attack_anim_p2_power_3": SubResource("Animation_o1dlo"),
+"attack_anim_p2_power_4": SubResource("Animation_r7aec"),
 "jump_anim_p1": SubResource("Animation_lnnon"),
 "jump_anim_p1_power_2": SubResource("Animation_osfg1"),
 "jump_anim_p1_power_3_desligado": SubResource("Animation_0vu35"),
 "jump_anim_p1_power_3_ligado": SubResource("Animation_ffsx0"),
+"jump_anim_p1_power_4": SubResource("Animation_lhj0g"),
 "jump_anim_p2": SubResource("Animation_rmr0v"),
 "jump_anim_p2_power_2": SubResource("Animation_lpem6"),
 "jump_anim_p2_power_3": SubResource("Animation_kl0sa"),
+"jump_anim_p2_power_4": SubResource("Animation_l6y4f"),
 "magic_notshow": SubResource("Animation_78ae2"),
 "walking_anim_p1": SubResource("Animation_go5rb"),
 "walking_anim_p1_power_2": SubResource("Animation_pw1l8"),
 "walking_anim_p1_power_3_desligado": SubResource("Animation_0tlw1"),
 "walking_anim_p1_power_3_ligado": SubResource("Animation_sot0c"),
+"walking_anim_p1_power_4": SubResource("Animation_qhff8"),
 "walking_anim_p2": SubResource("Animation_exbab"),
 "walking_anim_p2_power_2": SubResource("Animation_xya1q"),
-"walking_anim_p2_power_3": SubResource("Animation_uwotg")
+"walking_anim_p2_power_3": SubResource("Animation_uwotg"),
+"walking_anim_p2_power_4": SubResource("Animation_05ufn")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uy7b"]
@@ -845,6 +1014,7 @@ scale = Vector2(10, 10)
 collision_layer = 14
 collision_mask = 15
 collision_priority = 8.0
+floor_snap_length = 10.5
 script = ExtResource("1_uwpvx")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -862,7 +1032,7 @@ hframes = 60
 [node name="player_2" type="Sprite2D" parent="Pivot"]
 position = Vector2(0.6, -4)
 texture = ExtResource("3_4j88n")
-hframes = 39
+hframes = 78
 
 [node name="Hit_box" type="Area2D" parent="Pivot"]
 collision_layer = 80
@@ -891,7 +1061,6 @@ collision_mask = 8388672
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hit_power_3"]
 position = Vector2(8.65, -2.15)
 shape = SubResource("RectangleShape2D_gy5jg")
-disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
 
 [node name="Hit_magic_fire" type="Area2D" parent="Pivot"]
@@ -900,7 +1069,6 @@ collision_mask = 4194320
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hit_magic_fire"]
 position = Vector2(20.75, -1.1)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_mj4bk")
 disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
@@ -1012,6 +1180,15 @@ position = Vector2(0.950001, -1.65)
 shape = SubResource("RectangleShape2D_sdqvs")
 debug_color = Color(0, 0.64, 0.32, 0)
 
+[node name="vase" type="Area2D" parent="."]
+collision_layer = 16777216
+collision_mask = 16777216
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="vase"]
+position = Vector2(0.950001, -1.65)
+shape = SubResource("RectangleShape2D_sdqvs")
+debug_color = Color(0, 0.64, 0.32, 0)
+
 [node name="Button_zone" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 128
@@ -1075,7 +1252,6 @@ hframes = 5
 
 [node name="Right" type="CPUParticles2D" parent="Particles"]
 position = Vector2(14.4, 0.4)
-emitting = false
 amount = 120
 texture = ExtResource("10_0uky0")
 particle_flag_align_y = true
@@ -1109,6 +1285,10 @@ scale_amount_max = 12.0
 scale_amount_curve = SubResource("Curve_27s65")
 color_ramp = SubResource("Gradient_o6dyc")
 
+[node name="jump_timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
 [connection signal="area_entered" from="Force_jump" to="." method="_on_force_jump_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="pick_object" to="." method="_on_pick_object_area_entered"]
@@ -1117,6 +1297,9 @@ color_ramp = SubResource("Gradient_o6dyc")
 [connection signal="area_entered" from="Explosion_death_zone" to="." method="_on_explosion_death_zone_area_entered"]
 [connection signal="timeout" from="Death_timer" to="." method="_on_death_timer_timeout"]
 [connection signal="finished" from="anim_info" to="." method="_on_audio_stream_player_finished"]
+[connection signal="area_entered" from="vase" to="." method="_on_vase_area_entered"]
+[connection signal="area_exited" from="vase" to="." method="_on_vase_area_exited"]
 [connection signal="timeout" from="Vector_imun" to="." method="_on_vector_imun_timeout"]
 [connection signal="timeout" from="Piston_imun" to="." method="_on_piston_imun_timeout"]
 [connection signal="timeout" from="TeleTimer" to="." method="_on_tele_timer_timeout"]
+[connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]

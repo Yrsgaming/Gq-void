@@ -13,10 +13,8 @@
 
 [node name="World_11" type="Node2D"]
 script = ExtResource("1_y62at")
-limit_left = 0
 limit_right = 4700
 limit_up = -2000
-limit_down = 0
 next_level = "res://Nodes/Worlds/world_12.tscn"
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]

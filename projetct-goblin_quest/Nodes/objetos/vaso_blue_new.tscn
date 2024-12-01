@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dl48iayg4ywba"]
+[gd_scene load_steps=12 format=3 uid="uid://dl48iayg4ywba"]
 
 [ext_resource type="Script" path="res://vaso_blue_new.gd" id="1_wuprr"]
 [ext_resource type="Texture2D" uid="uid://dusm547dfg01k" path="res://Sprites/Objetos/VASO_AZUL.png" id="2_32nlj"]
@@ -77,10 +77,10 @@ tracks/0/path = NodePath("Sprite2D2:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [7, 1, 2, 3, 4, 5, 6]
+"values": [7, 1, 2, 3, 4, 5, 6, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -178,6 +178,9 @@ _data = {
 "shoosh": SubResource("Animation_e0blt")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_567fo"]
+size = Vector2(74, 11)
+
 [node name="Vaso_blue_new" type="RigidBody2D"]
 collision_layer = 3
 collision_mask = 3
@@ -231,5 +234,15 @@ libraries = {
 "": SubResource("AnimationLibrary_5wnu4")
 }
 
+[node name="player_grab" type="Area2D" parent="."]
+collision_layer = 16777216
+collision_mask = 16777216
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_grab"]
+position = Vector2(0, -42.5)
+shape = SubResource("RectangleShape2D_567fo")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="player_grab" to="." method="_on_player_grab_area_entered"]
+[connection signal="area_exited" from="player_grab" to="." method="_on_player_grab_area_exited"]

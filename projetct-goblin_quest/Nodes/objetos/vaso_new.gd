@@ -28,12 +28,6 @@ func agarra_objeto(player_):
 	self.freeze = true
 
 
-func _on_player_grab_area_entered(area: Area2D) -> void:
-	player_grab = area.get_parent()
-
-
-func _on_player_grab_area_exited(area: Area2D) -> void:
-	player_grab = null
 
 
 func _on_timer_timeout() -> void:

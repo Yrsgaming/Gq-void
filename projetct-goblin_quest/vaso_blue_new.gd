@@ -8,6 +8,7 @@ var player = null
 var player_grab = null
 var stun = false
 var local_inicial = Vector2.ZERO
+var dead = false
 #endregion
 
 
@@ -21,7 +22,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if stun == true:
 		self.freeze = true
-		linear_velocity = Vector2.ZERO
 	if held == true:
 		global_position = player.get_local_to_vaso()
 
@@ -47,11 +47,15 @@ func _on_timer_timeout() -> void:
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	if area.get_parent() != self:
+	if area.get_parent() != self and dead == false:
+		dead = true
 		stun = true
 		$AnimationPlayer.play("shoosh")
+		self.rotation = 0
 		self.global_position = local_inicial
 		$AnimationPlayer.play("anim")
 		await $AnimationPlayer.animation_finished
 		stun = false
 		self.freeze = false
+		self.global_position = local_inicial
+		dead = false
