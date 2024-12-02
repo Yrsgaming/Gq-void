@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://t3skpi1lbpg7"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/world-03/ice_plataform.gd" id="1_7erff"]
+[ext_resource type="Texture2D" uid="uid://bgd50cl4lf12j" path="res://Sprites/Objetos/world_03/plataform_ice.png" id="1_dlcjp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0cvji"]
+size = Vector2(240, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6kd"]
+size = Vector2(240, 79)
+
+[sub_resource type="Animation" id="Animation_ivfjs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlataformIce:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ou2ur"]
+resource_name = "derreter"
+length = 1.2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlataformIce:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqa57"]
+_data = {
+"RESET": SubResource("Animation_ivfjs"),
+"derreter": SubResource("Animation_ou2ur")
+}
+
+[node name="Ice_plataform" type="AnimatableBody2D"]
+script = ExtResource("1_7erff")
+
+[node name="PlataformIce" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1, 1)
+scale = Vector2(10, 10)
+texture = ExtResource("1_dlcjp")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -39)
+shape = SubResource("RectangleShape2D_0cvji")
+disabled = true
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 4194304
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(-1, -38.5)
+shape = SubResource("RectangleShape2D_eb6kd")
+debug_color = Color(0.933333, 0.262745, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mqa57")
+}
+
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

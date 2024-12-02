@@ -14,11 +14,15 @@ var player_2
 @export var belt_ritmo = 1.0
 @export var piece_belt_velocity = 2.0
 @export var belt_sempre_on = false
+@export var red_valve_speed_scale = 1.0
 var red_ = false
 var blue_ = false
 var yellow = false
 var switch_red = false
 var switch_yellow = false
+
+
+var cano_red = false
 var vasos = 0
 var light_0 = true
 var light_1 = true

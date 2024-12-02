@@ -1,0 +1,154 @@
+[gd_scene load_steps=11 format=3 uid="uid://c6ppkdwhi4vcc"]
+
+[ext_resource type="Script" path="res://Nodes/objetos/world-03/cano_branco.gd" id="1_jhm31"]
+[ext_resource type="Texture2D" uid="uid://b7ihckm5x5v74" path="res://Sprites/effects/ball_small.png" id="2_fj50k"]
+[ext_resource type="Texture2D" uid="uid://b0ceyx0150hc7" path="res://Sprites/Objetos/world_03/vapor_cano_branco.png" id="3_pjkju"]
+
+[sub_resource type="Curve" id="Curve_e06n8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.872181, 0.923529), 0.0, 0.0, 0, 0, Vector2(0.947368, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ppc7i"]
+offsets = PackedFloat32Array(0, 0.201681, 0.815126, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.278431, 1, 1, 0.280483, 0.29753, 1, 0.171098, 0, 0.0227103, 0.298039)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j63hd"]
+size = Vector2(3.3, 58.3)
+
+[sub_resource type="Animation" id="Animation_ffnga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spike/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lej6l"]
+resource_name = "start_timing"
+length = 8.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spike/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3qujq"]
+resource_name = "start_timing_2"
+length = 8.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Spike/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yaqr"]
+_data = {
+"RESET": SubResource("Animation_ffnga"),
+"start_timing": SubResource("Animation_lej6l"),
+"start_timing_2": SubResource("Animation_3qujq")
+}
+
+[node name="Cano_branco" type="Node2D"]
+script = ExtResource("1_jhm31")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -1.4)
+emitting = false
+amount = 32
+lifetime = 1.5
+texture = ExtResource("2_fj50k")
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 20.9
+gravity = Vector2(0, -600)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+angular_velocity_min = -212.87
+angular_velocity_max = 1.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_e06n8")
+color_ramp = SubResource("Gradient_ppc7i")
+
+[node name="VaporCano" type="Sprite2D" parent="."]
+texture = ExtResource("3_pjkju")
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2(0, -48.6)
+collision_layer = 4194312
+collision_mask = 4194312
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(0.2, 17.1)
+shape = SubResource("RectangleShape2D_j63hd")
+disabled = true
+debug_color = Color(0.968627, 0.176471, 0, 0.0980392)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2yaqr")
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, -10)

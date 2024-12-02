@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ckkqe2psjets7"]
+[gd_scene load_steps=73 format=3 uid="uid://ckkqe2psjets7"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_uwpvx"]
 [ext_resource type="Texture2D" uid="uid://gj2n4ssik3li" path="res://Sprites/Goblin_bases/magic_simbol.png" id="2_3obb5"]
@@ -17,8 +17,11 @@ size = Vector2(14.1, 12.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gy5jg"]
 size = Vector2(18.1, 16.9)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4rw6c"]
+size = Vector2(22.95, 17.3)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj4bk"]
-size = Vector2(27.5, 12.4)
+size = Vector2(44.4, 13.7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xphsa"]
 size = Vector2(8, 7.5)
@@ -154,6 +157,23 @@ tracks/0/keys = {
 "values": [26]
 }
 
+[sub_resource type="Animation" id="Animation_rg52v"]
+resource_name = "Indie_anim_p2_power_4"
+length = 0.2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [39]
+}
+
 [sub_resource type="Animation" id="Animation_vsmn7"]
 resource_name = "Magic_invocation"
 length = 0.5
@@ -278,7 +298,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_51q23"]
@@ -463,6 +483,24 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_r7aec"]
+resource_name = "attack_anim_p2_power_4"
+length = 0.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [44]
+}
+
 [sub_resource type="Animation" id="Animation_lnnon"]
 resource_name = "jump_anim_p1"
 length = 0.3
@@ -592,6 +630,22 @@ tracks/0/keys = {
 "values": [30]
 }
 
+[sub_resource type="Animation" id="Animation_l6y4f"]
+resource_name = "jump_anim_p2_power_4"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
+}
+
 [sub_resource type="Animation" id="Animation_78ae2"]
 resource_name = "magic_notshow"
 length = 0.1
@@ -678,6 +732,24 @@ tracks/0/keys = {
 "values": [25, 26, 27, 28]
 }
 
+[sub_resource type="Animation" id="Animation_qhff8"]
+resource_name = "walking_anim_p1_power_4"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+
 [sub_resource type="Animation" id="Animation_exbab"]
 resource_name = "walking_anim_p2"
 length = 0.55
@@ -729,59 +801,6 @@ tracks/0/keys = {
 "values": [26, 27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_qhff8"]
-resource_name = "walking_anim_p1_power_4"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [36, 37, 38, 39]
-}
-
-[sub_resource type="Animation" id="Animation_r7aec"]
-resource_name = "attack_anim_p2_power_4"
-length = 0.2
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [44]
-}
-
-[sub_resource type="Animation" id="Animation_rg52v"]
-resource_name = "Indie_anim_p2_power_4"
-length = 0.2
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [39]
-}
-
 [sub_resource type="Animation" id="Animation_05ufn"]
 resource_name = "walking_anim_p2_power_4"
 length = 0.6
@@ -798,22 +817,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [39, 40, 41, 42]
-}
-
-[sub_resource type="Animation" id="Animation_l6y4f"]
-resource_name = "jump_anim_p2_power_4"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [43]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2euan"]
@@ -1001,13 +1004,64 @@ _data = {
 "not_show_death_timer": SubResource("Animation_yg5bo")
 }
 
+[sub_resource type="Gradient" id="Gradient_o6dyc"]
+offsets = PackedFloat32Array(0.0373134, 0.30597, 0.791045)
+colors = PackedColorArray(1, 1, 1, 1, 0.952941, 0.815686, 0.25098, 1, 0.741176, 0.317647, 0.352941, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a78ig"]
+gradient = SubResource("Gradient_o6dyc")
+
 [sub_resource type="Curve" id="Curve_27s65"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.765432, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="Gradient" id="Gradient_o6dyc"]
-offsets = PackedFloat32Array(0.0373134, 0.30597, 0.791045)
-colors = PackedColorArray(1, 1, 1, 1, 0.952941, 0.815686, 0.25098, 1, 0.741176, 0.317647, 0.352941, 1)
+[sub_resource type="CurveTexture" id="CurveTexture_xmehh"]
+curve = SubResource("Curve_27s65")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pmf6u"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 10.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+angular_velocity_min = -553.85
+angular_velocity_max = 720.0
+gravity = Vector3(0, -490, 0)
+scale_min = 8.0
+scale_max = 12.0
+scale_curve = SubResource("CurveTexture_xmehh")
+color_ramp = SubResource("GradientTexture1D_a78ig")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_acvjn"]
+gradient = SubResource("Gradient_o6dyc")
+
+[sub_resource type="CurveTexture" id="CurveTexture_uvoq7"]
+curve = SubResource("Curve_27s65")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l3fa4"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 10.0
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+angular_velocity_min = -553.85
+angular_velocity_max = 720.0
+gravity = Vector3(0, -490, 0)
+scale_min = 8.0
+scale_max = 12.0
+scale_curve = SubResource("CurveTexture_uvoq7")
+color_ramp = SubResource("GradientTexture1D_acvjn")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bsbsy"]
+polygon = PackedVector2Array(0.7, -7.1, 4.6, -2.5, 4.6, 3.4, -2.2, 3.6, -2.1, -2.6)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(10, 10)
@@ -1059,8 +1113,9 @@ collision_layer = 8388672
 collision_mask = 8388672
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hit_power_3"]
-position = Vector2(8.65, -2.15)
-shape = SubResource("RectangleShape2D_gy5jg")
+position = Vector2(10.125, -2.05)
+shape = SubResource("RectangleShape2D_4rw6c")
+disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
 
 [node name="Hit_magic_fire" type="Area2D" parent="Pivot"]
@@ -1068,7 +1123,7 @@ collision_layer = 4194320
 collision_mask = 4194320
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hit_magic_fire"]
-position = Vector2(20.75, -1.1)
+position = Vector2(29.2, -0.45)
 shape = SubResource("RectangleShape2D_mj4bk")
 disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
@@ -1249,41 +1304,28 @@ texture = ExtResource("9_pae6m")
 hframes = 5
 
 [node name="Particles" type="Node2D" parent="."]
+z_index = 1
 
-[node name="Right" type="CPUParticles2D" parent="Particles"]
-position = Vector2(14.4, 0.4)
-amount = 120
-texture = ExtResource("10_0uky0")
-particle_flag_align_y = true
-direction = Vector2(0, 0)
-spread = 10.0
-gravity = Vector2(0, -490)
-initial_velocity_min = 40.0
-initial_velocity_max = 80.0
-angular_velocity_min = -553.85
-angular_velocity_max = 720.0
-scale_amount_min = 8.0
-scale_amount_max = 12.0
-scale_amount_curve = SubResource("Curve_27s65")
-color_ramp = SubResource("Gradient_o6dyc")
-
-[node name="Left" type="CPUParticles2D" parent="Particles"]
-position = Vector2(-11.4, 0.4)
+[node name="Right" type="GPUParticles2D" parent="Particles"]
+position = Vector2(11.2, 0.4)
 emitting = false
 amount = 120
+process_material = SubResource("ParticleProcessMaterial_pmf6u")
 texture = ExtResource("10_0uky0")
-particle_flag_align_y = true
-direction = Vector2(-1, 0)
-spread = 10.0
-gravity = Vector2(0, -490)
-initial_velocity_min = 40.0
-initial_velocity_max = 80.0
-angular_velocity_min = -553.85
-angular_velocity_max = 720.0
-scale_amount_min = 8.0
-scale_amount_max = 12.0
-scale_amount_curve = SubResource("Curve_27s65")
-color_ramp = SubResource("Gradient_o6dyc")
+fixed_fps = 0
+draw_order = 0
+
+[node name="Left" type="GPUParticles2D" parent="Particles"]
+position = Vector2(-8.4, 0.4)
+emitting = false
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_l3fa4")
+texture = ExtResource("10_0uky0")
+fixed_fps = 0
+draw_order = 0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Particles"]
+occluder = SubResource("OccluderPolygon2D_bsbsy")
 
 [node name="jump_timer" type="Timer" parent="."]
 wait_time = 0.25

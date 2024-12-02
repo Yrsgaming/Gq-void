@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dooopecrahyb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7bof"]
+size = Vector2(60, 94)
+
+[node name="heat zone" type="Node2D"]
+scale = Vector2(10, 10)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0.168627)
+position = Vector2(0, -34)
+scale = Vector2(23.046, 7.05269)
+color = Color(0.710385, 0, 0.202153, 1)
+polygon = PackedVector2Array(-1.25835, 10.3507, 1.34513, 10.3507, 1.34513, -2.97759, -1.25835, -2.97759)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4194304
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -8)
+shape = SubResource("RectangleShape2D_r7bof")
+debug_color = Color(0.933333, 0.262745, 0, 0)

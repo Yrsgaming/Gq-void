@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgh7tirwmdo5s"]
+
+[ext_resource type="Script" path="res://cano_vermelho.gd" id="1_3rlex"]
+[ext_resource type="Texture2D" uid="uid://b7ihckm5x5v74" path="res://Sprites/effects/ball_small.png" id="2_waqqs"]
+[ext_resource type="Texture2D" uid="uid://fip8k7ol3i4s" path="res://Sprites/Objetos/world_03/vapor_cano_vermelho.png" id="3_nmukn"]
+
+[sub_resource type="Curve" id="Curve_e06n8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.872181, 0.923529), 0.0, 0.0, 0, 0, Vector2(0.947368, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ppc7i"]
+offsets = PackedFloat32Array(0, 0.201681, 0.815126, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0.278431, 1, 1, 0.280483, 0.29753, 1, 0.171098, 0, 0.0227103, 0.298039)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j63hd"]
+size = Vector2(3.3, 58.3)
+
+[node name="Cano_vermelho" type="Node2D"]
+position = Vector2(0, 2)
+script = ExtResource("1_3rlex")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -1.4)
+amount = 32
+lifetime = 1.5
+texture = ExtResource("2_waqqs")
+particle_flag_align_y = true
+direction = Vector2(0, -1)
+spread = 20.9
+gravity = Vector2(0, -600)
+initial_velocity_min = 5.0
+initial_velocity_max = 8.0
+angular_velocity_min = -212.87
+angular_velocity_max = 1.0
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_e06n8")
+color_ramp = SubResource("Gradient_ppc7i")
+
+[node name="VaporCano" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("3_nmukn")
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2(0, -48.6)
+collision_layer = 4194312
+collision_mask = 4194312
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spike"]
+position = Vector2(0.2, 17.1)
+shape = SubResource("RectangleShape2D_j63hd")
+disabled = true
+debug_color = Color(0.968627, 0.176471, 0, 0.0980392)
