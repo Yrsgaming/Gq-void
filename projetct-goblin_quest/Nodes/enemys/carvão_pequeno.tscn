@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csgnusdyl8tem"]
+[gd_scene load_steps=22 format=3 uid="uid://csgnusdyl8tem"]
 
 [ext_resource type="Script" path="res://carvão_pequeno.gd" id="1_mxxjt"]
 [ext_resource type="Texture2D" uid="uid://x7cdc0y66lxm" path="res://Sprites/Enemys/enemy_world_04/carvao.png" id="2_fktp4"]
@@ -9,7 +9,10 @@
 size = Vector2(7.8, 8.96667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkgug"]
-size = Vector2(7.26667, 7.73334)
+size = Vector2(8.2, 7.73334)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlonn"]
+size = Vector2(5.06667, 23.6667)
 
 [sub_resource type="Curve" id="Curve_yps8f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -72,53 +75,78 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox_fire/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_oss86"]
 resource_name = "walk_burn"
-length = 0.6
+length = 1.2
 loop_mode = 1
-step = 0.15
+step = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("CPUParticles2D4:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CPUParticles2D4:emitting")
+tracks/1/path = NodePath("Hitbox/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitbox/CollisionShape2D:disabled")
+tracks/2/path = NodePath("Hitbox_fire/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.15),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7]
+}
 
 [sub_resource type="Animation" id="Animation_dnux0"]
 resource_name = "walk_no_burn"
-length = 0.6
-step = 0.15
+length = 1.2
+loop_mode = 1
+step = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -126,7 +154,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -155,6 +183,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hitbox_fire/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_px1yn"]
 _data = {
@@ -171,8 +211,14 @@ point_count = 3
 offsets = PackedFloat32Array(0.0460251, 0.167364, 0.309623, 0.514644, 0.610879, 0.807531)
 colors = PackedColorArray(0, 0, 0, 0, 0.741176, 0.317647, 0.352941, 1, 0.761453, 0.367111, 0.36178, 1, 0.938847, 0.799842, 0.439105, 1, 0.96549, 0.864837, 0.450719, 1, 1, 1, 1, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky3sw"]
+size = Vector2(6.26667, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_de04w"]
+size = Vector2(6.26667, 7.06667)
+
 [node name="Carvão_pequeno" type="CharacterBody2D"]
-scale = Vector2(15, 15)
+scale = Vector2(12, 12)
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_mxxjt")
@@ -183,7 +229,6 @@ hframes = 8
 frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-0.0333334, 3.38333)
 shape = SubResource("RectangleShape2D_jcja2")
 
@@ -195,8 +240,18 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-0.100001, 2.73333)
+position = Vector2(-0.1, 2.73333)
 shape = SubResource("RectangleShape2D_kkgug")
+disabled = true
+debug_color = Color(0.92549, 0.27451, 0, 0.0392157)
+
+[node name="Hitbox_fire" type="Area2D" parent="."]
+collision_layer = 4194304
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_fire"]
+position = Vector2(-0.133333, -8)
+shape = SubResource("RectangleShape2D_hlonn")
 disabled = true
 debug_color = Color(0.92549, 0.27451, 0, 0.0392157)
 
@@ -279,4 +334,24 @@ scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_k8e8j")
 color_ramp = SubResource("Gradient_1s1ij")
 
+[node name="Fire_camada" type="Area2D" parent="."]
+collision_layer = 4194304
+collision_mask = 4194304
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire_camada"]
+position = Vector2(-0.133334, 3.7)
+shape = SubResource("RectangleShape2D_ky3sw")
+debug_color = Color(0.933333, 0.262745, 0, 0)
+
+[node name="Ice_camada" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8388608
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ice_camada"]
+position = Vector2(-0.133333, 3.66667)
+shape = SubResource("RectangleShape2D_de04w")
+debug_color = Color(0.933333, 0.262745, 0, 0)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Fire_camada" to="." method="_on_fire_camada_area_entered"]
+[connection signal="area_entered" from="Ice_camada" to="." method="_on_ice_camada_area_entered"]

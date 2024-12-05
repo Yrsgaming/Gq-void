@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dtwxphogqfb6d"]
+[gd_scene load_steps=12 format=4 uid="uid://dtwxphogqfb6d"]
 
 [ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_k5kpk"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="2_kgtky"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="6_0qynh"]
 [ext_resource type="PackedScene" uid="uid://cbx4xbsxw71n0" path="res://Nodes/objetos/world-03/ice_way.tscn" id="8_uoddf"]
 [ext_resource type="PackedScene" uid="uid://c6ppkdwhi4vcc" path="res://Nodes/objetos/world-03/cano_branco.tscn" id="9_ysk7j"]
+[ext_resource type="PackedScene" uid="uid://csgnusdyl8tem" path="res://Nodes/enemys/carvão_pequeno.tscn" id="10_xrwem"]
 
 [sub_resource type="Curve2D" id="Curve2D_q74sc"]
 _data = {
@@ -62,3 +63,6 @@ curve = SubResource("Curve2D_q74sc")
 
 [node name="Cano_branco" parent="." instance=ExtResource("9_ysk7j")]
 position = Vector2(10575, 730)
+
+[node name="Carvão_pequeno" parent="." instance=ExtResource("10_xrwem")]
+position = Vector2(8002, -553)

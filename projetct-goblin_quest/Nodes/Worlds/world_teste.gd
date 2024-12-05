@@ -68,6 +68,8 @@ func p2_unlock_obj(obj):
 	obj.unlock()
 	player_2.unlock_obj()
 
+func p2_unlock():
+	player_2.unlock_obj()
 
 func p2_dark_zone():
 	p2_can_revive = false

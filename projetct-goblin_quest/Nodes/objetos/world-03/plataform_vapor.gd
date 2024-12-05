@@ -7,12 +7,9 @@ var modulate_valor = 1
 var heating = false
 
 func _start(world):
-	$Pivot_plataform.position.y = temp * -1
 	modulate_valor = modulate_valor - 0.01
 	$Ball2.modulate.a = modulate_valor
 func _process(delta: float) -> void:
-	print($Particles.process_material.gravity)
-	$Particles.process_material.gravity = Vector3(0, (temp * -24) + 15, 0)
 	if temp > 1.0:
 		$AnimationPlayer.play("up_down")
 	else:

@@ -89,12 +89,12 @@ position = Vector2(60, -263)
 
 [node name="Player" parent="." instance=ExtResource("1_5w26b")]
 position = Vector2(-4861, -909)
-power = 2
+power = 5
 
 [node name="Player2" parent="." instance=ExtResource("1_5w26b")]
 position = Vector2(-4719, -501)
 player = 2
-power = 4
+power = 5
 
 [node name="Camera_debug" parent="." instance=ExtResource("4_5riab")]
 

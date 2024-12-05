@@ -3,4 +3,5 @@ extends Node2D
 var alive = true
 
 func _start(world):
-	pass
+	if $RayCast2D.is_colliding() == true:
+		$Spike/Sprite2D.scale.y = -1

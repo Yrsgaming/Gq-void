@@ -75,7 +75,7 @@ _data = {
 size = Vector2(16, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rv6eq"]
-size = Vector2(12.05, 50)
+size = Vector2(8, 50)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qp30h"]
 polygon = PackedVector2Array(-8, -7, -8, -6, -2, -3, 2, -3, 8, -6, 8, -7)
@@ -90,6 +90,7 @@ polygon = PackedVector2Array(-7, -8, -8, -8, -8, 8, 8, 8, 8, -8, 7, -8, 7, 7, -7
 script = ExtResource("1_62epq")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
+visible = false
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_2jtr3")
 texture = ExtResource("2_n3fhi")
@@ -113,6 +114,7 @@ collision_mask = 4194304
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Temp_up"]
 shape = SubResource("RectangleShape2D_dsfiv")
+debug_color = Color(0.67451, 0, 0.219608, 0)
 
 [node name="Temp_down" type="Area2D" parent="."]
 collision_layer = 8388608
@@ -120,6 +122,7 @@ collision_mask = 8388608
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Temp_down"]
 shape = SubResource("RectangleShape2D_dsfiv")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -145,7 +148,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot_plataform/Spike"]
-position = Vector2(-0.0249998, 21.075)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_rv6eq")
 debug_color = Color(0.968627, 0.176471, 0, 0.0980392)
 

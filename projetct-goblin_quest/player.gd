@@ -43,92 +43,8 @@ var jump_reverse = false
 var only_one_bullet = false
 var control = true
 var obj_lock = null
-func lock_obj(obj):
-	obj_lock = obj
-	control = false
-
-func unlock_obj():
-	obj_lock = null
-	control = true
 
 
-func _start() -> void:
-	$Anchor_anim.play("anim_anchor")
-	$Anchor_red/RespawnRedleft.visible = false
-	$Anchor_red/RespawnRedright.visible = false
-	$Anchor_yellow/RespawnYellowleft.visible = false
-	$Anchor_yellow/RespawnYellowright.visible = false
-	world = get_parent()
-	
-	if true:
-		if player == 1:
-			world.add_player(player,self)
-			$Pivot/player_2.visible = false
-			show_flag(true)
-		elif player == 2:
-			world.add_player(player,self)
-			$Pivot/player_1.visible = false
-			show_flag(false)
-
-func try_teleport():
-	
-	if player == 1:
-		if Input.is_action_pressed("p1_teleport"):
-			if trying_teleport == false:
-				trying_teleport = true
-				$Anchor_anim.play("Death_timer")
-				if $TeleTimer.is_stopped():
-					$TeleTimer.start(1.2)
-		if Input.is_action_just_released("p1_teleport"):
-			if trying_teleport == true:
-				$Anchor_anim.play("not_show_death_timer")
-				trying_teleport = false
-				$TeleTimer.stop()
-	elif player == 2:
-		if Input.is_action_pressed("p2_teleport"):
-			if trying_teleport == false:
-				trying_teleport = true
-				$Anchor_anim.play("Death_timer")
-				if $TeleTimer.is_stopped():
-					$TeleTimer.start(1.2)
-		if Input.is_action_just_released("p2_teleport"):
-			$Anchor_anim.play("not_show_death_timer")
-			if trying_teleport == true:
-				trying_teleport = false
-				$TeleTimer.stop()
-
-
-
-
-func fire_breath():
-	if Input.is_action_pressed("p2_throw"):
-		$AnimationPlayer.play("attack_anim_p2_power_4" 	)
-		attacking = true
-		$Pivot/Hit_magic_fire/CollisionShape2D.disabled = false
-		if dir == 1:
-			$Particles/Right.emitting = true
-			$Particles/Left.emitting = false
-		elif dir == -1:
-			$Particles/Right.emitting = false
-			$Particles/Left.emitting = true
-	else:
-		$Pivot/Hit_magic_fire/CollisionShape2D.disabled = true
-		$Particles/Right.emitting = false
-		$Particles/Left.emitting = false
-		attacking = false
-func show_flag(show):
-	if show == true:
-		$Pivot/Flag.visible = true
-	else:
-		$Pivot/Flag.visible = false
-
-func follow_rigid(dir_rigid):
-	pass
-	#ector_rigid = dir_rigid
-
-
-func remove_only_one_bullet():
-	only_one_bullet = false
 func _physics_process(delta: float) -> void:
 	_remove_add_vector()
 	if obj_lock != null:
@@ -177,6 +93,8 @@ func _physics_process(delta: float) -> void:
 		force_jump()
 		if power == 4 and player == 2:
 			fire_breath()
+		if power == 5 and player == 2:
+			magia_vento()
 		if friend_dead == true:
 			show_spawn_location()
 		else:
@@ -190,6 +108,115 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 400
 	move_and_slide()
 
+
+
+
+
+
+
+
+
+func lock_obj(obj):
+	obj_lock = obj
+	control = false
+
+func unlock_obj():
+	obj_lock = null
+	control = true
+
+func _start() -> void:
+	$Anchor_anim.play("anim_anchor")
+	$Anchor_red/RespawnRedleft.visible = false
+	$Anchor_red/RespawnRedright.visible = false
+	$Anchor_yellow/RespawnYellowleft.visible = false
+	$Anchor_yellow/RespawnYellowright.visible = false
+	world = get_parent()
+	
+	if true:
+		if player == 1:
+			world.add_player(player,self)
+			$Pivot/player_2.visible = false
+			show_flag(true)
+		elif player == 2:
+			world.add_player(player,self)
+			$Pivot/player_1.visible = false
+			show_flag(false)
+
+func try_teleport():
+	
+	if player == 1:
+		if Input.is_action_pressed("p1_teleport"):
+			if trying_teleport == false:
+				trying_teleport = true
+				$Anchor_anim.play("Death_timer")
+				if $TeleTimer.is_stopped():
+					$TeleTimer.start(1.2)
+		if Input.is_action_just_released("p1_teleport"):
+			if trying_teleport == true:
+				$Anchor_anim.play("not_show_death_timer")
+				trying_teleport = false
+				$TeleTimer.stop()
+	elif player == 2:
+		if Input.is_action_pressed("p2_teleport"):
+			if trying_teleport == false:
+				trying_teleport = true
+				$Anchor_anim.play("Death_timer")
+				if $TeleTimer.is_stopped():
+					$TeleTimer.start(1.2)
+		if Input.is_action_just_released("p2_teleport"):
+			$Anchor_anim.play("not_show_death_timer")
+			if trying_teleport == true:
+				trying_teleport = false
+				$TeleTimer.stop()
+
+
+func magia_vento():
+	if Input.is_action_pressed("p2_throw"):
+		$AnimationPlayer.play("attack_anim_p2_power_5")
+		attacking = true
+		$Pivot/Hit_magic_vent/CollisionShape2D.disabled = false
+		if dir == 1:
+			$Particles/Vento_RIGHT.emitting = true
+			$Particles/Vento_Left.emitting = false
+		elif dir == -1:
+			$Particles/Vento_RIGHT.emitting = false
+			$Particles/Vento_Left.emitting = true
+	else:
+		$Pivot/Hit_magic_vent/CollisionShape2D.disabled = true
+		$Particles/Vento_RIGHT.emitting = false
+		$Particles/Vento_Left.emitting = false
+		attacking = false
+
+
+func fire_breath():
+	if Input.is_action_pressed("p2_throw"):
+		$AnimationPlayer.play("attack_anim_p2_power_4" 	)
+		attacking = true
+		$Pivot/Hit_magic_fire/CollisionShape2D.disabled = false
+		if dir == 1:
+			$Particles/Right.emitting = true
+			$Particles/Left.emitting = false
+		elif dir == -1:
+			$Particles/Right.emitting = false
+			$Particles/Left.emitting = true
+	else:
+		$Pivot/Hit_magic_fire/CollisionShape2D.disabled = true
+		$Particles/Right.emitting = false
+		$Particles/Left.emitting = false
+		attacking = false
+func show_flag(show):
+	if show == true:
+		$Pivot/Flag.visible = true
+	else:
+		$Pivot/Flag.visible = false
+
+func follow_rigid(dir_rigid):
+	pass
+	#ector_rigid = dir_rigid
+
+
+func remove_only_one_bullet():
+	only_one_bullet = false
 
 
 func check_vector_belt():
@@ -323,6 +350,8 @@ func anim() -> void:
 				$AnimationPlayer.play("walking_anim_p1_power_2")
 			elif power == 4:
 				$AnimationPlayer.play("walking_anim_p1_power_4")
+			elif power == 5:
+				$AnimationPlayer.play("walking_anim_p1_power_5")
 		elif player == 2:
 			if power == 1:
 				$AnimationPlayer.play("walking_anim_p2")
@@ -332,6 +361,8 @@ func anim() -> void:
 				$AnimationPlayer.play("walking_anim_p2_power_3")
 			elif power == 4:
 				$AnimationPlayer.play("walking_anim_p2_power_4")
+			elif power == 5:
+				$AnimationPlayer.play("walking_anim_p2_power_5")
 	if Input_move_vector > 0:
 		$Pivot.scale.x = 1
 		dir = 1
@@ -346,6 +377,8 @@ func anim() -> void:
 				$AnimationPlayer.play("jump_anim_p1_power_2")
 			elif power == 4:
 				$AnimationPlayer.play("jump_anim_p1_power_4")
+			elif power == 5:
+				$AnimationPlayer.play("jump_anim_p1_power_5")
 		elif player == 2:
 			if power == 1:
 				$AnimationPlayer.play("jump_anim_p2")
@@ -355,6 +388,8 @@ func anim() -> void:
 				$AnimationPlayer.play("jump_anim_p2_power_3")
 			elif power == 4:
 				$AnimationPlayer.play("jump_anim_p2_power_4")
+			elif power == 5:
+				$AnimationPlayer.play("jump_anim_p2_power_5")
 	elif Input_move_vector == 0 and attacking == false:
 		if player == 1:
 			if power == 1:
@@ -363,6 +398,8 @@ func anim() -> void:
 				$AnimationPlayer.play("Indie_anim_p1_power_2")
 			elif power == 4:
 				$AnimationPlayer.play("Indie_anim_p1_power_4")
+			elif power == 5:
+				$AnimationPlayer.play("Indie_anim_p1_power_5")
 		elif player == 2:
 			if power == 1:
 				$AnimationPlayer.play("Indie_anim_p2")
@@ -372,6 +409,8 @@ func anim() -> void:
 				$AnimationPlayer.play("Indie_anim_p2_power_3")
 			elif power == 4:
 				$AnimationPlayer.play("Indie_anim_p2_power_4")
+			elif power == 5:
+				$AnimationPlayer.play("Indie_anim_p2_power_5")
 	if power == 3 and player == 1:
 		if Input_move_vector == 0 and attacking == false:
 			if is_on_floor() or is_on_ceiling():

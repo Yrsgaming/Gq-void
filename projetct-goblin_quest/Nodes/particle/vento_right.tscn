@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhu0u4ik4pbn7"]
+
+[sub_resource type="Gradient" id="Gradient_uwssw"]
+offsets = PackedFloat32Array(0.0334728, 0.761506, 1)
+colors = PackedColorArray(1, 1, 1, 0.462745, 1, 1, 1, 0.450862, 1, 1, 1, 0.364706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xykeg"]
+gradient = SubResource("Gradient_uwssw")
+
+[sub_resource type="Curve" id="Curve_1ulq0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_heqjb"]
+max_value = 8.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.228464, 1.81144), 0.0, 0.0, 0, 0, Vector2(0.805243, 6.31221), 0.0, 0.0, 0, 0, Vector2(1, 8), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_kyl2y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_mamk5"]
+curve_x = SubResource("Curve_1ulq0")
+curve_y = SubResource("Curve_heqjb")
+curve_z = SubResource("Curve_kyl2y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vf71o"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 12.0
+initial_velocity_min = 300.0
+initial_velocity_max = 900.0
+gravity = Vector3(0, 5, 0)
+scale_min = 7.0
+scale_max = 8.0
+scale_curve = SubResource("CurveXYZTexture_mamk5")
+color_ramp = SubResource("GradientTexture1D_xykeg")
+collision_mode = 2
+
+[node name="Vento_RIGHT" type="GPUParticles2D"]
+position = Vector2(-24, 2)
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_vf71o")
+fixed_fps = 0
+draw_order = 0

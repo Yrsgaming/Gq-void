@@ -1,10 +1,11 @@
-[gd_scene load_steps=73 format=3 uid="uid://ckkqe2psjets7"]
+[gd_scene load_steps=94 format=3 uid="uid://ckkqe2psjets7"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_uwpvx"]
 [ext_resource type="Texture2D" uid="uid://gj2n4ssik3li" path="res://Sprites/Goblin_bases/magic_simbol.png" id="2_3obb5"]
 [ext_resource type="Texture2D" uid="uid://bwk7bf0i4jlwq" path="res://Sprites/effects/Flag.png" id="2_qocd6"]
 [ext_resource type="Texture2D" uid="uid://cgd70beof27sx" path="res://Sprites/Goblin_bases/all_guerreiro.png" id="2_yeha1"]
 [ext_resource type="Texture2D" uid="uid://dwbqp870p38we" path="res://Sprites/Goblin_bases/allmagic.png" id="3_4j88n"]
+[ext_resource type="Texture2D" uid="uid://tausgby3bube" path="res://Sprites/projetil/spear.png" id="5_n51mc"]
 [ext_resource type="AudioStream" uid="uid://cmho4g88q0dky" path="res://Audio/gaming.wav" id="5_w2cfj"]
 [ext_resource type="Texture2D" uid="uid://dlb1aefox8sao" path="res://Sprites/effects/respawn_red.png" id="6_ic8bj"]
 [ext_resource type="Texture2D" uid="uid://bl6niyssamxdd" path="res://Sprites/effects/respawn_yellow.png" id="7_efpk2"]
@@ -22,6 +23,9 @@ size = Vector2(22.95, 17.3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj4bk"]
 size = Vector2(44.4, 13.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7fwt"]
+size = Vector2(62.7, 13.7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xphsa"]
 size = Vector2(8, 7.5)
@@ -465,10 +469,10 @@ tracks/0/path = NodePath("Pivot/player_2:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [31, 32, 33, 34, 35, 36, 37, 38]
+"values": [31, 32, 33, 34, 35, 36, 37]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -819,6 +823,126 @@ tracks/0/keys = {
 "values": [39, 40, 41, 42]
 }
 
+[sub_resource type="Animation" id="Animation_56sc8"]
+resource_name = "Indie_anim_p1_power_5"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
+}
+
+[sub_resource type="Animation" id="Animation_ubob6"]
+resource_name = "jump_anim_p1_power_5"
+length = 0.15
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [42]
+}
+
+[sub_resource type="Animation" id="Animation_03o87"]
+resource_name = "walking_anim_p1_power_5"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [43, 44, 45, 46]
+}
+
+[sub_resource type="Animation" id="Animation_jp6gw"]
+resource_name = "Indie_anim_p2_power_5"
+length = 0.2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [45]
+}
+
+[sub_resource type="Animation" id="Animation_7djwd"]
+resource_name = "attack_anim_p2_power_5"
+length = 0.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [51]
+}
+
+[sub_resource type="Animation" id="Animation_jm4bp"]
+resource_name = "jump_anim_p2_power_5"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [47]
+}
+
+[sub_resource type="Animation" id="Animation_g44ja"]
+resource_name = "walking_anim_p2_power_5"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [46, 47, 48, 49]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2euan"]
 _data = {
 "Indie_anim_p1": SubResource("Animation_0rn07"),
@@ -826,10 +950,12 @@ _data = {
 "Indie_anim_p1_power_3_desligado": SubResource("Animation_gseeq"),
 "Indie_anim_p1_power_3_ligado": SubResource("Animation_kk0rb"),
 "Indie_anim_p1_power_4": SubResource("Animation_txpkk"),
+"Indie_anim_p1_power_5": SubResource("Animation_56sc8"),
 "Indie_anim_p2": SubResource("Animation_6as3s"),
 "Indie_anim_p2_power_2": SubResource("Animation_76xsy"),
 "Indie_anim_p2_power_3": SubResource("Animation_x3e4c"),
 "Indie_anim_p2_power_4": SubResource("Animation_rg52v"),
+"Indie_anim_p2_power_5": SubResource("Animation_jp6gw"),
 "Magic_invocation": SubResource("Animation_vsmn7"),
 "RESET": SubResource("Animation_nwtcq"),
 "attack_anim_p1": SubResource("Animation_51q23"),
@@ -839,29 +965,37 @@ _data = {
 "attack_anim_p2_power_2": SubResource("Animation_wlcxt"),
 "attack_anim_p2_power_3": SubResource("Animation_o1dlo"),
 "attack_anim_p2_power_4": SubResource("Animation_r7aec"),
+"attack_anim_p2_power_5": SubResource("Animation_7djwd"),
 "jump_anim_p1": SubResource("Animation_lnnon"),
 "jump_anim_p1_power_2": SubResource("Animation_osfg1"),
 "jump_anim_p1_power_3_desligado": SubResource("Animation_0vu35"),
 "jump_anim_p1_power_3_ligado": SubResource("Animation_ffsx0"),
 "jump_anim_p1_power_4": SubResource("Animation_lhj0g"),
+"jump_anim_p1_power_5": SubResource("Animation_ubob6"),
 "jump_anim_p2": SubResource("Animation_rmr0v"),
 "jump_anim_p2_power_2": SubResource("Animation_lpem6"),
 "jump_anim_p2_power_3": SubResource("Animation_kl0sa"),
 "jump_anim_p2_power_4": SubResource("Animation_l6y4f"),
+"jump_anim_p2_power_5": SubResource("Animation_jm4bp"),
 "magic_notshow": SubResource("Animation_78ae2"),
 "walking_anim_p1": SubResource("Animation_go5rb"),
 "walking_anim_p1_power_2": SubResource("Animation_pw1l8"),
 "walking_anim_p1_power_3_desligado": SubResource("Animation_0tlw1"),
 "walking_anim_p1_power_3_ligado": SubResource("Animation_sot0c"),
 "walking_anim_p1_power_4": SubResource("Animation_qhff8"),
+"walking_anim_p1_power_5": SubResource("Animation_03o87"),
 "walking_anim_p2": SubResource("Animation_exbab"),
 "walking_anim_p2_power_2": SubResource("Animation_xya1q"),
 "walking_anim_p2_power_3": SubResource("Animation_uwotg"),
-"walking_anim_p2_power_4": SubResource("Animation_05ufn")
+"walking_anim_p2_power_4": SubResource("Animation_05ufn"),
+"walking_anim_p2_power_5": SubResource("Animation_g44ja")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uy7b"]
 size = Vector2(23.4, 13.3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xn22"]
+size = Vector2(8.725, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jigut"]
 size = Vector2(12.1, 10.8)
@@ -1063,6 +1197,69 @@ collision_bounce = 0.0
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bsbsy"]
 polygon = PackedVector2Array(0.7, -7.1, 4.6, -2.5, 4.6, 3.4, -2.2, 3.6, -2.1, -2.6)
 
+[sub_resource type="Gradient" id="Gradient_uwssw"]
+offsets = PackedFloat32Array(0.0334728, 0.761506, 1)
+colors = PackedColorArray(1, 1, 1, 0.462745, 1, 1, 1, 0.450862, 1, 1, 1, 0.364706)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xykeg"]
+gradient = SubResource("Gradient_uwssw")
+
+[sub_resource type="Curve" id="Curve_1ulq0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_heqjb"]
+max_value = 8.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.228464, 1.81144), 0.0, 0.0, 0, 0, Vector2(0.805243, 6.31221), 0.0, 0.0, 0, 0, Vector2(1, 8), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_kyl2y"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_mamk5"]
+curve_x = SubResource("Curve_1ulq0")
+curve_y = SubResource("Curve_heqjb")
+curve_z = SubResource("Curve_kyl2y")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vf71o"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 12.0
+initial_velocity_min = 300.0
+initial_velocity_max = 900.0
+gravity = Vector3(0, 5, 0)
+scale_min = 7.0
+scale_max = 8.0
+scale_curve = SubResource("CurveXYZTexture_mamk5")
+color_ramp = SubResource("GradientTexture1D_xykeg")
+collision_mode = 2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_47kgp"]
+gradient = SubResource("Gradient_uwssw")
+
+[sub_resource type="Curve" id="Curve_do8r1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_nim2b"]
+curve_x = SubResource("Curve_1ulq0")
+curve_y = SubResource("Curve_heqjb")
+curve_z = SubResource("Curve_do8r1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vwuwj"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 12.0
+initial_velocity_min = 300.0
+initial_velocity_max = 900.0
+gravity = Vector3(0, 5, 0)
+scale_min = 7.0
+scale_max = 8.0
+scale_curve = SubResource("CurveXYZTexture_nim2b")
+color_ramp = SubResource("GradientTexture1D_47kgp")
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(10, 10)
 collision_layer = 14
@@ -1128,6 +1325,22 @@ shape = SubResource("RectangleShape2D_mj4bk")
 disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
 
+[node name="Hit_magic_vent" type="Area2D" parent="Pivot"]
+collision_layer = 4194320
+collision_mask = 4194320
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hit_magic_vent"]
+position = Vector2(38.55, -0.549999)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_q7fwt")
+disabled = true
+debug_color = Color(1, 1, 1, 0.176471)
+
+[node name="Spear" type="Sprite2D" parent="Pivot"]
+visible = false
+position = Vector2(3, 1.7)
+texture = ExtResource("5_n51mc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -13.3)
@@ -1182,8 +1395,8 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death-ZONE"]
-position = Vector2(0.95, -0.499999)
-shape = SubResource("RectangleShape2D_jigut")
+position = Vector2(1.1625, 0.05)
+shape = SubResource("RectangleShape2D_8xn22")
 debug_color = Color(1, 0, 0.0901961, 0)
 
 [node name="Explosion_death_zone" type="Area2D" parent="."]
@@ -1326,6 +1539,24 @@ draw_order = 0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Particles"]
 occluder = SubResource("OccluderPolygon2D_bsbsy")
+
+[node name="Vento_RIGHT" type="GPUParticles2D" parent="Particles"]
+position = Vector2(10.8, -0.9)
+scale = Vector2(0.1, 0.1)
+emitting = false
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_vf71o")
+fixed_fps = 0
+draw_order = 0
+
+[node name="Vento_Left" type="GPUParticles2D" parent="Particles"]
+position = Vector2(-8.4, -0.9)
+scale = Vector2(0.1, 0.1)
+emitting = false
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_vwuwj")
+fixed_fps = 0
+draw_order = 0
 
 [node name="jump_timer" type="Timer" parent="."]
 wait_time = 0.25
