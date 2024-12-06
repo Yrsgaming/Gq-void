@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://ckkqe2psjets7"]
+[gd_scene load_steps=99 format=3 uid="uid://ckkqe2psjets7"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_uwpvx"]
 [ext_resource type="Texture2D" uid="uid://gj2n4ssik3li" path="res://Sprites/Goblin_bases/magic_simbol.png" id="2_3obb5"]
@@ -7,8 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://dwbqp870p38we" path="res://Sprites/Goblin_bases/allmagic.png" id="3_4j88n"]
 [ext_resource type="Texture2D" uid="uid://tausgby3bube" path="res://Sprites/projetil/spear.png" id="5_n51mc"]
 [ext_resource type="AudioStream" uid="uid://cmho4g88q0dky" path="res://Audio/gaming.wav" id="5_w2cfj"]
+[ext_resource type="Script" path="res://Nodes/Player/ice_pivot.gd" id="6_fe6ac"]
 [ext_resource type="Texture2D" uid="uid://dlb1aefox8sao" path="res://Sprites/effects/respawn_red.png" id="6_ic8bj"]
 [ext_resource type="Texture2D" uid="uid://bl6niyssamxdd" path="res://Sprites/effects/respawn_yellow.png" id="7_efpk2"]
+[ext_resource type="Texture2D" uid="uid://scndbecbyvc5" path="res://Sprites/projetil/ice_weapon.png" id="7_w3lqp"]
+[ext_resource type="Shader" path="res://Nodes/Player/line.gdshader" id="8_dvt4p"]
+[ext_resource type="Texture2D" uid="uid://cootmjmgoy8e7" path="res://Sprites/effects/mira_ponta.png" id="9_7f38b"]
 [ext_resource type="Texture2D" uid="uid://d1fav5hk0kab1" path="res://Sprites/effects/timer_teleport.png" id="9_pae6m"]
 [ext_resource type="Texture2D" uid="uid://ddj06hpb7d758" path="res://Sprites/effects/ball.png" id="10_0uky0"]
 
@@ -26,6 +30,16 @@ size = Vector2(44.4, 13.7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7fwt"]
 size = Vector2(62.7, 13.7)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mi3j2"]
+shader = ExtResource("8_dvt4p")
+shader_parameter/frequency = 1.5
+shader_parameter/amplitude = 1000.0
+shader_parameter/speed = 20.0
+shader_parameter/direction = -1.0
+shader_parameter/color1 = Color(1, 1, 1, 0)
+shader_parameter/color2 = Color(0.729412, 0.00784314, 0.121569, 1)
+shader_parameter/opacity = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xphsa"]
 size = Vector2(8, 7.5)
@@ -113,6 +127,22 @@ tracks/0/keys = {
 "values": [30]
 }
 
+[sub_resource type="Animation" id="Animation_56sc8"]
+resource_name = "Indie_anim_p1_power_5"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
+}
+
 [sub_resource type="Animation" id="Animation_6as3s"]
 resource_name = "Indie_anim_p2"
 length = 0.1
@@ -176,6 +206,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [39]
+}
+
+[sub_resource type="Animation" id="Animation_jp6gw"]
+resource_name = "Indie_anim_p2_power_5"
+length = 0.2
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [45]
 }
 
 [sub_resource type="Animation" id="Animation_vsmn7"]
@@ -301,7 +348,7 @@ tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [true]
 }
 
@@ -399,7 +446,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.15, 0.6),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [false, true]
 }
 
@@ -505,6 +552,24 @@ tracks/0/keys = {
 "values": [44]
 }
 
+[sub_resource type="Animation" id="Animation_7djwd"]
+resource_name = "attack_anim_p2_power_5"
+length = 0.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [51]
+}
+
 [sub_resource type="Animation" id="Animation_lnnon"]
 resource_name = "jump_anim_p1"
 length = 0.3
@@ -586,6 +651,23 @@ tracks/0/keys = {
 "values": [35]
 }
 
+[sub_resource type="Animation" id="Animation_ubob6"]
+resource_name = "jump_anim_p1_power_5"
+length = 0.15
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [42]
+}
+
 [sub_resource type="Animation" id="Animation_rmr0v"]
 resource_name = "jump_anim_p2"
 length = 0.3
@@ -648,6 +730,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [43]
+}
+
+[sub_resource type="Animation" id="Animation_jm4bp"]
+resource_name = "jump_anim_p2_power_5"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [47]
 }
 
 [sub_resource type="Animation" id="Animation_78ae2"]
@@ -754,6 +852,24 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39]
 }
 
+[sub_resource type="Animation" id="Animation_03o87"]
+resource_name = "walking_anim_p1_power_5"
+length = 0.6
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/player_1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [43, 44, 45, 46]
+}
+
 [sub_resource type="Animation" id="Animation_exbab"]
 resource_name = "walking_anim_p2"
 length = 0.55
@@ -821,108 +937,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [39, 40, 41, 42]
-}
-
-[sub_resource type="Animation" id="Animation_56sc8"]
-resource_name = "Indie_anim_p1_power_5"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [43]
-}
-
-[sub_resource type="Animation" id="Animation_ubob6"]
-resource_name = "jump_anim_p1_power_5"
-length = 0.15
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [42]
-}
-
-[sub_resource type="Animation" id="Animation_03o87"]
-resource_name = "walking_anim_p1_power_5"
-length = 0.6
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [43, 44, 45, 46]
-}
-
-[sub_resource type="Animation" id="Animation_jp6gw"]
-resource_name = "Indie_anim_p2_power_5"
-length = 0.2
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [45]
-}
-
-[sub_resource type="Animation" id="Animation_7djwd"]
-resource_name = "attack_anim_p2_power_5"
-length = 0.2
-loop_mode = 1
-step = 0.15
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [51]
-}
-
-[sub_resource type="Animation" id="Animation_jm4bp"]
-resource_name = "jump_anim_p2_power_5"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/player_2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [47]
 }
 
 [sub_resource type="Animation" id="Animation_g44ja"]
@@ -1286,6 +1300,7 @@ texture = ExtResource("3_4j88n")
 hframes = 78
 
 [node name="Hit_box" type="Area2D" parent="Pivot"]
+visible = false
 collision_layer = 80
 collision_mask = 80
 
@@ -1296,6 +1311,7 @@ disabled = true
 debug_color = Color(0.966086, 0.184095, 0.0363713, 0.42)
 
 [node name="Hit_power_2" type="Area2D" parent="Pivot"]
+visible = false
 collision_layer = 65600
 collision_mask = 65600
 
@@ -1306,6 +1322,7 @@ disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
 
 [node name="Hit_power_3" type="Area2D" parent="Pivot"]
+visible = false
 collision_layer = 8388672
 collision_mask = 8388672
 
@@ -1316,6 +1333,7 @@ disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
 
 [node name="Hit_magic_fire" type="Area2D" parent="Pivot"]
+visible = false
 collision_layer = 4194320
 collision_mask = 4194320
 
@@ -1326,12 +1344,12 @@ disabled = true
 debug_color = Color(0.491855, 0.343773, 0, 0.42)
 
 [node name="Hit_magic_vent" type="Area2D" parent="Pivot"]
+visible = false
 collision_layer = 4194320
 collision_mask = 4194320
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/Hit_magic_vent"]
 position = Vector2(38.55, -0.549999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_q7fwt")
 disabled = true
 debug_color = Color(1, 1, 1, 0.176471)
@@ -1340,6 +1358,36 @@ debug_color = Color(1, 1, 1, 0.176471)
 visible = false
 position = Vector2(3, 1.7)
 texture = ExtResource("5_n51mc")
+
+[node name="Ice_pivot" type="Node2D" parent="Pivot"]
+position = Vector2(-0.6, 1.3)
+script = ExtResource("6_fe6ac")
+
+[node name="IceWeapon" type="Sprite2D" parent="Pivot/Ice_pivot"]
+visible = false
+position = Vector2(4.2, -0.3)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("7_w3lqp")
+
+[node name="Line2D" type="Line2D" parent="Pivot/Ice_pivot"]
+z_index = -1
+z_as_relative = false
+material = SubResource("ShaderMaterial_mi3j2")
+position = Vector2(8.4, -0.3)
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+texture_mode = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="Pivot/Ice_pivot"]
+position = Vector2(8.4, 0)
+target_position = Vector2(1000, 0)
+hit_from_inside = true
+
+[node name="mira" type="Sprite2D" parent="Pivot/Ice_pivot"]
+texture = ExtResource("9_7f38b")
+
+[node name="Marker2D" type="Marker2D" parent="Pivot/Ice_pivot"]
+position = Vector2(8.4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -1353,6 +1401,7 @@ position = Vector2(1, 0.25)
 shape = SubResource("RectangleShape2D_xphsa")
 
 [node name="Force_jump" type="Area2D" parent="."]
+visible = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Force_jump"]
@@ -1361,6 +1410,7 @@ shape = SubResource("RectangleShape2D_4i0jc")
 debug_color = Color(0.410449, 0.688068, 0.202781, 0)
 
 [node name="Jump_force" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jump_force"]
 position = Vector2(1, -3.4)
@@ -1381,6 +1431,7 @@ position = Vector2(5.29396e-23, -12.7)
 gizmo_extents = 3.0
 
 [node name="pick_object" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 4
 monitorable = false
@@ -1391,6 +1442,7 @@ shape = SubResource("RectangleShape2D_2uy7b")
 debug_color = Color(0, 0.647059, 0.152941, 0)
 
 [node name="Death-ZONE" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -1400,6 +1452,7 @@ shape = SubResource("RectangleShape2D_8xn22")
 debug_color = Color(1, 0, 0.0901961, 0)
 
 [node name="Explosion_death_zone" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 4096
 
@@ -1409,6 +1462,7 @@ shape = SubResource("RectangleShape2D_jigut")
 debug_color = Color(1, 0, 0.0901961, 0)
 
 [node name="Raycast" type="Node2D" parent="."]
+visible = false
 
 [node name="verificarspawn3" type="RayCast2D" parent="Raycast"]
 position = Vector2(19.5, -12.2)
@@ -1431,6 +1485,7 @@ stream = ExtResource("5_w2cfj")
 volume_db = -80.0
 
 [node name="Door_box" type="Area2D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 32
 
@@ -1440,6 +1495,7 @@ shape = SubResource("RectangleShape2D_sdqvs")
 debug_color = Color(0.271457, 0.629337, 0.953876, 0.0823529)
 
 [node name="player" type="Area2D" parent="."]
+visible = false
 collision_layer = 8192
 collision_mask = 8192
 
@@ -1449,6 +1505,7 @@ shape = SubResource("RectangleShape2D_sdqvs")
 debug_color = Color(0, 0.64, 0.32, 0)
 
 [node name="vase" type="Area2D" parent="."]
+visible = false
 collision_layer = 16777216
 collision_mask = 16777216
 
@@ -1458,6 +1515,7 @@ shape = SubResource("RectangleShape2D_sdqvs")
 debug_color = Color(0, 0.64, 0.32, 0)
 
 [node name="Button_zone" type="Area2D" parent="."]
+visible = false
 collision_layer = 128
 collision_mask = 128
 
@@ -1467,6 +1525,7 @@ shape = SubResource("RectangleShape2D_py2su")
 debug_color = Color(0.823529, 0.4, 0.0156863, 0)
 
 [node name="Anchor_red" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 2.1)
 
 [node name="RespawnRedleft" type="Sprite2D" parent="Anchor_red"]
@@ -1478,6 +1537,7 @@ position = Vector2(19.9, -6)
 texture = ExtResource("6_ic8bj")
 
 [node name="Anchor_yellow" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, 2.4)
 
 [node name="RespawnYellowleft" type="Sprite2D" parent="Anchor_yellow"]
@@ -1501,6 +1561,7 @@ one_shot = true
 wait_time = 0.1
 
 [node name="belt" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(0, 8)
 collision_mask = 262144
 hit_from_inside = true
@@ -1538,6 +1599,7 @@ fixed_fps = 0
 draw_order = 0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Particles"]
+visible = false
 occluder = SubResource("OccluderPolygon2D_bsbsy")
 
 [node name="Vento_RIGHT" type="GPUParticles2D" parent="Particles"]
@@ -1562,6 +1624,9 @@ draw_order = 0
 wait_time = 0.25
 one_shot = true
 
+[node name="aim_timer" type="Timer" parent="."]
+wait_time = 1.2
+
 [connection signal="area_entered" from="Force_jump" to="." method="_on_force_jump_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="pick_object" to="." method="_on_pick_object_area_entered"]
@@ -1576,3 +1641,4 @@ one_shot = true
 [connection signal="timeout" from="Piston_imun" to="." method="_on_piston_imun_timeout"]
 [connection signal="timeout" from="TeleTimer" to="." method="_on_tele_timer_timeout"]
 [connection signal="timeout" from="jump_timer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="aim_timer" to="." method="_on_aim_timer_timeout"]
