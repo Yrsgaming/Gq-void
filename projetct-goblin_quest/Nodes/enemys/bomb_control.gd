@@ -9,6 +9,7 @@ var can_change = true
 var alive = true
 var being_control = false
 var can_move = true
+var jump = 50000
 func _physics_process(delta: float) -> void:
 	if can_move:
 		if being_control == false:
@@ -30,6 +31,11 @@ func _physics_process(delta: float) -> void:
 			else:
 				$AnimationPlayer2.play("Indie")
 				velocity.x = 0
+			if Input.is_action_just_pressed("p2_up") and is_on_floor():
+				velocity.y = -jump* delta
+			if is_on_floor() == false:
+				if velocity.y < 500:
+					velocity.y = velocity.y + 50
 			if Input.is_action_just_pressed("p2_throw"):
 				$AnimationPlayer2.play("_to_boom")
 				$CPUParticles2D4.emitting = true

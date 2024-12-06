@@ -36,20 +36,25 @@ var follow_object = null
 
 var vector_rigid = Vector2.ZERO
 var stun = false
-
 var trying_teleport = false
 
+var mirando = false
+var can_aim = true
 var jump_reverse = false
 var only_one_bullet = false
 var control = true
 var obj_lock = null
 
 
+@onready var pivot_snow_weapon = $Pivot/Ice_pivot
+
+
+
+
 func _physics_process(delta: float) -> void:
 	_remove_add_vector()
 	if obj_lock != null:
 		if Input.is_action_just_pressed("p2_grab"):
-			print("try")
 			get_parent().p2_unlock_obj(obj_lock)
 	
 	if not_move == true:
@@ -83,6 +88,10 @@ func _physics_process(delta: float) -> void:
 		
 		else:
 			follow_vector = Vector2.ZERO
+		
+		
+		if mirando == true:
+			weapon_aim()
 		change_camera_input()
 		try_teleport()
 		try_walk(delta)
@@ -109,11 +118,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-
-
-
-
-
+func weapon_aim():
+	if power == 4 and player == 1:
+		if Input.is_action_pressed("p1_up"):
+			pivot_snow_weapon.handle_moviment(true)
+		elif Input.is_action_pressed("p1_down"):
+			pivot_snow_weapon.handle_moviment(false)
+		elif Input.is_action_just_pressed("p1_throw"):
+			pivot_snow_weapon.shoot()
+			mirando = false
+			can_aim = false
+			pivot_snow_weapon.hide_line()
+			$aim_timer.start()
+			pivot_snow_weapon.return_pos()
 
 
 func lock_obj(obj):
@@ -141,6 +158,8 @@ func _start() -> void:
 			world.add_player(player,self)
 			$Pivot/player_1.visible = false
 			show_flag(false)
+	if player == 1 and power == 4:
+		pivot_snow_weapon.show_weapon()
 
 func try_teleport():
 	
@@ -267,9 +286,10 @@ func attack():
 			attacking = true
 			$AnimationPlayer.play("attack_anim_p2_power_3")
 	elif power == 4:
-		if player == 1 and Input.is_action_just_pressed("p1_throw"):
-			attacking = true
-			$AnimationPlayer.play("attack_anim_p1_power_4")
+		if player == 1 and Input.is_action_just_pressed("p1_throw") and can_aim == true:
+			pivot_snow_weapon.show_line()
+			mirando = true
+
 
 func throw() -> void:
 	if player == 1:
@@ -430,55 +450,57 @@ func anim() -> void:
 				else:
 					$AnimationPlayer.play("walking_anim_p1_power_3_desligado")
 func jump(delta) -> void:
-	if jump_reverse == false:
-		if player == 1:
-			if Input.is_action_pressed("p1_up") and can_jump == true:
-				velocity.y = JUMP_FORCE + add_vector_y * delta
-				world.switch_red_()
-				can_jump = false
-				down_time = false
-		elif  player == 2:
-			if Input.is_action_pressed("p2_up") and can_jump == true:
-				velocity.y = JUMP_FORCE + add_vector_y * delta
-				world.switch_yellow_()
-				down_time = false
-				can_jump = false
-	elif jump_reverse == true:
-		if player == 1:
-			if Input.is_action_pressed("p1_up") and can_jump == true:
-				velocity.y = -JUMP_FORCE - add_vector_y * delta
-				world.switch_red_()
-				can_jump = false
-				down_time = false
-		elif  player == 2:
-			if Input.is_action_pressed("p2_up") and can_jump == true:
-				velocity.y = -JUMP_FORCE - add_vector_y * delta
-				world.switch_yellow_()
-				down_time = false
-				can_jump = false
+	if mirando == false:
+		if jump_reverse == false:
+			if player == 1:
+				if Input.is_action_pressed("p1_up") and can_jump == true:
+					velocity.y = JUMP_FORCE + add_vector_y * delta
+					world.switch_red_()
+					can_jump = false
+					down_time = false
+			elif  player == 2:
+				if Input.is_action_pressed("p2_up") and can_jump == true:
+					velocity.y = JUMP_FORCE + add_vector_y * delta
+					world.switch_yellow_()
+					down_time = false
+					can_jump = false
+		elif jump_reverse == true:
+			if player == 1:
+				if Input.is_action_pressed("p1_up") and can_jump == true:
+					velocity.y = -JUMP_FORCE - add_vector_y * delta
+					world.switch_red_()
+					can_jump = false
+					down_time = false
+			elif  player == 2:
+				if Input.is_action_pressed("p2_up") and can_jump == true:
+					velocity.y = -JUMP_FORCE - add_vector_y * delta
+					world.switch_yellow_()
+					down_time = false
+					can_jump = false
 
 
 func try_walk(delta) -> void:
-	if player == 1:
-		if Input.is_action_pressed("p1_left"):
-			Input_move_vector = -SPEED
-			velocity.x = Input_move_vector + add_vector_x + belt_velocity  + vector_rigid.x * delta
-		elif Input.is_action_pressed("p1_right"):
-			Input_move_vector = SPEED
-			velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
-		else:
-			Input_move_vector = 0
-			velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
-	elif player == 2:
-		if Input.is_action_pressed("p2_left"): 
-			Input_move_vector = -SPEED
-			velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
-		elif Input.is_action_pressed("p2_right"):
-			Input_move_vector = SPEED
-			velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
-		else:
-			Input_move_vector = 0
-			velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
+	if mirando == false:
+		if player == 1:
+			if Input.is_action_pressed("p1_left"):
+				Input_move_vector = -SPEED
+				velocity.x = Input_move_vector + add_vector_x + belt_velocity  + vector_rigid.x * delta
+			elif Input.is_action_pressed("p1_right"):
+				Input_move_vector = SPEED
+				velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
+			else:
+				Input_move_vector = 0
+				velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
+		elif player == 2:
+			if Input.is_action_pressed("p2_left"): 
+				Input_move_vector = -SPEED
+				velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
+			elif Input.is_action_pressed("p2_right"):
+				Input_move_vector = SPEED
+				velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
+			else:
+				Input_move_vector = 0
+				velocity.x = Input_move_vector + add_vector_x + belt_velocity + vector_rigid.x * delta
 
 func death() -> void:
 	get_parent().player_dead(player)
@@ -653,3 +675,7 @@ func _on_piston_imun_timeout() -> void:
 
 func _on_tele_timer_timeout() -> void:
 	death()
+
+
+func _on_aim_timer_timeout() -> void:
+	can_aim = true

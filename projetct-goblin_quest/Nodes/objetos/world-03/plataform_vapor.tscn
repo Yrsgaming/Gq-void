@@ -90,7 +90,6 @@ polygon = PackedVector2Array(-7, -8, -8, -8, -8, 8, 8, 8, 8, -8, 7, -8, 7, 7, -7
 script = ExtResource("1_62epq")
 
 [node name="Particles" type="GPUParticles2D" parent="."]
-visible = false
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_2jtr3")
 texture = ExtResource("2_n3fhi")

@@ -7,8 +7,8 @@ var modulate_valor = 1
 var heating = false
 
 func _start(world):
-	modulate_valor = modulate_valor - 0.01
-	$Ball2.modulate.a = modulate_valor
+	$Ball2.modulate.a = 1 - temp/50
+	$Pivot_plataform.position.y = temp * -1
 func _process(delta: float) -> void:
 	if temp > 1.0:
 		$AnimationPlayer.play("up_down")
@@ -16,9 +16,8 @@ func _process(delta: float) -> void:
 		$AnimationPlayer.play("RESET")
 	if heating == true:
 		$Pivot_plataform.position.y = temp * -1
-		modulate_valor = modulate_valor - 0.01
-		$Ball2.modulate.a = modulate_valor
-		temp = temp + 0.2
+		$Ball2.modulate.a = 1 - temp/50
+		temp = temp + 0.8
 		if temp > temp_limit_top:
 			temp = temp_limit_top
 
@@ -32,7 +31,8 @@ func _on_temp_up_area_entered(area: Area2D) -> void:
 	
 
 func _on_temp_down_area_entered(area: Area2D) -> void:
-	temp = temp - 15.0
+	temp = temp + area.get_parent().temp_red
+	$Ball2.modulate.a = 1 - temp/50
 	if temp < 0:
 		temp = 0
 	move_pivot(temp * -1)

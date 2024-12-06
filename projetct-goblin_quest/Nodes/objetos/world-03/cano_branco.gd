@@ -6,9 +6,6 @@ extends Node2D
 
 
 func _start(world):
-	if $RayCast2D.is_colliding() == true:
-		self.rotation_degrees = -180
-		$CPUParticles2D.gravity.y = 600
 	$AnimationPlayer.speed_scale = speed_scale
 	if timing_reverse == true:
 		$AnimationPlayer.play("start_timing_2")

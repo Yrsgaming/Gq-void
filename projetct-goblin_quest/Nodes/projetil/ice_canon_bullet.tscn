@@ -1,0 +1,195 @@
+[gd_scene load_steps=12 format=3 uid="uid://sphexb3xjb7f"]
+
+[ext_resource type="Texture2D" uid="uid://b8k7reihv6he3" path="res://Sprites/projetil/cannon_ball_ice.png" id="1_a8ifd"]
+[ext_resource type="Script" path="res://Nodes/projetil/ice_canon_bullet.gd" id="1_deq7r"]
+[ext_resource type="Texture2D" uid="uid://ddj06hpb7d758" path="res://Sprites/effects/ball.png" id="1_l23ma"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkms2"]
+radius = 41.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_285p2"]
+radius = 178.488
+
+[sub_resource type="Curve" id="Curve_0qi86"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.629771, 0.818868), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_x5qli"]
+offsets = PackedFloat32Array(0.00892857, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.843137)
+
+[sub_resource type="Animation" id="Animation_3ypou"]
+resource_name = "flying"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ball:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_5dsvw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ball:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ball:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Ice_bomb/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f0h57"]
+resource_name = "boom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ball:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Ice_bomb/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1i2a"]
+_data = {
+"RESET": SubResource("Animation_5dsvw"),
+"boom": SubResource("Animation_f0h57"),
+"flying": SubResource("Animation_3ypou")
+}
+
+[node name="Ice_bomb" type="RigidBody2D"]
+collision_layer = 3
+collision_priority = 0.0
+lock_rotation = true
+script = ExtResource("1_deq7r")
+
+[node name="Ball" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("1_a8ifd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rkms2")
+disabled = true
+
+[node name="Ice_bomb" type="Area2D" parent="."]
+collision_layer = 8388608
+collision_mask = 8388608
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ice_bomb"]
+shape = SubResource("CircleShape2D_285p2")
+disabled = true
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+visible = false
+enable_node_path = NodePath("")
+
+[node name="wall_check" type="RayCast2D" parent="."]
+target_position = Vector2(0, 20)
+hit_from_inside = true
+
+[node name="wall_check2" type="RayCast2D" parent="."]
+target_position = Vector2(40, 0)
+hit_from_inside = true
+
+[node name="wall_check3" type="RayCast2D" parent="."]
+target_position = Vector2(-40, 0)
+hit_from_inside = true
+
+[node name="wall_check4" type="RayCast2D" parent="."]
+target_position = Vector2(0, -40)
+hit_from_inside = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 128
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_l23ma")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 15.0
+initial_velocity_max = 300.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_0qi86")
+color_ramp = SubResource("Gradient_x5qli")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h1i2a")
+}
