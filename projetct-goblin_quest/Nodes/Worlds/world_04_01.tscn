@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=4 uid="uid://dtwxphogqfb6d"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_k5kpk"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_k5kpk"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="2_kgtky"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_rksyt"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_rksyt"]
 [ext_resource type="PackedScene" uid="uid://b5k1cgd08adif" path="res://Nodes/objetos/world-03/plataform_vapor.tscn" id="4_ipe82"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="4_v4ip3"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="5_storw"]

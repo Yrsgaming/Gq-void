@@ -1,16 +1,15 @@
-[gd_scene load_steps=12 format=4 uid="uid://fxlb3acrlhq8"]
+[gd_scene load_steps=11 format=4 uid="uid://fxlb3acrlhq8"]
 
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="1_485nf"]
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_g2tcy"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_g2tcy"]
 [ext_resource type="PackedScene" uid="uid://37vvb4ppwks4" path="res://Nodes/objetos/world_02/big_gear.tscn" id="2_dbme8"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_1h6xw"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_1h6xw"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="4_b7hgm"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="5_kmb1l"]
 [ext_resource type="PackedScene" uid="uid://bgxyu8acip6tk" path="res://Nodes/objetos/world_02/small_gear.tscn" id="6_jmgjx"]
 [ext_resource type="PackedScene" uid="uid://cb5dkre3ek0m5" path="res://Nodes/objetos/world_02/wall_moving.tscn" id="7_r7fh1"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="8_rn1m8"]
 [ext_resource type="PackedScene" uid="uid://d8pnx21i04qs" path="res://Nodes/objetos/spike.tscn" id="10_2qdrj"]
-[ext_resource type="PackedScene" uid="uid://ch2rua78pe170" path="res://Nodes/objetos/dark_zone.tscn" id="11_poqm4"]
 
 [node name="World_02_02" type="Node2D"]
 position = Vector2(5, -5)
@@ -86,7 +85,3 @@ scale = Vector2(2250, 20)
 [node name="Spike2" parent="." instance=ExtResource("10_2qdrj")]
 position = Vector2(12466, 56)
 scale = Vector2(2250, 20)
-
-[node name="Dark_zone" parent="." instance=ExtResource("11_poqm4")]
-position = Vector2(10596, -463)
-scale = Vector2(179.71, -214.492)

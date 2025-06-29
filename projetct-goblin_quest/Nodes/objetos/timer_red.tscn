@@ -60,13 +60,13 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dx04u"]
 _data = {
-"RESET": SubResource("Animation_s25m4"),
-"start": SubResource("Animation_u86ol")
+&"RESET": SubResource("Animation_s25m4"),
+&"start": SubResource("Animation_u86ol")
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer"]
 libraries = {
-"": SubResource("AnimationLibrary_dx04u")
+&"": SubResource("AnimationLibrary_dx04u")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

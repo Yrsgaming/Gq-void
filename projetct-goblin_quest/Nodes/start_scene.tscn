@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbjl5v57ascyl"]
+[gd_scene load_steps=16 format=3 uid="uid://dbjl5v57ascyl"]
 
-[ext_resource type="Script" path="res://start_scene.gd" id="1_xjic3"]
+[ext_resource type="Script" uid="uid://dejt7nhncbmkw" path="res://start_scene.gd" id="1_xjic3"]
 [ext_resource type="Texture2D" uid="uid://byp7celb7v4jx" path="res://Sprites/menu_bk.png" id="2_s6arh"]
-[ext_resource type="Script" path="res://Nodes/camera_2d.gd" id="2_uul6r"]
+[ext_resource type="Script" uid="uid://cxudgo3mxocb4" path="res://Nodes/camera_2d.gd" id="2_uul6r"]
 [ext_resource type="Texture2D" uid="uid://c04ae8666gasx" path="res://Sprites/Goblin_bases/timer_red_ex1.png" id="3_41krc"]
 [ext_resource type="Texture2D" uid="uid://cfiec5ts8m3bi" path="res://Sprites/Goblin_bases/Goblin_guerreiro.png" id="3_68xqy"]
 [ext_resource type="Texture2D" uid="uid://dykbre5brd8ev" path="res://Sprites/Goblin_bases/timer_yellow1.png" id="4_5rabl"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dmk1ptdlyrxgb" path="res://Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="6_05ngs"]
 [ext_resource type="Texture2D" uid="uid://1ml436l312ty" path="res://Sprites/MENU_start.png" id="6_u6q44"]
 [ext_resource type="Texture2D" uid="uid://dk7n3y17xgapg" path="res://Sprites/start_off.png" id="7_4w7yf"]
+[ext_resource type="Texture2D" uid="uid://by46rs387n6qd" path="res://Sprites/full_screen.png" id="11_ibhqr"]
+[ext_resource type="Script" uid="uid://cxleowts6vqsj" path="res://Nodes/fullscreen.gd" id="12_nl1hi"]
 
 [sub_resource type="Animation" id="Animation_cy2qj"]
 length = 0.001
@@ -117,8 +119,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndqru"]
 _data = {
-"RESET": SubResource("Animation_cy2qj"),
-"ready": SubResource("Animation_kkb4i")
+&"RESET": SubResource("Animation_cy2qj"),
+&"ready": SubResource("Animation_kkb4i")
 }
 
 [node name="Start_scene" type="Node2D"]
@@ -301,7 +303,7 @@ position = Vector2(95, 118)
 scale = Vector2(10, 10)
 texture = ExtResource("3_41krc")
 
-[node name="p2_CONFIG" type="Button" parent="button_sutff"]
+[node name="p2 CONFIG" type="Button" parent="button_sutff"]
 offset_left = 1608.0
 offset_top = -305.0
 offset_right = 1795.0
@@ -310,7 +312,7 @@ text = "CONFIGURAR INPUT P2
 "
 metadata/_edit_group_ = true
 
-[node name="up" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="up" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 208.0
@@ -319,7 +321,7 @@ offset_bottom = 231.0
 text = "UP
 "
 
-[node name="left" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="left" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 241.0
@@ -328,7 +330,7 @@ offset_bottom = 264.0
 text = "Left
 "
 
-[node name="right" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="right" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 278.0
@@ -337,7 +339,7 @@ offset_bottom = 301.0
 text = "right
 "
 
-[node name="grab" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="grab" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 311.0
@@ -346,7 +348,7 @@ offset_bottom = 334.0
 text = "grab
 "
 
-[node name="Throw" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Throw" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 14.0
 offset_top = 345.0
@@ -355,7 +357,7 @@ offset_bottom = 368.0
 text = "throw
 "
 
-[node name="Label_up" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Label_up" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 209.0
@@ -365,7 +367,7 @@ text = "w
 
 "
 
-[node name="Label_left" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Label_left" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 243.0
@@ -373,7 +375,7 @@ offset_right = 160.0
 offset_bottom = 266.0
 text = "A"
 
-[node name="Label_right" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Label_right" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 279.0
@@ -381,7 +383,7 @@ offset_right = 171.0
 offset_bottom = 302.0
 text = "D"
 
-[node name="Label_grab" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Label_grab" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 313.0
@@ -389,7 +391,7 @@ offset_right = 161.0
 offset_bottom = 336.0
 text = "G"
 
-[node name="Label_throw" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Label_throw" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 81.0
 offset_top = 346.0
@@ -397,12 +399,12 @@ offset_right = 160.0
 offset_bottom = 369.0
 text = "F"
 
-[node name="TimerYellow1" type="Sprite2D" parent="button_sutff/p2_CONFIG"]
+[node name="TimerYellow1" type="Sprite2D" parent="button_sutff/p2 CONFIG"]
 position = Vector2(88.0001, 115)
 scale = Vector2(10, 10)
 texture = ExtResource("4_5rabl")
 
-[node name="Camera_change" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Camera_change" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = -54.0
 offset_top = 375.0
@@ -411,7 +413,7 @@ offset_bottom = 398.0
 text = "camera change
 "
 
-[node name="teleport" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="teleport" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 404.0
@@ -419,7 +421,7 @@ offset_right = 64.0
 offset_bottom = 427.0
 text = "teleport"
 
-[node name="Label_camera" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Label_camera" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 373.0
@@ -428,7 +430,7 @@ offset_bottom = 396.0
 text = "T
 "
 
-[node name="Label_teleport" type="Label" parent="button_sutff/p2_CONFIG"]
+[node name="Label_teleport" type="Label" parent="button_sutff/p2 CONFIG"]
 layout_mode = 0
 offset_left = 80.0
 offset_top = 402.0
@@ -486,12 +488,23 @@ height = 6.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ndqru")
+&"": SubResource("AnimationLibrary_ndqru")
 }
+
+[node name="fullscreen" type="Button" parent="."]
+top_level = true
+offset_left = 1082.0
+offset_top = 578.0
+offset_right = 1122.0
+offset_bottom = 618.0
+scale = Vector2(1.68, 1.68)
+icon = ExtResource("11_ibhqr")
+script = ExtResource("12_nl1hi")
 
 [connection signal="pressed" from="button_sutff/Start" to="." method="_on_start_pressed"]
 [connection signal="button_down" from="button_sutff/P1 CONFIG" to="." method="_on_p_1_config_button_down"]
 [connection signal="timeout" from="button_sutff/P1 CONFIG/Input_delay" to="." method="_on_input_delay_timeout"]
-[connection signal="pressed" from="button_sutff/p2_CONFIG" to="." method="_on_p_2_config_pressed"]
+[connection signal="pressed" from="button_sutff/p2 CONFIG" to="." method="_on_p_2_config_pressed"]
 [connection signal="pressed" from="button_sutff/GO_INPUT" to="." method="_on_go_input_pressed"]
 [connection signal="pressed" from="button_sutff/Baack" to="." method="_on_baack_pressed"]
+[connection signal="pressed" from="fullscreen" to="fullscreen" method="_on_pressed"]

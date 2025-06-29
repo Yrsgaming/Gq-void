@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=4 uid="uid://dvrykvlfeje2j"]
 
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="1_0d61w"]
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_l4dbm"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_l4dbm"]
 [ext_resource type="PackedScene" uid="uid://dh50lr8dt7i61" path="res://Nodes/objetos/Cristal_base.tscn" id="2_hxvy4"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="4_nyhf6"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="4_nyhf6"]
 [ext_resource type="PackedScene" uid="uid://br3fcuv6pa01" path="res://Nodes/objetos/cristal_pegavel.tscn" id="4_rns4i"]
 [ext_resource type="PackedScene" uid="uid://hksd46n2ong" path="res://Nodes/objetos/cristal_lazer_desativar.tscn" id="6_nuy2g"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="8_vjscd"]

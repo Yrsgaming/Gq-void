@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dl48iayg4ywba"]
 
-[ext_resource type="Script" path="res://vaso_blue_new.gd" id="1_wuprr"]
+[ext_resource type="Script" uid="uid://cy831woqc3gcj" path="res://vaso_blue_new.gd" id="1_wuprr"]
 [ext_resource type="Texture2D" uid="uid://dusm547dfg01k" path="res://Sprites/Objetos/VASO_AZUL.png" id="2_32nlj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d350i"]
@@ -173,9 +173,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5wnu4"]
 _data = {
-"RESET": SubResource("Animation_tv1c3"),
-"anim": SubResource("Animation_is5kq"),
-"shoosh": SubResource("Animation_e0blt")
+&"RESET": SubResource("Animation_tv1c3"),
+&"anim": SubResource("Animation_is5kq"),
+&"shoosh": SubResource("Animation_e0blt")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_567fo"]
@@ -231,7 +231,7 @@ hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_5wnu4")
+&"": SubResource("AnimationLibrary_5wnu4")
 }
 
 [node name="player_grab" type="Area2D" parent="."]

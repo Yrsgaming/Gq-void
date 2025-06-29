@@ -1,0 +1,179 @@
+[gd_scene load_steps=12 format=3 uid="uid://bg37qx28gx40q"]
+
+[ext_resource type="Script" uid="uid://qh0twv2e6cao" path="res://Nodes/cesar_old.gd" id="1_5j1ct"]
+[ext_resource type="Texture2D" uid="uid://dmk1ptdlyrxgb" path="res://Sprites/2d_lights_and_shadows_neutral_point_light.webp" id="2_olak5"]
+[ext_resource type="Texture2D" uid="uid://k6dsvh6i4bhk" path="res://Sprites/Enemys/Cesar.png" id="3_hkx65"]
+
+[sub_resource type="Animation" id="Animation_akvpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cesar:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.000840908]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cesar:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7kl63"]
+resource_name = "roling"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cesar:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.766667, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.000840908, 3.14159, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cesar:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_34mgm"]
+resource_name = "roling_reverse"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cesar:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.000840908, -3.14159, -6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cesar:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghj1l"]
+_data = {
+&"RESET": SubResource("Animation_akvpb"),
+&"roling": SubResource("Animation_7kl63"),
+&"roling_reverse": SubResource("Animation_34mgm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3iomo"]
+size = Vector2(7, 7.1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4wrf"]
+size = Vector2(10.5, 9.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axpw3"]
+size = Vector2(22.15, 14.1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vblnb"]
+size = Vector2(21.5, 13.7)
+
+[node name="Cesar" type="CharacterBody2D"]
+scale = Vector2(10, 10)
+collision_layer = 7
+collision_mask = 23
+script = ExtResource("1_5j1ct")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.050032, 0, 0.375824, 1)
+energy = 8.1
+texture = ExtResource("2_olak5")
+texture_scale = 0.05
+
+[node name="Cesar" type="Sprite2D" parent="."]
+rotation = 0.000840908
+texture = ExtResource("3_hkx65")
+flip_h = true
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ghj1l")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-3.8147e-07, -0.0499996)
+shape = SubResource("RectangleShape2D_3iomo")
+
+[node name="Hit_box_timer" type="Timer" parent="."]
+
+[node name="hit_box" type="Area2D" parent="."]
+visible = false
+collision_layer = 80
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box"]
+position = Vector2(-0.25, -0.0999994)
+shape = SubResource("RectangleShape2D_u4wrf")
+disabled = true
+debug_color = Color(0.917647, 0.286275, 0, 0)
+
+[node name="cesar_box" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cesar_box"]
+visible = false
+position = Vector2(0.0250008, -2.6)
+shape = SubResource("RectangleShape2D_axpw3")
+debug_color = Color(0.827451, 0.345098, 0.917647, 0)
+
+[node name="Pick_up_area" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_up_area"]
+visible = false
+position = Vector2(-0.0499999, -2.35)
+shape = SubResource("RectangleShape2D_vblnb")
+debug_color = Color(0, 0.643137, 0.309804, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Hit_box_timer" to="." method="_on_hit_box_timer_timeout"]
+[connection signal="area_entered" from="cesar_box" to="." method="_on_cesar_box_area_entered"]

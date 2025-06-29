@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://uvwxw3dgvw87"]
+[gd_scene load_steps=11 format=4 uid="uid://uvwxw3dgvw87"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_5pp13"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_5pp13"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="2_455c5"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="2_bf8gl"]
 [ext_resource type="PackedScene" uid="uid://dke3tfk73s7w7" path="res://Nodes/pallarax/pallarax.tscn" id="3_prba6"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="6_rfkui"]
 [ext_resource type="PackedScene" uid="uid://bsd8xkfnbtmfc" path="res://Nodes/objetos/vaso_new.tscn" id="8_lrlla"]
 [ext_resource type="PackedScene" uid="uid://b4prn06swysda" path="res://Nodes/secret_way.tscn" id="9_grf6k"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="9_s16jb"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="9_s16jb"]
+[ext_resource type="PackedScene" uid="uid://ffqge04hm38x" path="res://Nodes/input_tutorial.tscn" id="10_flpxc"]
 
 [node name="World_01" type="Node2D"]
 script = ExtResource("1_5pp13")
@@ -19,6 +20,7 @@ limit_down = 310
 next_level = "res://Nodes/Worlds/world_2.tscn"
 
 [node name="Node2D" parent="." instance=ExtResource("3_prba6")]
+z_index = -2
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 scale = Vector2(10, 10)
@@ -55,3 +57,14 @@ gravity_scale = 1.0
 [node name="Secret_way" parent="." instance=ExtResource("9_grf6k")]
 position = Vector2(-3130, 300)
 scale = Vector2(4.28, 1)
+
+[node name="Input_tutorial" parent="." instance=ExtResource("10_flpxc")]
+z_index = -1
+position = Vector2(453, -345)
+scale = Vector2(10, 10)
+
+[node name="Input_tutorial2" parent="." instance=ExtResource("10_flpxc")]
+z_index = -1
+position = Vector2(871, -345)
+scale = Vector2(10, 10)
+player = 2

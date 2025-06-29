@@ -1,17 +1,16 @@
-[gd_scene load_steps=99 format=3 uid="uid://ckkqe2psjets7"]
+[gd_scene load_steps=98 format=3 uid="uid://ckkqe2psjets7"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_uwpvx"]
+[ext_resource type="Script" uid="uid://cdbm8avyj1dlf" path="res://player.gd" id="1_uwpvx"]
 [ext_resource type="Texture2D" uid="uid://gj2n4ssik3li" path="res://Sprites/Goblin_bases/magic_simbol.png" id="2_3obb5"]
-[ext_resource type="Texture2D" uid="uid://bwk7bf0i4jlwq" path="res://Sprites/effects/Flag.png" id="2_qocd6"]
 [ext_resource type="Texture2D" uid="uid://cgd70beof27sx" path="res://Sprites/Goblin_bases/all_guerreiro.png" id="2_yeha1"]
 [ext_resource type="Texture2D" uid="uid://dwbqp870p38we" path="res://Sprites/Goblin_bases/allmagic.png" id="3_4j88n"]
 [ext_resource type="Texture2D" uid="uid://tausgby3bube" path="res://Sprites/projetil/spear.png" id="5_n51mc"]
 [ext_resource type="AudioStream" uid="uid://cmho4g88q0dky" path="res://Audio/gaming.wav" id="5_w2cfj"]
-[ext_resource type="Script" path="res://Nodes/Player/ice_pivot.gd" id="6_fe6ac"]
+[ext_resource type="Script" uid="uid://b54j63ur2gj61" path="res://Nodes/Player/ice_pivot.gd" id="6_fe6ac"]
 [ext_resource type="Texture2D" uid="uid://dlb1aefox8sao" path="res://Sprites/effects/respawn_red.png" id="6_ic8bj"]
 [ext_resource type="Texture2D" uid="uid://bl6niyssamxdd" path="res://Sprites/effects/respawn_yellow.png" id="7_efpk2"]
 [ext_resource type="Texture2D" uid="uid://scndbecbyvc5" path="res://Sprites/projetil/ice_weapon.png" id="7_w3lqp"]
-[ext_resource type="Shader" path="res://Nodes/Player/line.gdshader" id="8_dvt4p"]
+[ext_resource type="Shader" uid="uid://cbk3te8m55032" path="res://Nodes/Player/line.gdshader" id="8_dvt4p"]
 [ext_resource type="Texture2D" uid="uid://cootmjmgoy8e7" path="res://Sprites/effects/mira_ponta.png" id="9_7f38b"]
 [ext_resource type="Texture2D" uid="uid://d1fav5hk0kab1" path="res://Sprites/effects/timer_teleport.png" id="9_pae6m"]
 [ext_resource type="Texture2D" uid="uid://ddj06hpb7d758" path="res://Sprites/effects/ball.png" id="10_0uky0"]
@@ -351,6 +350,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [true]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Audio_player/sword:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_51q23"]
 resource_name = "attack_anim_p1"
@@ -378,6 +389,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Audio_player/sword:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_oxo2p"]
@@ -959,57 +982,57 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2euan"]
 _data = {
-"Indie_anim_p1": SubResource("Animation_0rn07"),
-"Indie_anim_p1_power_2": SubResource("Animation_dmy4y"),
-"Indie_anim_p1_power_3_desligado": SubResource("Animation_gseeq"),
-"Indie_anim_p1_power_3_ligado": SubResource("Animation_kk0rb"),
-"Indie_anim_p1_power_4": SubResource("Animation_txpkk"),
-"Indie_anim_p1_power_5": SubResource("Animation_56sc8"),
-"Indie_anim_p2": SubResource("Animation_6as3s"),
-"Indie_anim_p2_power_2": SubResource("Animation_76xsy"),
-"Indie_anim_p2_power_3": SubResource("Animation_x3e4c"),
-"Indie_anim_p2_power_4": SubResource("Animation_rg52v"),
-"Indie_anim_p2_power_5": SubResource("Animation_jp6gw"),
-"Magic_invocation": SubResource("Animation_vsmn7"),
-"RESET": SubResource("Animation_nwtcq"),
-"attack_anim_p1": SubResource("Animation_51q23"),
-"attack_anim_p1_power_2": SubResource("Animation_oxo2p"),
-"attack_anim_p1_power_4": SubResource("Animation_rp6gj"),
-"attack_anim_p2": SubResource("Animation_gvgcw"),
-"attack_anim_p2_power_2": SubResource("Animation_wlcxt"),
-"attack_anim_p2_power_3": SubResource("Animation_o1dlo"),
-"attack_anim_p2_power_4": SubResource("Animation_r7aec"),
-"attack_anim_p2_power_5": SubResource("Animation_7djwd"),
-"jump_anim_p1": SubResource("Animation_lnnon"),
-"jump_anim_p1_power_2": SubResource("Animation_osfg1"),
-"jump_anim_p1_power_3_desligado": SubResource("Animation_0vu35"),
-"jump_anim_p1_power_3_ligado": SubResource("Animation_ffsx0"),
-"jump_anim_p1_power_4": SubResource("Animation_lhj0g"),
-"jump_anim_p1_power_5": SubResource("Animation_ubob6"),
-"jump_anim_p2": SubResource("Animation_rmr0v"),
-"jump_anim_p2_power_2": SubResource("Animation_lpem6"),
-"jump_anim_p2_power_3": SubResource("Animation_kl0sa"),
-"jump_anim_p2_power_4": SubResource("Animation_l6y4f"),
-"jump_anim_p2_power_5": SubResource("Animation_jm4bp"),
-"magic_notshow": SubResource("Animation_78ae2"),
-"walking_anim_p1": SubResource("Animation_go5rb"),
-"walking_anim_p1_power_2": SubResource("Animation_pw1l8"),
-"walking_anim_p1_power_3_desligado": SubResource("Animation_0tlw1"),
-"walking_anim_p1_power_3_ligado": SubResource("Animation_sot0c"),
-"walking_anim_p1_power_4": SubResource("Animation_qhff8"),
-"walking_anim_p1_power_5": SubResource("Animation_03o87"),
-"walking_anim_p2": SubResource("Animation_exbab"),
-"walking_anim_p2_power_2": SubResource("Animation_xya1q"),
-"walking_anim_p2_power_3": SubResource("Animation_uwotg"),
-"walking_anim_p2_power_4": SubResource("Animation_05ufn"),
-"walking_anim_p2_power_5": SubResource("Animation_g44ja")
+&"Indie_anim_p1": SubResource("Animation_0rn07"),
+&"Indie_anim_p1_power_2": SubResource("Animation_dmy4y"),
+&"Indie_anim_p1_power_3_desligado": SubResource("Animation_gseeq"),
+&"Indie_anim_p1_power_3_ligado": SubResource("Animation_kk0rb"),
+&"Indie_anim_p1_power_4": SubResource("Animation_txpkk"),
+&"Indie_anim_p1_power_5": SubResource("Animation_56sc8"),
+&"Indie_anim_p2": SubResource("Animation_6as3s"),
+&"Indie_anim_p2_power_2": SubResource("Animation_76xsy"),
+&"Indie_anim_p2_power_3": SubResource("Animation_x3e4c"),
+&"Indie_anim_p2_power_4": SubResource("Animation_rg52v"),
+&"Indie_anim_p2_power_5": SubResource("Animation_jp6gw"),
+&"Magic_invocation": SubResource("Animation_vsmn7"),
+&"RESET": SubResource("Animation_nwtcq"),
+&"attack_anim_p1": SubResource("Animation_51q23"),
+&"attack_anim_p1_power_2": SubResource("Animation_oxo2p"),
+&"attack_anim_p1_power_4": SubResource("Animation_rp6gj"),
+&"attack_anim_p2": SubResource("Animation_gvgcw"),
+&"attack_anim_p2_power_2": SubResource("Animation_wlcxt"),
+&"attack_anim_p2_power_3": SubResource("Animation_o1dlo"),
+&"attack_anim_p2_power_4": SubResource("Animation_r7aec"),
+&"attack_anim_p2_power_5": SubResource("Animation_7djwd"),
+&"jump_anim_p1": SubResource("Animation_lnnon"),
+&"jump_anim_p1_power_2": SubResource("Animation_osfg1"),
+&"jump_anim_p1_power_3_desligado": SubResource("Animation_0vu35"),
+&"jump_anim_p1_power_3_ligado": SubResource("Animation_ffsx0"),
+&"jump_anim_p1_power_4": SubResource("Animation_lhj0g"),
+&"jump_anim_p1_power_5": SubResource("Animation_ubob6"),
+&"jump_anim_p2": SubResource("Animation_rmr0v"),
+&"jump_anim_p2_power_2": SubResource("Animation_lpem6"),
+&"jump_anim_p2_power_3": SubResource("Animation_kl0sa"),
+&"jump_anim_p2_power_4": SubResource("Animation_l6y4f"),
+&"jump_anim_p2_power_5": SubResource("Animation_jm4bp"),
+&"magic_notshow": SubResource("Animation_78ae2"),
+&"walking_anim_p1": SubResource("Animation_go5rb"),
+&"walking_anim_p1_power_2": SubResource("Animation_pw1l8"),
+&"walking_anim_p1_power_3_desligado": SubResource("Animation_0tlw1"),
+&"walking_anim_p1_power_3_ligado": SubResource("Animation_sot0c"),
+&"walking_anim_p1_power_4": SubResource("Animation_qhff8"),
+&"walking_anim_p1_power_5": SubResource("Animation_03o87"),
+&"walking_anim_p2": SubResource("Animation_exbab"),
+&"walking_anim_p2_power_2": SubResource("Animation_xya1q"),
+&"walking_anim_p2_power_3": SubResource("Animation_uwotg"),
+&"walking_anim_p2_power_4": SubResource("Animation_05ufn"),
+&"walking_anim_p2_power_5": SubResource("Animation_g44ja")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2uy7b"]
 size = Vector2(23.4, 13.3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xn22"]
-size = Vector2(8.725, 7.5)
+size = Vector2(6.5, 5.7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jigut"]
 size = Vector2(12.1, 10.8)
@@ -1146,10 +1169,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6ac8f"]
 _data = {
-"Death_timer": SubResource("Animation_2ofxx"),
-"RESET": SubResource("Animation_q0jpp"),
-"anim_anchor": SubResource("Animation_s2w5f"),
-"not_show_death_timer": SubResource("Animation_yg5bo")
+&"Death_timer": SubResource("Animation_2ofxx"),
+&"RESET": SubResource("Animation_q0jpp"),
+&"anim_anchor": SubResource("Animation_s2w5f"),
+&"not_show_death_timer": SubResource("Animation_yg5bo")
 }
 
 [sub_resource type="Gradient" id="Gradient_o6dyc"]
@@ -1223,7 +1246,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_heqjb"]
-max_value = 8.0
+_limits = [0.0, 8.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.228464, 1.81144), 0.0, 0.0, 0, 0, Vector2(0.805243, 6.31221), 0.0, 0.0, 0, 0, Vector2(1, 8), 0.0, 0.0, 0, 0]
 point_count = 4
 
@@ -1284,10 +1307,6 @@ script = ExtResource("1_uwpvx")
 
 [node name="Pivot" type="Node2D" parent="."]
 position = Vector2(0.9, -0.2)
-
-[node name="Flag" type="Sprite2D" parent="Pivot"]
-position = Vector2(-4, -1.2)
-texture = ExtResource("2_qocd6")
 
 [node name="player_1" type="Sprite2D" parent="Pivot"]
 position = Vector2(2.5, -3.9)
@@ -1387,6 +1406,7 @@ hit_from_inside = true
 texture = ExtResource("9_7f38b")
 
 [node name="Marker2D" type="Marker2D" parent="Pivot/Ice_pivot"]
+visible = false
 position = Vector2(8.4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -1420,7 +1440,7 @@ debug_color = Color(0.968563, 0.400993, 7.70092e-07, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2euan")
+&"": SubResource("AnimationLibrary_2euan")
 }
 
 [node name="Coyote_window" type="Timer" parent="."]
@@ -1442,12 +1462,11 @@ shape = SubResource("RectangleShape2D_2uy7b")
 debug_color = Color(0, 0.647059, 0.152941, 0)
 
 [node name="Death-ZONE" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Death-ZONE"]
-position = Vector2(1.1625, 0.05)
+position = Vector2(0.65, 0.95)
 shape = SubResource("RectangleShape2D_8xn22")
 debug_color = Color(1, 0, 0.0901961, 0)
 
@@ -1462,7 +1481,6 @@ shape = SubResource("RectangleShape2D_jigut")
 debug_color = Color(1, 0, 0.0901961, 0)
 
 [node name="Raycast" type="Node2D" parent="."]
-visible = false
 
 [node name="verificarspawn3" type="RayCast2D" parent="Raycast"]
 position = Vector2(19.5, -12.2)
@@ -1525,7 +1543,6 @@ shape = SubResource("RectangleShape2D_py2su")
 debug_color = Color(0.823529, 0.4, 0.0156863, 0)
 
 [node name="Anchor_red" type="Node2D" parent="."]
-visible = false
 position = Vector2(0, 2.1)
 
 [node name="RespawnRedleft" type="Sprite2D" parent="Anchor_red"]
@@ -1537,7 +1554,6 @@ position = Vector2(19.9, -6)
 texture = ExtResource("6_ic8bj")
 
 [node name="Anchor_yellow" type="Node2D" parent="."]
-visible = false
 position = Vector2(0, 2.4)
 
 [node name="RespawnYellowleft" type="Sprite2D" parent="Anchor_yellow"]
@@ -1550,7 +1566,7 @@ texture = ExtResource("7_efpk2")
 
 [node name="Anchor_anim" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_6ac8f")
+&"": SubResource("AnimationLibrary_6ac8f")
 }
 
 [node name="Vector_imun" type="Timer" parent="."]
@@ -1561,7 +1577,6 @@ one_shot = true
 wait_time = 0.1
 
 [node name="belt" type="RayCast2D" parent="."]
-visible = false
 target_position = Vector2(0, 8)
 collision_mask = 262144
 hit_from_inside = true
@@ -1581,22 +1596,23 @@ hframes = 5
 z_index = 1
 
 [node name="Right" type="GPUParticles2D" parent="Particles"]
+visible = false
 position = Vector2(11.2, 0.4)
 emitting = false
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_pmf6u")
 texture = ExtResource("10_0uky0")
 fixed_fps = 0
 draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_pmf6u")
 
 [node name="Left" type="GPUParticles2D" parent="Particles"]
+visible = false
 position = Vector2(-8.4, 0.4)
-emitting = false
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_l3fa4")
 texture = ExtResource("10_0uky0")
 fixed_fps = 0
 draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_l3fa4")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Particles"]
 visible = false
@@ -1607,18 +1623,18 @@ position = Vector2(10.8, -0.9)
 scale = Vector2(0.1, 0.1)
 emitting = false
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_vf71o")
 fixed_fps = 0
 draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_vf71o")
 
 [node name="Vento_Left" type="GPUParticles2D" parent="Particles"]
 position = Vector2(-8.4, -0.9)
 scale = Vector2(0.1, 0.1)
 emitting = false
 amount = 120
-process_material = SubResource("ParticleProcessMaterial_vwuwj")
 fixed_fps = 0
 draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_vwuwj")
 
 [node name="jump_timer" type="Timer" parent="."]
 wait_time = 0.25
@@ -1626,6 +1642,22 @@ one_shot = true
 
 [node name="aim_timer" type="Timer" parent="."]
 wait_time = 1.2
+
+[node name="Audio_player" type="Node" parent="."]
+
+[node name="sword" type="AudioStreamPlayer" parent="Audio_player"]
+volume_db = 9.043
+bus = &"Sound_effects"
+
+[node name="hammer" type="AudioStreamPlayer" parent="Audio_player"]
+volume_db = 24.0
+bus = &"Sound_effects"
+
+[node name="shoot_1" type="AudioStreamPlayer" parent="Audio_player"]
+bus = &"Sound_effects"
+
+[node name="Jump" type="AudioStreamPlayer" parent="Audio_player"]
+bus = &"Sound_effects"
 
 [connection signal="area_entered" from="Force_jump" to="." method="_on_force_jump_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

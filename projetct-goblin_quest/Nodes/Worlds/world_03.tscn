@@ -1,21 +1,22 @@
 [gd_scene load_steps=11 format=4 uid="uid://broxhn8qxie3n"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_btbhi"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_btbhi"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="2_hfo47"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="3_jc7u6"]
 [ext_resource type="PackedScene" uid="uid://dke3tfk73s7w7" path="res://Nodes/pallarax/pallarax.tscn" id="3_jcmu6"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="4_6pqyk"]
-[ext_resource type="Texture2D" uid="uid://cnetw7nu71xd" path="res://Sprites/tutorial/grab_tutorial.png" id="4_kj5ct"]
 [ext_resource type="PackedScene" uid="uid://cffbc1jkeyfme" path="res://Nodes/enemys/slime.tscn" id="5_pa6k4"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="6_e8wa6"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="10_8a3i8"]
-[ext_resource type="PackedScene" uid="uid://bsd8xkfnbtmfc" path="res://Nodes/objetos/vaso_new.tscn" id="10_ytt5t"]
+[ext_resource type="Texture2D" uid="uid://e5ptxfkf71mk" path="res://Sprites/tutorial.png" id="9_gwtm0"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="10_8a3i8"]
+[ext_resource type="PackedScene" uid="uid://do7vg1inrdtsp" path="res://Nodes/objetos/vaso_inquebravel.tscn" id="10_gwtm0"]
 
 [node name="World_03" type="Node2D"]
 script = ExtResource("1_btbhi")
 limit_right = 6640
 limit_up = -10000
 limit_down = 480
+red_speed_scale = 0.1
 next_level = "res://Nodes/Worlds/world_01_extra/world_1_02_ex.tscn"
 
 [node name="Node2D" parent="." instance=ExtResource("3_jcmu6")]
@@ -47,9 +48,11 @@ position = Vector2(3368, 140)
 [node name="CanvasLayer" parent="." instance=ExtResource("6_e8wa6")]
 
 [node name="GrabTutorial" type="Sprite2D" parent="."]
-position = Vector2(1347, -243)
+position = Vector2(1322, -161)
 scale = Vector2(5, 5)
-texture = ExtResource("4_kj5ct")
+texture = ExtResource("9_gwtm0")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 32)
 
-[node name="Vaso_new" parent="." instance=ExtResource("10_ytt5t")]
-position = Vector2(946, 202)
+[node name="vaso_inquebravel" parent="." instance=ExtResource("10_gwtm0")]
+position = Vector2(833, 103)

@@ -72,17 +72,17 @@ func up_down_change() -> void:
 func lock_out(dir_alvo) -> void:
 	seguir = false
 	object = null
-	throw_away(dir_alvo)
+	jogar_objeto(dir_alvo)
 
 
-func throw_away(dir_alvo):
+func jogar_objeto(dir_alvo):
 	throw_speed = 1800
 	throw_dir = dir_alvo
 	dir = throw_dir
 	start_throw = true
 
 
-func agarra():
+func agarra_objeto(n):
 	self.set_collision_layer_value(2,false)
 	$Hit_box_timer.start()
 	seguir = true

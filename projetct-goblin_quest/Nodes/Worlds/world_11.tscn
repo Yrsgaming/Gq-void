@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=4 uid="uid://bbdvcmtssjuw"]
 
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="1_grmah"]
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_y62at"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_y62at"]
 [ext_resource type="PackedScene" uid="uid://bjl03vaij8x4v" path="res://Nodes/objetos/hit_cristal.tscn" id="2_jii2s"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_bmckc"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_bmckc"]
 [ext_resource type="PackedScene" uid="uid://dfmoavtg2c4yu" path="res://Nodes/objetos/dark_door.tscn" id="3_k0q3f"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="5_7mj8h"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="6_04mk1"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="7_csx07"]
-[ext_resource type="Script" path="res://Nodes/Worlds/hit_cristal_ordem.gd" id="9_xjp38"]
+[ext_resource type="Script" uid="uid://d3mf41e2gmj73" path="res://Nodes/Worlds/hit_cristal_ordem.gd" id="9_xjp38"]
 [ext_resource type="PackedScene" uid="uid://bjultqgm7xkmw" path="res://Nodes/enemys/planta_carnifora.tscn" id="11_skj5e"]
 
 [node name="World_11" type="Node2D"]

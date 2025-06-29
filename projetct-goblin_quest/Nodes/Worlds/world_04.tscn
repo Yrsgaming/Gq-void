@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=4 uid="uid://cw0ptlp8oe0i8"]
 
 [ext_resource type="Texture2D" uid="uid://d355fxj4ca5gq" path="res://Sprites/tower.png" id="1_k24ol"]
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_rd8nw"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_rd8nw"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="2_th2np"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="3_1pp50"]
 [ext_resource type="PackedScene" uid="uid://dke3tfk73s7w7" path="res://Nodes/pallarax/pallarax.tscn" id="3_wxdgm"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="4_fglxe"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="6_rskgy"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="6_y4lil"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="6_y4lil"]
 
 [node name="World_04" type="Node2D"]
 script = ExtResource("1_rd8nw")

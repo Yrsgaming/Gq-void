@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dlg2rgo7weynu"]
 
 [ext_resource type="Texture2D" uid="uid://csim0jup3hhxp" path="res://Sprites/Objetos/switch_block_red-export.png" id="1_8vyvh"]
-[ext_resource type="Script" path="res://Nodes/objetos/switch_yellow_reverse.gd" id="1_x0rd7"]
+[ext_resource type="Script" uid="uid://c0txgc8jjsc4x" path="res://Nodes/objetos/switch_yellow_reverse.gd" id="1_x0rd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0oo21"]
 size = Vector2(8, 8)

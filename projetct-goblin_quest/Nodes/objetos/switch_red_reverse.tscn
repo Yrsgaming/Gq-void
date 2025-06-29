@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://f3f7evb8rk22"]
 
-[ext_resource type="Script" path="res://Nodes/objetos/switch_red_reverse.gd" id="1_7ynhs"]
-[ext_resource type="Texture2D" uid="uid://ctv1sgkp5j5sf" path="res://Sprites/Objetos/switch_block_red.png" id="2_mpupn"]
+[ext_resource type="Script" uid="uid://cpuudhlqk6ddg" path="res://Nodes/objetos/switch_red_reverse.gd" id="1_7ynhs"]
+[ext_resource type="Texture2D" uid="uid://6v4l1qccjg5t" path="res://Sprites/Objetos/switch_block_red_true-export-export-export.png" id="2_ak42r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkrch"]
 size = Vector2(8, 8)
@@ -10,7 +10,7 @@ size = Vector2(8, 8)
 script = ExtResource("1_7ynhs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_mpupn")
+texture = ExtResource("2_ak42r")
 hframes = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

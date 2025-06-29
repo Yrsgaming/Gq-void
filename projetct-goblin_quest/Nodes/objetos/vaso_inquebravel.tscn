@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://do7vg1inrdtsp"]
+
+[ext_resource type="Script" uid="uid://csh7cq2dtnanu" path="res://Nodes/objetos/vaso_new.gd" id="1_a71mm"]
+[ext_resource type="Texture2D" uid="uid://bel40v0h6vdqv" path="res://Sprites/Objetos/vaso_inquebravel.png" id="2_faygi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d350i"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfam3"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88j55"]
+size = Vector2(12.7, 11.6)
+
+[node name="vaso_inquebravel" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+gravity_scale = 3.0
+freeze_mode = 1
+script = ExtResource("1_a71mm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(10, 10)
+texture = ExtResource("2_faygi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_d350i")
+
+[node name="Pick_up_zone" type="Area2D" parent="."]
+scale = Vector2(10, 10)
+collision_layer = 1028
+collision_mask = 1028
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pick_up_zone"]
+shape = SubResource("RectangleShape2D_sfam3")
+debug_color = Color(0, 0.643137, 0.333333, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(10, 10)
+collision_layer = 80
+collision_mask = 80
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.25, -0.4)
+shape = SubResource("RectangleShape2D_88j55")
+disabled = true
+debug_color = Color(0.862745, 0.380392, 0.0901961, 0.0745098)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

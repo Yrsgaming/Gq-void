@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b20bscqb6hfrm"]
 
 [ext_resource type="Texture2D" uid="uid://cvdnv24vtauvf" path="res://Sprites/Objetos/ceaser_station.png" id="1_ex2ev"]
-[ext_resource type="Script" path="res://Nodes/objetos/station_cesar.gd" id="1_wlg5j"]
+[ext_resource type="Script" uid="uid://c0phda64a4smo" path="res://Nodes/objetos/station_cesar.gd" id="1_wlg5j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hj53q"]
 size = Vector2(8, 6)

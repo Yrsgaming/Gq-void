@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cybo4m63ixses"]
 
-[ext_resource type="Script" path="res://Nodes/objetos/missile_spawner.gd" id="1_ifbeh"]
+[ext_resource type="Script" uid="uid://dng8ll4srj5yg" path="res://Nodes/objetos/missile_spawner.gd" id="1_ifbeh"]
 [ext_resource type="Texture2D" uid="uid://c47si0s4pip2u" path="res://Sprites/projetil/MISSLE.png" id="2_vgoif"]
 [ext_resource type="Texture2D" uid="uid://bdtwgwcuw67om" path="res://Sprites/Objetos/world_02/missile_spawner.png" id="3_toqsq"]
 
@@ -79,9 +79,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h7hpx"]
 _data = {
-"RESET": SubResource("Animation_rxxyd"),
-"missile": SubResource("Animation_2cd5l"),
-"missile_ready": SubResource("Animation_5hqgd")
+&"RESET": SubResource("Animation_rxxyd"),
+&"missile": SubResource("Animation_2cd5l"),
+&"missile_ready": SubResource("Animation_5hqgd")
 }
 
 [node name="missile_spawner_R" type="StaticBody2D"]
@@ -101,7 +101,7 @@ shape = SubResource("RectangleShape2D_enmae")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_h7hpx")
+&"": SubResource("AnimationLibrary_h7hpx")
 }
 
 [node name="Marker2D" type="Marker2D" parent="."]

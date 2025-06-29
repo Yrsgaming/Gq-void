@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=4 uid="uid://cmlp7is18a28f"]
 
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="1_phaa0"]
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_xyaj4"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_xyaj4"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="2_8kllu"]
 [ext_resource type="TileSet" uid="uid://1ep5ken55gml" path="res://Nodes/Worlds/world_05-(06).tres" id="3_v6stk"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="4_sxf5v"]
 [ext_resource type="PackedScene" uid="uid://d8pnx21i04qs" path="res://Nodes/objetos/spike.tscn" id="5_ar0nd"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="6_n5d5t"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="7_k2348"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="7_k2348"]
 
 [node name="World_07" type="Node2D"]
 script = ExtResource("1_xyaj4")

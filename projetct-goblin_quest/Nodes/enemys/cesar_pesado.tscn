@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://s4pn8a6dtjqu"]
 
-[ext_resource type="Script" path="res://Nodes/cesar_old.gd" id="1_32sgq"]
+[ext_resource type="Script" uid="uid://qh0twv2e6cao" path="res://Nodes/cesar_old.gd" id="1_32sgq"]
 [ext_resource type="Texture2D" uid="uid://xarb2f1mboaw" path="res://Sprites/Enemys/cesar_pesado.png" id="2_yex7b"]
 
 [sub_resource type="Animation" id="Animation_akvpb"]
@@ -90,9 +90,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ghj1l"]
 _data = {
-"RESET": SubResource("Animation_akvpb"),
-"roling": SubResource("Animation_7kl63"),
-"roling_reverse": SubResource("Animation_34mgm")
+&"RESET": SubResource("Animation_akvpb"),
+&"roling": SubResource("Animation_7kl63"),
+&"roling_reverse": SubResource("Animation_34mgm")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3iomo"]
@@ -118,7 +118,7 @@ hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ghj1l")
+&"": SubResource("AnimationLibrary_ghj1l")
 }
 
 [node name="Timer" type="Timer" parent="."]
@@ -129,8 +129,6 @@ position = Vector2(-3.8147e-07, -0.0499996)
 shape = SubResource("RectangleShape2D_3iomo")
 
 [node name="Hit_box_timer" type="Timer" parent="."]
-
-[node name="Work_around" type="Node2D" parent="."]
 
 [node name="hit_box" type="Area2D" parent="."]
 collision_layer = 80

@@ -1,15 +1,15 @@
 [gd_scene load_steps=28 format=4 uid="uid://c5o1p2qy5a2qb"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_i4rn5"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_i4rn5"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="2_0asdk"]
 [ext_resource type="PackedScene" uid="uid://dke3tfk73s7w7" path="res://Nodes/pallarax/pallarax.tscn" id="3_hwokm"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="3_m6tb3"]
-[ext_resource type="Script" path="res://Nodes/Worlds/node.gd" id="4_sa5xx"]
+[ext_resource type="Script" uid="uid://b6y5vp5t5ggwx" path="res://Nodes/Worlds/node.gd" id="4_sa5xx"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="4_w54nw"]
 [ext_resource type="Texture2D" uid="uid://cpf0dowc0i5q2" path="res://Sprites/tutorial/attack_yellow.png" id="5_54hks"]
 [ext_resource type="Texture2D" uid="uid://cysa8po3dibon" path="res://Sprites/tutorial/attack_red.png" id="5_acn1p"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="6_30ohc"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="9_h216p"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="9_h216p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7k8sq"]
 atlas = ExtResource("5_acn1p")
@@ -139,7 +139,6 @@ animations = [{
 [node name="world_2" type="Node2D"]
 position = Vector2(9, 0)
 script = ExtResource("1_i4rn5")
-limit_left = 0
 limit_right = 4750
 limit_up = -100000
 limit_down = 230
@@ -149,21 +148,24 @@ next_level = "res://Nodes/Worlds/world_03.tscn"
 script = ExtResource("4_sa5xx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node"]
+z_index = -1
 position = Vector2(1098, -665)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_d3xs7")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Node"]
+z_index = -1
 position = Vector2(3441, -418)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_d3xs7")
 
 [node name="Node2D" parent="." instance=ExtResource("3_hwokm")]
+z_index = -1
 position = Vector2(4927, -72)
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 scale = Vector2(10, 10)
-tile_map_data = PackedByteArray("AAA1AO3/AAAEAAIAAAA1AO7/AAAEAAIAAAAKAP//AAAEAAIAAAAJAP//AAAEAAIAAAAIAP//AAAEAAIAAAAHAP//AAAEAAIAAAAGAP//AAAEAAIAAAAFAP//AAAEAAIAAAAFAP7/AAAEAAIAAAAFAP3/AAAEAAIAAAAGAP3/AAAEAAIAAAAGAP7/AAAEAAIAAAAFAPz/AAAEAAIAAAAGAPz/AAAEAAIAAAAHAPz/AAAEAAIAAAAIAPz/AAAEAAIAAAAHAP3/AAAEAAIAAAAHAP7/AAAEAAIAAAAJAPz/AAAEAAIAAAAKAPz/AAAEAAIAAAAKAP3/AAAEAAIAAAALAP7/AAAFAAIAAAALAP//AAAFAAIAAAAKAPr/AAAEAAIAAAAKAPn/AAAEAAIAAAAKAPj/AAAEAAIAAAAKAPf/AAAEAAIAAAAJAPf/AAAEAAIAAAAIAPf/AAAEAAIAAAAHAPf/AAAEAAIAAAAGAPf/AAAEAAIAAAAFAPf/AAAEAAIAAAAFAPj/AAAEAAIAAAAFAPn/AAAEAAIAAAAFAPr/AAAEAAIAAAAGAPr/AAAEAAIAAAAHAPr/AAAEAAIAAAAIAPn/AAAEAAIAAAAJAPn/AAAEAAIAAAAJAPj/AAAEAAIAAAAIAPj/AAAEAAIAAAAHAPj/AAAEAAIAAAAGAPj/AAAEAAIAAAAGAPn/AAAEAAIAAAAIAPr/AAAEAAIAAAAJAPr/AAAEAAIAAAALAPn/AAAFAAIAAAALAPr/AAAFAAIAAAAJAP7/AAAEAAIAAAAIAP7/AAAEAAIAAAAIAP3/AAAEAAIAAAAJAP3/AAAEAAIAAAAKAP7/AAAEAAIAAAAHAPn/AAAEAAIAAAAFAPv/AAAEAAIAAAAGAPv/AAAEAAIAAAAHAPv/AAAEAAIAAAAIAPv/AAAEAAIAAAAJAPv/AAAEAAIAAAAKAPv/AAAEAAIAAAA=")
+tile_map_data = PackedByteArray("AAAKAP//AAAEAAIAAAAJAP//AAAEAAIAAAAIAP//AAAEAAIAAAAHAP//AAAEAAIAAAAGAP//AAAEAAIAAAAFAP//AAAEAAIAAAAFAP7/AAAEAAIAAAAFAP3/AAAEAAIAAAAGAP3/AAAEAAIAAAAGAP7/AAAEAAIAAAAFAPz/AAAEAAIAAAAGAPz/AAAEAAIAAAAHAPz/AAAEAAIAAAAIAPz/AAAEAAIAAAAHAP3/AAAEAAIAAAAHAP7/AAAEAAIAAAAJAPz/AAAEAAIAAAAKAPz/AAAEAAIAAAAKAP3/AAAEAAIAAAALAP7/AAAFAAIAAAALAP//AAAFAAIAAAAKAPr/AAAEAAIAAAAKAPn/AAAEAAIAAAAKAPj/AAAEAAIAAAAKAPf/AAAEAAIAAAAJAPf/AAAEAAIAAAAIAPf/AAAEAAIAAAAHAPf/AAAEAAIAAAAGAPf/AAAEAAIAAAAFAPf/AAAEAAIAAAAFAPj/AAAEAAIAAAAFAPn/AAAEAAIAAAAFAPr/AAAEAAIAAAAGAPr/AAAEAAIAAAAHAPr/AAAEAAIAAAAIAPn/AAAEAAIAAAAJAPn/AAAEAAIAAAAJAPj/AAAEAAIAAAAIAPj/AAAEAAIAAAAHAPj/AAAEAAIAAAAGAPj/AAAEAAIAAAAGAPn/AAAEAAIAAAAIAPr/AAAEAAIAAAAJAPr/AAAEAAIAAAALAPn/AAAFAAIAAAALAPr/AAAFAAIAAAAJAP7/AAAEAAIAAAAIAP7/AAAEAAIAAAAIAP3/AAAEAAIAAAAJAP3/AAAEAAIAAAAKAP7/AAAEAAIAAAAHAPn/AAAEAAIAAAAFAPv/AAAEAAIAAAAGAPv/AAAEAAIAAAAHAPv/AAAEAAIAAAAIAPv/AAAEAAIAAAAJAPv/AAAEAAIAAAAKAPv/AAAEAAIAAAA=")
 tile_set = ExtResource("3_m6tb3")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

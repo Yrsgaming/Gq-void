@@ -1,20 +1,21 @@
-[gd_scene load_steps=9 format=4 uid="uid://ddmjqkyyquroj"]
+[gd_scene load_steps=10 format=4 uid="uid://ddmjqkyyquroj"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_vmeia"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_vmeia"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="2_8u6p4"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="2_eawe1"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="2_eawe1"]
 [ext_resource type="PackedScene" uid="uid://dke3tfk73s7w7" path="res://Nodes/pallarax/pallarax.tscn" id="2_qh56y"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="4_8771q"]
 [ext_resource type="Texture2D" uid="uid://byqsqvjio7huo" path="res://Sprites/tutorial/Rtutorial.png" id="5_r5lu7"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="7_qjorf"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="8_4fc3r"]
+[ext_resource type="Texture2D" uid="uid://dq4rj74bwys5w" path="res://Sprites/revive_tutorial.png" id="9_do28l"]
 
 [node name="world_1_02_ex" type="Node2D"]
 script = ExtResource("1_vmeia")
 limit_right = 2880
 limit_up = -1625
 red_speed_scale = 0.01
-next_level = "res://Nodes/Worlds/world_01_extra/world_1_01_ex.tscn"
+next_level = "res://Nodes/Worlds/world_04.tscn"
 
 [node name="Node2D" parent="." instance=ExtResource("2_qh56y")]
 position = Vector2(0, -368)
@@ -41,3 +42,8 @@ texture = ExtResource("5_r5lu7")
 position = Vector2(1450, -916)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("8_4fc3r")]
+
+[node name="ReviveTutorial" type="Sprite2D" parent="."]
+position = Vector2(882, -427)
+scale = Vector2(10, 10)
+texture = ExtResource("9_do28l")

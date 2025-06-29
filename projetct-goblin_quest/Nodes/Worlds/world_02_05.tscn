@@ -1,15 +1,15 @@
-[gd_scene load_steps=67 format=4 uid="uid://d30771uphu1mx"]
+[gd_scene load_steps=66 format=4 uid="uid://d30771uphu1mx"]
 
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="1_8wnwe"]
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_vx51f"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_vx51f"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="2_lyprh"]
-[ext_resource type="Script" path="res://Nodes/objetos/world_02/big_gear.gd" id="4_31jo7"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="4_i5ki1"]
+[ext_resource type="Script" uid="uid://dym0v63g0y1ag" path="res://Nodes/objetos/world_02/big_gear.gd" id="4_31jo7"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="4_i5ki1"]
 [ext_resource type="Texture2D" uid="uid://ckurj17sygsa1" path="res://Sprites/Objetos/world_02/Normal gear.png" id="5_rlj6p"]
-[ext_resource type="Script" path="res://Nodes/objetos/world_02/gear_plataform.gd" id="6_7565s"]
+[ext_resource type="Script" uid="uid://bn34a5d1n7cj0" path="res://Nodes/objetos/world_02/gear_plataform.gd" id="6_7565s"]
 [ext_resource type="Texture2D" uid="uid://b0qp7vk4lllhd" path="res://Sprites/Objetos/world_02/plataform.png" id="7_rkpoc"]
 [ext_resource type="Texture2D" uid="uid://bmpgckylrc3qk" path="res://Sprites/Objetos/world_02/central_gear.png" id="8_fb72w"]
-[ext_resource type="Script" path="res://Nodes/objetos/world_02/central_gear.gd" id="9_c4ei5"]
+[ext_resource type="Script" uid="uid://mcftb0abbcfv" path="res://Nodes/objetos/world_02/central_gear.gd" id="9_c4ei5"]
 [ext_resource type="Texture2D" uid="uid://bssqmhc3havit" path="res://Sprites/Objetos/world_02/small_gear.png" id="10_iltbl"]
 [ext_resource type="PackedScene" uid="uid://drnjmy4w52sve" path="res://Nodes/objetos/world_02/fall_plataform_small.tscn" id="11_6c5l6"]
 [ext_resource type="Texture2D" uid="uid://cork42mr4pdj2" path="res://Sprites/Objetos/world_02/small_plataform.png" id="11_w2kfl"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="17_nfccd"]
 [ext_resource type="PackedScene" uid="uid://d8pnx21i04qs" path="res://Nodes/objetos/spike.tscn" id="18_3jine"]
 [ext_resource type="PackedScene" uid="uid://qgeprtedjq4y" path="res://Nodes/objetos/world_02/base_plataform_small.tscn" id="18_numxu"]
-[ext_resource type="PackedScene" uid="uid://ch2rua78pe170" path="res://Nodes/objetos/dark_zone.tscn" id="18_ufoou"]
 [ext_resource type="PackedScene" uid="uid://064dt5anmjmv" path="res://Nodes/objetos/world_02/piston_plataform_small.tscn" id="19_n4plw"]
 
 [sub_resource type="Curve2D" id="Curve2D_dv8si"]
@@ -187,8 +186,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w1lle"]
 _data = {
-"RESET": SubResource("Animation_4cb7j"),
-"Rotation_horario": SubResource("Animation_jt5l1")
+&"RESET": SubResource("Animation_4cb7j"),
+&"Rotation_horario": SubResource("Animation_jt5l1")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vk32r"]
@@ -349,8 +348,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4i741"]
 _data = {
-"RESET": SubResource("Animation_73oeu"),
-"Rotation_horario": SubResource("Animation_r417w")
+&"RESET": SubResource("Animation_73oeu"),
+&"Rotation_horario": SubResource("Animation_r417w")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_o1c1b"]
@@ -520,8 +519,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pooux"]
 _data = {
-"RESET": SubResource("Animation_3wi3c"),
-"Rotation_horario": SubResource("Animation_aj4rf")
+&"RESET": SubResource("Animation_3wi3c"),
+&"Rotation_horario": SubResource("Animation_aj4rf")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_ly4rf"]
@@ -702,8 +701,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3u5hm"]
 _data = {
-"RESET": SubResource("Animation_x47ps"),
-"Rotation_horario": SubResource("Animation_w0wix")
+&"RESET": SubResource("Animation_x47ps"),
+&"Rotation_horario": SubResource("Animation_w0wix")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lwr3q"]
@@ -875,8 +874,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0yoe1"]
 _data = {
-"RESET": SubResource("Animation_suuia"),
-"Rotation_horario": SubResource("Animation_gg4cb")
+&"RESET": SubResource("Animation_suuia"),
+&"Rotation_horario": SubResource("Animation_gg4cb")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q86ix"]
@@ -1051,8 +1050,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sybgn"]
 _data = {
-"RESET": SubResource("Animation_18jv3"),
-"Rotation_horario": SubResource("Animation_tm6g4")
+&"RESET": SubResource("Animation_18jv3"),
+&"Rotation_horario": SubResource("Animation_tm6g4")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cjhi"]
@@ -1218,8 +1217,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mwj7"]
 _data = {
-"RESET": SubResource("Animation_je01b"),
-"Rotation_horario": SubResource("Animation_ferwm")
+&"RESET": SubResource("Animation_je01b"),
+&"Rotation_horario": SubResource("Animation_ferwm")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_igsy4"]
@@ -1367,7 +1366,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear4"]
 libraries = {
-"": SubResource("AnimationLibrary_w1lle")
+&"": SubResource("AnimationLibrary_w1lle")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear4"]
@@ -1510,7 +1509,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear5"]
 libraries = {
-"": SubResource("AnimationLibrary_w1lle")
+&"": SubResource("AnimationLibrary_w1lle")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear5"]
@@ -1552,7 +1551,7 @@ texture = ExtResource("5_rlj6p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear"]
 libraries = {
-"": SubResource("AnimationLibrary_4i741")
+&"": SubResource("AnimationLibrary_4i741")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear"]
@@ -1621,7 +1620,6 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="d_plataform" type="AnimatableBody2D" parent="Big_gear"]
 position = Vector2(3.99951, 546)
-scale = Vector2(1, 1)
 script = ExtResource("6_7565s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Big_gear/d_plataform"]
@@ -1667,7 +1665,7 @@ texture = ExtResource("5_rlj6p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear3"]
 libraries = {
-"": SubResource("AnimationLibrary_pooux")
+&"": SubResource("AnimationLibrary_pooux")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear3"]
@@ -1736,7 +1734,6 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="L_plataform" type="AnimatableBody2D" parent="Big_gear3"]
 position = Vector2(546, -4.00146)
-scale = Vector2(1, 1)
 script = ExtResource("6_7565s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Big_gear3/L_plataform"]
@@ -1783,7 +1780,7 @@ texture = ExtResource("5_rlj6p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear4"]
 libraries = {
-"": SubResource("AnimationLibrary_pooux")
+&"": SubResource("AnimationLibrary_pooux")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear4"]
@@ -1852,7 +1849,6 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="L_plataform" type="AnimatableBody2D" parent="Big_gear4"]
 position = Vector2(546, -4.00146)
-scale = Vector2(1, 1)
 script = ExtResource("6_7565s")
 
 [node name="Sprite2D" type="Sprite2D" parent="Big_gear4/L_plataform"]
@@ -1979,7 +1975,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear3"]
 libraries = {
-"": SubResource("AnimationLibrary_3u5hm")
+&"": SubResource("AnimationLibrary_3u5hm")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear3"]
@@ -2119,7 +2115,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear"]
 libraries = {
-"": SubResource("AnimationLibrary_0yoe1")
+&"": SubResource("AnimationLibrary_0yoe1")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear"]
@@ -2252,7 +2248,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear2"]
 libraries = {
-"": SubResource("AnimationLibrary_0yoe1")
+&"": SubResource("AnimationLibrary_0yoe1")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear2"]
@@ -2276,11 +2272,13 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 [node name="CanvasLayer" parent="." instance=ExtResource("17_nfccd")]
 
 [node name="Spike" parent="." instance=ExtResource("18_3jine")]
-position = Vector2(5823, 78)
+visible = false
+position = Vector2(5852, 131)
 scale = Vector2(2250, 20)
 
 [node name="Spike2" parent="." instance=ExtResource("18_3jine")]
-position = Vector2(9518, -4339)
+visible = false
+position = Vector2(9883, -4265)
 scale = Vector2(2250, 20)
 
 [node name="Sprite2D" parent="Spike2/Spike" index="0"]
@@ -2407,7 +2405,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear6"]
 libraries = {
-"": SubResource("AnimationLibrary_sybgn")
+&"": SubResource("AnimationLibrary_sybgn")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear6"]
@@ -2547,7 +2545,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear7"]
 libraries = {
-"": SubResource("AnimationLibrary_sybgn")
+&"": SubResource("AnimationLibrary_sybgn")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear7"]
@@ -2688,7 +2686,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear8"]
 libraries = {
-"": SubResource("AnimationLibrary_sybgn")
+&"": SubResource("AnimationLibrary_sybgn")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear8"]
@@ -2828,7 +2826,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear9"]
 libraries = {
-"": SubResource("AnimationLibrary_sybgn")
+&"": SubResource("AnimationLibrary_sybgn")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear9"]
@@ -2969,7 +2967,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear10"]
 libraries = {
-"": SubResource("AnimationLibrary_sybgn")
+&"": SubResource("AnimationLibrary_sybgn")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear10"]
@@ -3110,7 +3108,7 @@ debug_color = Color(0.61356, 0.536356, 0.0854089, 0.42)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear11"]
 libraries = {
-"": SubResource("AnimationLibrary_sybgn")
+&"": SubResource("AnimationLibrary_sybgn")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear11"]
@@ -3207,7 +3205,7 @@ update_scale = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear12"]
 libraries = {
-"": SubResource("AnimationLibrary_3mwj7")
+&"": SubResource("AnimationLibrary_3mwj7")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear12"]
@@ -3310,7 +3308,7 @@ update_scale = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Small_gear13"]
 libraries = {
-"": SubResource("AnimationLibrary_3mwj7")
+&"": SubResource("AnimationLibrary_3mwj7")
 }
 
 [node name="CentralGear" type="Sprite2D" parent="Small_gear13"]
@@ -3351,10 +3349,6 @@ power = 2
 position = Vector2(392, -392)
 player = 2
 power = 2
-
-[node name="Dark_zone" parent="." instance=ExtResource("18_ufoou")]
-position = Vector2(8746, -6140)
-scale = Vector2(170, 400)
 
 [connection signal="area_entered" from="Small_gear4/N_plataform/Area2D" to="Small_gear4/N_plataform" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Small_gear4/S_plataform/Area2D" to="Small_gear4/S_plataform" method="_on_area_2d_area_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://emy4d8wiku6c"]
 
-[ext_resource type="Script" path="res://Nodes/objetos/world_02/moving_plataform_pulo_start.gd" id="1_orvln"]
+[ext_resource type="Script" uid="uid://3k3l82c0khn4" path="res://Nodes/objetos/world_02/moving_plataform_pulo_start.gd" id="1_orvln"]
 [ext_resource type="Texture2D" uid="uid://b0qp7vk4lllhd" path="res://Sprites/Objetos/world_02/plataform.png" id="3_e801r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsxi3"]
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hy5jk"]
 _data = {
-"RESET": SubResource("Animation_qplax"),
-"move": SubResource("Animation_v014f")
+&"RESET": SubResource("Animation_qplax"),
+&"move": SubResource("Animation_v014f")
 }
 
 [node name="moving_plataform_pulo_start" type="Path2D"]
@@ -88,7 +88,7 @@ update_scale = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_hy5jk")
+&"": SubResource("AnimationLibrary_hy5jk")
 }
 
 [connection signal="area_entered" from="R_plataform/Area2D" to="R_plataform" method="_on_area_2d_area_entered"]

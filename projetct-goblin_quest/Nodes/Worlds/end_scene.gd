@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var scene = "res://Nodes/Worlds/world_01.tscn"
+@onready var scene = "res://Nodes/start_scene.tscn"
 
 
 func _process(delta: float) -> void:

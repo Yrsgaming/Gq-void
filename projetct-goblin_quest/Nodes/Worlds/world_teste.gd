@@ -15,6 +15,7 @@ var player_2
 @export var piece_belt_velocity = 2.0
 @export var belt_sempre_on = false
 @export var red_valve_speed_scale = 1.0
+@export var music = 0
 var red_ = false
 var blue_ = false
 var yellow = false
@@ -27,7 +28,7 @@ var vasos = 0
 var light_0 = true
 var light_1 = true
 
-var start_level = "res://Nodes/Worlds/world_01.tscn"
+var start_level = "res://Nodes/start_scene.tscn"
 
 var p1_can_revive = true
 var p2_can_revive = true
@@ -36,6 +37,7 @@ var p1_try_revive = false
 var p2_try_revive = false
 
 
+var full = false
 
 var p2_in_object = false
 func p1_dark_zone():
@@ -53,6 +55,7 @@ func p1_revive():
 	else:
 		p1_try_revive = true
 		return false
+
 func p2_revive():
 	if p2_can_revive == true:
 		return true
@@ -141,14 +144,18 @@ func off_yellow():
 
 
 func _ready() -> void:
+	AudioManager.change_music(music)
 	$Player._start()
 	$Player2._start()
-	$Camera_debug._start()
+	$Camera_debug._start(get_world_2d(),player_1,player_2)
 	$Camera_debug.set_limit(limit_left,limit_right,limit_up,limit_down)
 	$TileMapLayer._start(self)
 
 func _process(delta: float) -> void:
 	reset()
+	if Input.is_action_just_pressed("Full"):
+		Global.change_screen_mode()
+
 	if player_1.dead == true and player_2.dead == true:
 		$CanvasLayer.death_scene()
 	if Input.is_key_pressed(KEY_P):
@@ -158,9 +165,9 @@ func _process(delta: float) -> void:
 
 func player_dead(player):
 	if player == 1:
-		change_camera_focus(2)
-	elif player == 2:
 		change_camera_focus(1)
+	elif player == 2:
+		change_camera_focus(2)
 
 func reload_scene():
 	get_tree().reload_current_scene()
@@ -175,11 +182,13 @@ func change_camera_focus(player):
 		if player == 1:
 			player_2.show_flag(false)
 			player_1.show_flag(true)
-			$Camera_debug.alvo = player_1
+			$Camera_debug._change_alvo(true)
+			$Camera_debug._change_mode(2)
 		elif player == 2:
 			player_2.show_flag(true)
 			player_1.show_flag(false)
-			$Camera_debug.alvo = player_2
+			$Camera_debug._change_alvo(false)
+			$Camera_debug._change_mode(2)
 	else:
 		$Camera_debug.alvo = null
 func player_2_death():

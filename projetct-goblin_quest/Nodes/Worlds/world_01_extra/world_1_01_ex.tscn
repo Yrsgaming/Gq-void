@@ -1,11 +1,11 @@
 [gd_scene load_steps=14 format=4 uid="uid://bmm8yfppp0f2f"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_jsr7u"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_jsr7u"]
 [ext_resource type="PackedScene" uid="uid://dke3tfk73s7w7" path="res://Nodes/pallarax/pallarax.tscn" id="2_k7d0y"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="2_x0ihn"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="3_7meby"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="5_a4yus"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="5_d1cpw"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="5_d1cpw"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="6_f11yy"]
 [ext_resource type="Texture2D" uid="uid://wv1hpq4baure" path="res://Sprites/effects/n.png" id="9_j0ewb"]
 [ext_resource type="Texture2D" uid="uid://bdvvv2menh8c6" path="res://Sprites/effects/Change_camera.png" id="10_gh34m"]

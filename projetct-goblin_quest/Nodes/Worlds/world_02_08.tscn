@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=4 uid="uid://6h6ucravww7t"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_k3qii"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_k3qii"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="1_s5y5f"]
 [ext_resource type="PackedScene" uid="uid://csabh26ex6ikc" path="res://Nodes/objetos/world_02/block_spawner.tscn" id="2_qj8nb"]
 [ext_resource type="PackedScene" uid="uid://dijfu3p48aorx" path="res://Nodes/objetos/world_02/block_deletar.tscn" id="3_blugo"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_y537e"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="3_y537e"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="6_2hxtl"]
 [ext_resource type="PackedScene" uid="uid://nqyx64v8eagj" path="res://Nodes/objetos/world_02/big_piston.tscn" id="6_5xqc6"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="7_6yrru"]
@@ -15,6 +15,7 @@ script = ExtResource("1_k3qii")
 limit_right = 14400
 limit_up = -1200
 limit_down = 2750
+next_level = "res://Nodes/Worlds/world_02_09.tscn"
 belt_ritmo = 4.0
 piece_belt_velocity = 1.5
 

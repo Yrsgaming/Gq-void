@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6rhs38ot76r4"]
 
-[ext_resource type="Script" path="res://lazer_gaming.gd" id="1_sgpav"]
+[ext_resource type="Script" uid="uid://2d1tlrd8q3hi" path="res://lazer_gaming.gd" id="1_sgpav"]
 [ext_resource type="Texture2D" uid="uid://bemjrue6va6ft" path="res://Sprites/Objetos/world_02/lazer_WORLD_02.png" id="2_0yoqo"]
 
 [sub_resource type="Curve" id="Curve_0l0g6"]

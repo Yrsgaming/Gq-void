@@ -1,19 +1,19 @@
 [gd_scene load_steps=20 format=4 uid="uid://bkkfyi30rk76t"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_de6h6"]
-[ext_resource type="Script" path="res://Nodes/objetos/world_02/big_gear.gd" id="2_baauw"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_de6h6"]
+[ext_resource type="Script" uid="uid://dym0v63g0y1ag" path="res://Nodes/objetos/world_02/big_gear.gd" id="2_baauw"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="2_g0i8x"]
 [ext_resource type="Texture2D" uid="uid://ckurj17sygsa1" path="res://Sprites/Objetos/world_02/Normal gear.png" id="3_j1l6l"]
 [ext_resource type="Texture2D" uid="uid://bmpgckylrc3qk" path="res://Sprites/Objetos/world_02/central_gear.png" id="4_70ic0"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="5_guh5i"]
-[ext_resource type="Script" path="res://Nodes/objetos/world_02/central_gear.gd" id="5_w8dnt"]
+[ext_resource type="Script" uid="uid://mcftb0abbcfv" path="res://Nodes/objetos/world_02/central_gear.gd" id="5_w8dnt"]
 [ext_resource type="PackedScene" uid="uid://bg04odvxkw1iq" path="res://Nodes/objetos/world_02/plataforma_big_quadrada.tscn" id="6_4k15w"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="6_y7vbx"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="7_ih8d8"]
 [ext_resource type="PackedScene" uid="uid://bgxyu8acip6tk" path="res://Nodes/objetos/world_02/small_gear.tscn" id="7_s1xdn"]
 [ext_resource type="PackedScene" uid="uid://d8pnx21i04qs" path="res://Nodes/objetos/spike.tscn" id="13_ov08a"]
-[ext_resource type="PackedScene" uid="uid://dl48iayg4ywba" path="res://Nodes/objetos/vaso_blue_new.tscn" id="14_1mkea"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="21_4h7kt"]
+[ext_resource type="PackedScene" uid="uid://bsd8xkfnbtmfc" path="res://Nodes/objetos/vaso_new.tscn" id="14_8es08"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="21_4h7kt"]
 
 [sub_resource type="Animation" id="Animation_73oeu"]
 length = 0.001
@@ -170,8 +170,8 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4i741"]
 _data = {
-"RESET": SubResource("Animation_73oeu"),
-"Rotation_horario": SubResource("Animation_r417w")
+&"RESET": SubResource("Animation_73oeu"),
+&"Rotation_horario": SubResource("Animation_r417w")
 }
 
 [sub_resource type="Curve2D" id="Curve2D_o1c1b"]
@@ -201,7 +201,7 @@ texture = ExtResource("3_j1l6l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear"]
 libraries = {
-"": SubResource("AnimationLibrary_4i741")
+&"": SubResource("AnimationLibrary_4i741")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear"]
@@ -293,7 +293,7 @@ texture = ExtResource("3_j1l6l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear2"]
 libraries = {
-"": SubResource("AnimationLibrary_4i741")
+&"": SubResource("AnimationLibrary_4i741")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear2"]
@@ -387,7 +387,7 @@ texture = ExtResource("3_j1l6l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear3"]
 libraries = {
-"": SubResource("AnimationLibrary_4i741")
+&"": SubResource("AnimationLibrary_4i741")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear3"]
@@ -480,7 +480,7 @@ texture = ExtResource("3_j1l6l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear4"]
 libraries = {
-"": SubResource("AnimationLibrary_4i741")
+&"": SubResource("AnimationLibrary_4i741")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear4"]
@@ -574,7 +574,7 @@ texture = ExtResource("3_j1l6l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear5"]
 libraries = {
-"": SubResource("AnimationLibrary_4i741")
+&"": SubResource("AnimationLibrary_4i741")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear5"]
@@ -667,7 +667,7 @@ texture = ExtResource("3_j1l6l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Big_gear6"]
 libraries = {
-"": SubResource("AnimationLibrary_4i741")
+&"": SubResource("AnimationLibrary_4i741")
 }
 
 [node name="Path2D" type="Path2D" parent="Big_gear6"]
@@ -796,12 +796,24 @@ position = Vector2(9447, 7721)
 [node name="Small_gear5" parent="." instance=ExtResource("7_s1xdn")]
 position = Vector2(11127, 7721)
 
+[node name="Small_gear6" parent="." instance=ExtResource("7_s1xdn")]
+position = Vector2(10252, 7951)
+
 [node name="Spike" parent="." instance=ExtResource("13_ov08a")]
 position = Vector2(10218, 9330)
 scale = Vector2(-1951.84, 13.4932)
 
-[node name="Vaso_blue_new" parent="." instance=ExtResource("14_1mkea")]
-position = Vector2(8610, 7676)
+[node name="Vaso_new" parent="." instance=ExtResource("14_8es08")]
+position = Vector2(6086, 7871)
+
+[node name="Vaso_new2" parent="." instance=ExtResource("14_8es08")]
+position = Vector2(6239, 7823)
+
+[node name="Vaso_new3" parent="." instance=ExtResource("14_8es08")]
+position = Vector2(6470, 7799)
+
+[node name="Vaso_new4" parent="." instance=ExtResource("14_8es08")]
+position = Vector2(6149, 7658)
 
 [connection signal="area_entered" from="Big_gear/CentralGear/Area2D" to="Big_gear/CentralGear" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Big_gear2/CentralGear/Area2D" to="Big_gear2/CentralGear" method="_on_area_2d_area_entered"]

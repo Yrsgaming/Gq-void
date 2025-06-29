@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cd1dqo4k7omuc"]
 
-[ext_resource type="Script" path="res://Nodes/objetos/vaso.gd" id="1_b1qjq"]
+[ext_resource type="Script" uid="uid://cfqeo07m510yl" path="res://Nodes/objetos/vaso.gd" id="1_b1qjq"]
 [ext_resource type="Texture2D" uid="uid://d38qd18v13njg" path="res://Sprites/Objetos/vaso_static.png" id="1_xwcf0"]
-[ext_resource type="Script" path="res://Nodes/objetos/vaso_obj.gd" id="2_0hegg"]
+[ext_resource type="Script" uid="uid://blnq7ucvc6na4" path="res://Nodes/objetos/vaso_obj.gd" id="2_0hegg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xruth"]
 size = Vector2(7.9, 8)

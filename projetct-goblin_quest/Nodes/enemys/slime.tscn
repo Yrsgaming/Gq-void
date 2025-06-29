@@ -45,8 +45,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcja2"]
-size = Vector2(7.8, 8.96667)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwln8"]
+size = Vector2(7.06667, 5.06667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkgug"]
 size = Vector2(7.26667, 7.73334)
@@ -89,8 +89,8 @@ sprite_frames = SubResource("SpriteFrames_dcrjj")
 animation = &"Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9.53674e-08, 1.4)
-shape = SubResource("RectangleShape2D_jcja2")
+position = Vector2(0.0666667, 1.4)
+shape = SubResource("RectangleShape2D_iwln8")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2

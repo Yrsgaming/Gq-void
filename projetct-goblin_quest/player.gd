@@ -11,6 +11,7 @@ var SPEED = 620
 var gravity = 46
 var gravity_add = 0
 var dead = false
+var alive = true
 var attacking = false
 var dir = 1
 var objeto_in_range = null
@@ -52,11 +53,11 @@ var obj_lock = null
 
 
 func _physics_process(delta: float) -> void:
-	_remove_add_vector()
+	
 	if obj_lock != null:
 		if Input.is_action_just_pressed("p2_grab"):
 			get_parent().p2_unlock_obj(obj_lock)
-	
+
 	if not_move == true:
 		velocity = Vector2.ZERO
 	if dead == false and not_move == false and control == true:
@@ -68,6 +69,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			if belt_velocity > 0:
 				belt_velocity = belt_velocity - 10
+				if is_on_floor():
+					belt_velocity = 0
+			if belt_velocity < 0:
+				belt_velocity = belt_velocity + 10
 				if is_on_floor():
 					belt_velocity = 0
 		if is_on_floor() == false and add_vector_y != 0 :
@@ -114,9 +119,11 @@ func _physics_process(delta: float) -> void:
 			attack()
 	if control == false:
 		if is_on_floor() == false:
-			velocity.y = 400
+			pass
 	move_and_slide()
 
+func handle_y_vector():
+	pass
 
 func weapon_aim():
 	if power == 4 and player == 1:
@@ -224,10 +231,7 @@ func fire_breath():
 		$Particles/Left.emitting = false
 		attacking = false
 func show_flag(show):
-	if show == true:
-		$Pivot/Flag.visible = true
-	else:
-		$Pivot/Flag.visible = false
+	pass
 
 func follow_rigid(dir_rigid):
 	pass
@@ -243,11 +247,7 @@ func check_vector_belt():
 	belt_velocity = target.move_dir
 
 func change_camera_input():
-	if $Pivot/Flag.visible == true:
-		if player == 1 and Input.is_action_just_pressed("p1_change_flag"):
-			get_parent().change_camera_focus(2)
-		elif player == 2 and Input.is_action_just_pressed("p2_change_flag"):
-			get_parent().change_camera_focus(1)
+	pass
 
 func get_object_in_range():
 	return objeto_in_range
@@ -264,6 +264,12 @@ func force_jump():
 		else:
 			$Jump_force/CollisionShape2D.disabled = true
 
+
+@onready var sword: AudioStreamPlayer = $Audio_player/sword
+@onready var hammer: AudioStreamPlayer = $Audio_player/hammer
+@onready var shoot_1: AudioStreamPlayer = $Audio_player/shoot_1
+
+
 func attack():
 	if power == 1:
 		if player == 1 and Input.is_action_just_pressed("p1_throw"):
@@ -276,6 +282,7 @@ func attack():
 		if player == 1 and Input.is_action_just_pressed("p1_throw"):
 			attacking = true
 			$AnimationPlayer.play("attack_anim_p1_power_2")
+			hammer.play()
 		if player == 2 and Input.is_action_just_pressed("p2_throw"):
 			attacking = true
 			$AnimationPlayer.play("attack_anim_p2_power_2")
@@ -449,6 +456,10 @@ func anim() -> void:
 					$AnimationPlayer.play("walking_anim_p1_power_3_ligado")
 				else:
 					$AnimationPlayer.play("walking_anim_p1_power_3_desligado")
+
+@onready var jump_audio: AudioStreamPlayer = $Audio_player/Jump
+
+
 func jump(delta) -> void:
 	if mirando == false:
 		if jump_reverse == false:
@@ -458,12 +469,14 @@ func jump(delta) -> void:
 					world.switch_red_()
 					can_jump = false
 					down_time = false
+					jump_audio.play()
 			elif  player == 2:
 				if Input.is_action_pressed("p2_up") and can_jump == true:
 					velocity.y = JUMP_FORCE + add_vector_y * delta
 					world.switch_yellow_()
 					down_time = false
 					can_jump = false
+					jump_audio.play()
 		elif jump_reverse == true:
 			if player == 1:
 				if Input.is_action_pressed("p1_up") and can_jump == true:
@@ -507,8 +520,8 @@ func death() -> void:
 	belt_velocity = 0
 	$Pivot.visible = false
 	$Sprite2D.visible = false
-	self.global_position.y = -2000
-	self.global_position.x = -2000
+	self.global_position.y = -99000
+	self.global_position.x = -99000
 	dead = true
 	var can_revive = false
 	if player == 1:
@@ -642,17 +655,9 @@ func _on_audio_stream_player_finished() -> void:
 		world.add_child(bullet_inst)
 		bullet_inst.start(self.global_position,dir)
 
-func _remove_add_vector():
-	if add_vector_x != 0:
-		if add_vector_x > 1:
-			add_vector_x = add_vector_x - 5
-		elif add_vector_x < 1:
-			add_vector_x = add_vector_x + 5
-	if add_vector_y != 0 :
-		if add_vector_y > 1:
-			add_vector_y = add_vector_y - 10
-		elif add_vector_y < 1:
-			add_vector_y = add_vector_y + 10
+
+
+
 func _on_explosion_death_zone_area_entered(area: Area2D) -> void:
 	death()
 func add_vector(x,y,timer):
@@ -675,7 +680,6 @@ func _on_piston_imun_timeout() -> void:
 
 func _on_tele_timer_timeout() -> void:
 	death()
-
 
 func _on_aim_timer_timeout() -> void:
 	can_aim = true

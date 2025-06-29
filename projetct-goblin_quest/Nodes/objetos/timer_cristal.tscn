@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://m6oos8gs68te"]
 
 [ext_resource type="Texture2D" uid="uid://bcrfj5qpfotwd" path="res://Sprites/Objetos/Y_cristal.png" id="1_io8ho"]
-[ext_resource type="Script" path="res://Nodes/objetos/timer_cristal.gd" id="1_tvcsh"]
+[ext_resource type="Script" uid="uid://b10ooo603j687" path="res://Nodes/objetos/timer_cristal.gd" id="1_tvcsh"]
 
 [sub_resource type="Gradient" id="Gradient_dx7bb"]
 offsets = PackedFloat32Array(0, 0.442197, 0.861272)
@@ -77,8 +77,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fqkc7"]
 _data = {
-"RESET": SubResource("Animation_8eil1"),
-"on_off": SubResource("Animation_3ldku")
+&"RESET": SubResource("Animation_8eil1"),
+&"on_off": SubResource("Animation_3ldku")
 }
 
 [node name="Timer_cristal" type="Node2D"]
@@ -108,7 +108,7 @@ debug_color = Color(0, 0.595, 0.7, 0.490196)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fqkc7")
+&"": SubResource("AnimationLibrary_fqkc7")
 }
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

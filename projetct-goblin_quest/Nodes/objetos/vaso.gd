@@ -11,6 +11,7 @@ var dir = Vector2.ZERO
 
 func _start(world) -> void:
 	pass
+
 func _physics_process(delta: float) -> void:
 	if seguir == true:
 		

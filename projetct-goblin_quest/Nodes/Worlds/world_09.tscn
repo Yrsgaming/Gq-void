@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=4 uid="uid://dsbftw6dfd1ph"]
 
-[ext_resource type="Script" path="res://Nodes/Worlds/world_teste.gd" id="1_mp2y7"]
+[ext_resource type="Script" uid="uid://cpiacd4k7kjtp" path="res://Nodes/Worlds/world_teste.gd" id="1_mp2y7"]
 [ext_resource type="TileSet" uid="uid://fgso488pkebo" path="res://Nodes/Worlds/world_01.tres" id="1_pycp2"]
 [ext_resource type="Texture2D" uid="uid://sreyqtwrogcv" path="res://Sprites/paralax/background_fase_02.png" id="1_tmq7s"]
 [ext_resource type="PackedScene" uid="uid://ctor15xtp2ptl" path="res://Nodes/camera_debug.tscn" id="2_6qpx4"]
 [ext_resource type="PackedScene" uid="uid://dh50lr8dt7i61" path="res://Nodes/objetos/Cristal_base.tscn" id="3_qy1rk"]
-[ext_resource type="Script" path="res://Nodes/Worlds/tile_map_layer.gd" id="4_hfdma"]
+[ext_resource type="Script" uid="uid://cfcjoymqssu72" path="res://Nodes/Worlds/tile_map_layer.gd" id="4_hfdma"]
 [ext_resource type="PackedScene" uid="uid://ckkqe2psjets7" path="res://Nodes/Player/player.tscn" id="6_2j7l7"]
 [ext_resource type="PackedScene" uid="uid://bv6vy8xmyu12d" path="res://Nodes/Worlds/canvas_layer.tscn" id="7_npx62"]
 [ext_resource type="PackedScene" uid="uid://bjl03vaij8x4v" path="res://Nodes/objetos/hit_cristal.tscn" id="9_6la3n"]
-[ext_resource type="Script" path="res://Nodes/Worlds/hit_cristal_ordem.gd" id="9_agbxx"]
+[ext_resource type="Script" uid="uid://d3mf41e2gmj73" path="res://Nodes/Worlds/hit_cristal_ordem.gd" id="9_agbxx"]
 [ext_resource type="PackedScene" uid="uid://p1qicraox6ut" path="res://Nodes/objetos/mini-cristal.tscn" id="10_7d0wq"]
 [ext_resource type="PackedScene" uid="uid://dfmoavtg2c4yu" path="res://Nodes/objetos/dark_door.tscn" id="12_ae24k"]
 
